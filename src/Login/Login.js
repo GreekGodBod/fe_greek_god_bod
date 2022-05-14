@@ -16,6 +16,7 @@ const Login = () => {
 
   // const login = (id) => {
   //   userData.find(user => user.id === )
+  // navigate to= "/dashboard"
   // }
 
   // const validate = () => {
