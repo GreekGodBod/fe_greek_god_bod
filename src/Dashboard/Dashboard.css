@@ -1,0 +1,9 @@
+.dashboard {
+  background-color: blue;
+  height: 100vh;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
