@@ -1,7 +1,7 @@
 import './Login.css'
 import { useState } from 'react'
 import userData from '../sampleData'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -51,15 +51,15 @@ const Login = () => {
       <br />
       <br />
       <div className='button-container'>
-        
+        <NavLink to="/dashboard" >
         <input
           type='submit'
           id='submit'
           value='Login'
           className='login-button'
-          onClick='tbd'
+          // onClick='tbd'
         />
-       
+       </NavLink>
       </div>
     </form>
   )
