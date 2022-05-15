@@ -31,7 +31,7 @@ const Login = () => {
         name='username'
         value={username}
         className='username-input no-outline'
-        placeholder='username:'
+        placeholder='Username:'
         aria-label='username input'
         onChange={updateUsername}
       />
@@ -43,7 +43,7 @@ const Login = () => {
         name='password'
         value={password}
         className='password-input no-outline'
-        placeholder='password:'
+        placeholder='Password:'
         aria-label='password input'
         onChange={updatePassword}
       />
@@ -53,7 +53,7 @@ const Login = () => {
         <input
           type='submit'
           id='submit'
-          value='login'
+          value='Login'
           className='login-button'
           onClick='tbd'
         />

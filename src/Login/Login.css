@@ -7,10 +7,11 @@
 }
 
 .login-button {
-  margin-left: -2.1vw;
+  font-size: 120%;
   border: none;
   background-color: #ffffff00;
   width: 8vw;
+  margin-right: 3em;
 }
 
 .login-button:hover {
@@ -20,7 +21,8 @@
   transition: 500ms;
 }
 
-input {
+.username-input, 
+.password-input {
   width: 25vw;
   height: 3vh;
   font-size: 1.3em;
@@ -35,4 +37,6 @@ input {
   outline: none;
 }
 
-/* PERFECT LOGIN BUTTON POSITIONING */
+.login-form {
+  width: 50%;
+}
