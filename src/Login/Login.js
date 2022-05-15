@@ -64,5 +64,6 @@ const Login = () => {
     </form>
   )
 }
+// the navlink will have to be a variable on the user also I still dont know if it will work and submit
 
 export default Login
