@@ -6,7 +6,7 @@ const Dashboard = () => {
     <section className='dashboard'>
       <div className='welcome-buttons-container'>
         <h1 className='welcome-message'>Welcome, User!</h1>
-        <section className='button-container'>
+        <section className='button-container '>
           <button className='social-button dash-button'>Social</button>
           <button className='create-workout-button dash-button'>
             Create Workout
