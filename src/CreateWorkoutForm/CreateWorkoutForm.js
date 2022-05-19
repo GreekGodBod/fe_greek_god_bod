@@ -1,9 +1,8 @@
 import './CreateWorkoutForm.css'
 import ExerciseForm from '../ExerciseForm/ExerciseForm'
 import Exercise from '../Exercise/Exercise'
-import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 
 const CreateWorkoutForm = (props) => {
   const [title, setTitle] = useState('')
@@ -11,7 +10,7 @@ const CreateWorkoutForm = (props) => {
   const [added, setAdded] = useState([])
 
   const addExercise = (newExercise) => {
-    // this.setState({ exercises: [...this.state.exercises, newExercise] })
+    setExercises([...exercises, newExercise])  
   }
   const submitNewWorkout = e => {
     e.preventDefault()
@@ -21,8 +20,8 @@ const CreateWorkoutForm = (props) => {
     }
     //   this.props.addWorkout(newWorkout)
     //   setAdded("Your workout was added!!")  
-    //   setTimeout(() => this.clearInputs(), 3000)
-    // }
+      setTimeout(() => this.clearInputs(), 3000)
+    }
 
     const clearInputs = () => {
       this.setState({
@@ -45,7 +44,7 @@ const CreateWorkoutForm = (props) => {
           <h1 className='page-title'>Create Your Own Workout</h1>
         </div>
         <section className='workout-form' >
-          <NavLink to='/home'><button>View Your Workouts</button></NavLink>
+          <button>View Your Workouts</button>
           {added ? <h1 className='added'>{added}</h1> : <h1>Create a new Workout!</h1>}
           {added ? "" : <section className='exercises-workout-form'>
             {allExercises}
@@ -55,7 +54,7 @@ const CreateWorkoutForm = (props) => {
               <input
                 name="title"
                 value={title}
-                // onChange={e => changeHandler(e)}
+                onChange={e => setTitle(e.target.value)}
                 placeholder="Workout Name"
                 required
               />
@@ -68,6 +67,6 @@ const CreateWorkoutForm = (props) => {
       </div>
     )
   }
-}
+
 
 export default CreateWorkoutForm

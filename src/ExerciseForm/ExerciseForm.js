@@ -2,6 +2,7 @@ import './ExerciseForm.css'
 import { useState } from 'react'
 
 const ExerciseFrom = (props) => {
+    console.log("props1",props)
     const [category, setCategory] = useState('')
     const [name, setName] = useState('')
 
@@ -17,8 +18,8 @@ const ExerciseFrom = (props) => {
     let targets = []
         let categories;
 
-        if (props.newExercises[0]) {
-            props.newExercises.forEach(exercise => {
+        if (props.allExercises[0]) {
+            props.allExercises.forEach(exercise => {
                 if (!targets.includes(exercise.target)) {
                     targets.push(exercise.target)
                 }
@@ -31,7 +32,7 @@ const ExerciseFrom = (props) => {
 
         let allOptions;
         if (category) {
-            let options = props.newExercises.filter(exercise => exercise.target === category)
+            let options = props.allExercises.filter(exercise => exercise.target === category)
 
             allOptions = options.map(exercise => {
                 let check = ""
