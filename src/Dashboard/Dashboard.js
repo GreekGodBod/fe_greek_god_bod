@@ -5,8 +5,20 @@ import { Routes, Route } from 'react-router-dom'
 
 const Dashboard = () => {
   const navigate = useNavigate()
-  const handleClick = () => {
+  const navigateCreateWorkout = () => {
     navigate('/createworkout')
+  }
+
+  const navigatePastWorkouts = () => {
+    navigate('/pastworkouts')
+  }
+
+  const navigateSuggestedWorkouts = () => {
+    navigate('/suggestedworkouts')
+  }
+
+  const navigateSocial = () => {
+    navigate('/social')
   }
 
   return (
@@ -14,14 +26,14 @@ const Dashboard = () => {
       <div className='welcome-buttons-container'>
         <h1 className='welcome-message'>Welcome, User!</h1>
         <section className='button-container '>
-          <button className='social-button dash-button'>Social</button>
-          <button className='create-workout-button dash-button' onClick={handleClick}>
+          <button className='social-button dash-button' onClick={navigateSocial}>Social</button>
+          <button className='create-workout-button dash-button' onClick={navigateCreateWorkout}>
             Create Workout
           </button>
-          <button className='suggested-button dash-button'>
+          <button className='suggested-button dash-button' onClick={navigateSuggestedWorkouts}>
             Suggested Workouts
           </button>
-          <button className='past-workout-button dash-button'>
+          <button className='past-workout-button dash-button' onClick={navigatePastWorkouts}>
             Past Workouts
           </button>
         </section>

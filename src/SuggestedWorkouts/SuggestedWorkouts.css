@@ -1,4 +1,4 @@
-.create-workout-page {
+.suggested-workouts-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   color: white;
 }
 
-.form-container {
+.suggested-workouts-container {
   width: 90%;
   height: 90%;
   background-color: lightblue;
