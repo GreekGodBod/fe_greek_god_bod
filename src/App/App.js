@@ -1,7 +1,7 @@
 import './App.css'
-import { newExercises } from '../apiCalls'
+import { newExercises, getPastWorkouts } from '../apiCalls'
 import Login from '../Login/Login'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Dashboard from '../Dashboard/Dashboard'
 import CreateWorkoutForm from '../CreateWorkoutForm/CreateWorkoutForm'
 import PastWorkouts from '../PastWorkouts/PastWorkouts'
@@ -11,7 +11,17 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
+  const [pastworkouts, setPastWorkouts] = useState([])
+  const [allExercises, setAllExercises] = useState([])
 
+  useEffect(() => {
+    // newExercises()
+    // .then(data => setAllExercises([data]))
+    getPastWorkouts(1)
+    .then(data => setPastWorkouts([data]))
+    .then(console.log(pastworkouts))
+  }, []) 
+   
   return (
     <div className='App'>
       <section className='login-section'>
