@@ -15,8 +15,8 @@ function App() {
   const [allExercises, setAllExercises] = useState([])
 
   useEffect(() => {
-    // newExercises()
-    // .then(data => setAllExercises([data]))
+    newExercises()
+    .then(data => setAllExercises([data]))
     getPastWorkouts(1)
     .then(data => setPastWorkouts([data]))
     .then(console.log(pastworkouts))
