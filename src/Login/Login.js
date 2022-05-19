@@ -1,11 +1,13 @@
 import './Login.css'
 import { useState } from 'react'
 import userData from '../sampleData'
-import { Link, NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const updateUsername = (e) => {
     setUsername(e.target.value)
@@ -23,6 +25,10 @@ const Login = () => {
   // const validate = () => {
 
   // }
+
+  const handleClick = () => {
+    navigate('/dashboard')
+  }
 
   return (
     <form className='login-form' onSubmit='tbd'>
@@ -51,15 +57,14 @@ const Login = () => {
       <br />
       <br />
       <div className='button-container'>
-        <NavLink to="/dashboard" >
+
         <input
           type='submit'
           id='submit'
           value='Login'
           className='login-button'
-          // onClick='tbd'
+          onClick={handleClick}
         />
-       </NavLink>
       </div>
     </form>
   )
