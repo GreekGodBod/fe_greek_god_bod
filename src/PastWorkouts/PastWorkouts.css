@@ -1,0 +1,19 @@
+.past-workouts-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #14213d;
+}
+
+.page-title {
+  color: white;
+}
+
+.past-workouts-container {
+  width: 90%;
+  height: 90%;
+  background-color: lightblue;
+  border-radius: 1em;
+}
