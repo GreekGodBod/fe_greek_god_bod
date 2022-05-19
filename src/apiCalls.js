@@ -22,7 +22,7 @@ const newExercises = () => {
 
 const getPastWorkouts = (id) => {
     const url = `https://be-greek-god-bod.herokuapp.com//api/v1/user?id=${id}`
-    const fetchCall = fetch(url, { mode: 'no-cors'})
+    const fetchCall = fetch(url)
         .then(response => response.json())
             // if (response.status === 404) {
             //     throw new Error("404: Not Found")
