@@ -12,15 +12,21 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   const [currentUser, setCurrentUser] = useState([])
   const [pastworkouts, setPastWorkouts] = useState([])
+  const [suggestedWorkouts, setSuggestedWorkouts]= useState([])
   const [allExercises, setAllExercises] = useState([])
+  const [createdWorkouts, setCreatedWorkouts] = useState([])
 
   useEffect(() => {
     newExercises()
-    .then(data => setAllExercises([data]))
+    .then(data => setAllExercises(data))
     getPastWorkouts(1)
-    .then(data => setPastWorkouts([data]))
+    .then(data => setPastWorkouts(data))
     .then(console.log(pastworkouts))
   }, []) 
+
+ const addWorkout = (newWorkout) => {
+    setCreatedWorkouts([...createdWorkouts, newWorkout])  
+  }
    
   return (
     <div className='App'>
@@ -31,7 +37,7 @@ function App() {
       <div className='components'>
         <Routes>
           <Route exact path='/dashboard' element={<Dashboard />} />
-          <Route exact path='/createworkout' element={<CreateWorkoutForm allExercises={allExercises}/>} />
+          <Route exact path='/createworkout' element={<CreateWorkoutForm allExercises={allExercises} addWorkout={addWorkout}/>} />
           <Route exact path='/suggestedworkouts' element={<SuggestedWorkouts />} />
           <Route exact path='/pastworkouts' element={<PastWorkouts />} />
           <Route exact path='/social' element={<Social />} />
