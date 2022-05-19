@@ -1,23 +1,24 @@
-import './ExerciseFrom.css'
+import './ExerciseForm.css'
+import { useState } from 'react'
 
 const ExerciseFrom = (props) => {
     const [category, setCategory] = useState('')
     const [name, setName] = useState('')
 
-    changeHandler = (e) => {
-        this.setState({ ...this.state, [e.target.name]: e.target.value })
+   const changeHandler = (e) => {
+        // this.setState({ ...this.state, [e.target.name]: e.target.value })
     }
 
-    submitNewExercise = (e, exercise) => {
+    const submitNewExercise = (e, exercise) => {
         e.preventDefault()
-        this.props.addExercise(exercise)
+        props.addExercise(exercise)
     }
 
     let targets = []
         let categories;
 
-        if (this.props.newExercises[0]) {
-            this.props.newExercises.forEach(exercise => {
+        if (props.newExercises[0]) {
+            props.newExercises.forEach(exercise => {
                 if (!targets.includes(exercise.target)) {
                     targets.push(exercise.target)
                 }
@@ -29,8 +30,8 @@ const ExerciseFrom = (props) => {
         }
 
         let allOptions;
-        if (this.state.category) {
-            let options = this.props.newExercises.filter(exercise => exercise.target === this.state.category)
+        if (category) {
+            let options = props.newExercises.filter(exercise => exercise.target === category)
 
             allOptions = options.map(exercise => {
                 let check = ""
@@ -41,7 +42,7 @@ const ExerciseFrom = (props) => {
                     <article className='exercise-card' key={exercise.gifUrl}>
                         <img className='category-img' src={exercise.gifUrl} />
                         <p>{exercise.name}</p>
-                        <button onClick={(e) => this.submitNewExercise(e, exercise)}>Add Exercise</button>
+                        <button onClick={(e) => submitNewExercise(e, exercise)}>Add Exercise</button>
                         <p>{check}</p>
                     </article>
                 )
@@ -52,7 +53,7 @@ const ExerciseFrom = (props) => {
                 <select
                     placeholder='Choose Category'
                     name="category"
-                    value={this.state.category}
+                    value={category}
                     onChange={e => this.changeHandler(e)}>
                     <option
                         value=''
