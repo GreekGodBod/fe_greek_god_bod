@@ -1,7 +1,7 @@
 import './CreateWorkoutForm.css'
 import { useNavigate } from 'react-router-dom'
 
-const CreateWorkoutForm = () => {
+const CreateWorkoutForm = ({ allExercises }) => {
   return (
     <div className='create-workout-page'>
       <div className='form-container'>

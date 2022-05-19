@@ -31,7 +31,7 @@ function App() {
       <div className='components'>
         <Routes>
           <Route exact path='/dashboard' element={<Dashboard />} />
-          <Route exact path='/createworkout' element={<CreateWorkoutForm />} />
+          <Route exact path='/createworkout' element={<CreateWorkoutForm allExercises={allExercises}/>} />
           <Route exact path='/suggestedworkouts' element={<SuggestedWorkouts />} />
           <Route exact path='/pastworkouts' element={<PastWorkouts />} />
           <Route exact path='/social' element={<Social />} />
