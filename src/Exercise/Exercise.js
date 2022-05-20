@@ -25,7 +25,7 @@ const Exercise = (props) => {
         }
 
     const doWorkoutPage = `http://localhost:3000/doworkout/${props.id}`
-        console.log("props", props)
+        
     return (
         <section className="exercise">
             <img className="exercise-img" src={props.exercise.gifUrl} />

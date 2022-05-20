@@ -10,6 +10,7 @@ import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
+  const user = 1
   const [currentUser, setCurrentUser] = useState([])
   const [pastworkouts, setPastWorkouts] = useState([])
   const [suggestedWorkouts, setSuggestedWorkouts]= useState([])
@@ -19,13 +20,14 @@ function App() {
   useEffect(() => {
     newExercises()
     .then(data => setAllExercises(data))
-    getPastWorkouts(1)
+    getPastWorkouts(user)
     .then(data => console.log("PastWorkouts",data))
     // .then(console.log(pastworkouts))
   }, []) 
 
  const addWorkout = (newWorkout) => {
-    setCreatedWorkouts([...createdWorkouts, newWorkout])  
+    setCreatedWorkouts([...createdWorkouts, newWorkout]) 
+     
   }
    
   return (

@@ -4,7 +4,7 @@ import Exercise from '../Exercise/Exercise'
 import { useState } from 'react'
 
 const CreateWorkoutForm = (props) => {
-  const [title, setTitle] = useState('')
+  const [name, setName] = useState('')
   const [exercises, setExercises] = useState([])
   const [added, setAdded] = useState([])
 
@@ -15,7 +15,7 @@ const CreateWorkoutForm = (props) => {
     e.preventDefault()
     const newWorkout = {
       id: Date.now(),
-      title: title,
+      name: name,
       exercises: exercises
     }
       props.addWorkout(newWorkout)
@@ -24,7 +24,7 @@ const CreateWorkoutForm = (props) => {
     }
 
     const clearInputs = () => {
-      setTitle('')
+      setName('')
       setExercises([])
       setAdded('')
     }
@@ -41,21 +41,21 @@ const CreateWorkoutForm = (props) => {
       <div className='create-workout-page'>
         <div className='form-container'>
           <h1 className='page-title'>Create Your Own Workout</h1>
-          {added ? <h1 className='added'>{added}</h1> : <h1>Create a new Workout!</h1>}
+          {<h1 className='added'>{added}</h1>}
           {exercises[0] ? <section className='exercises-workout-form'>
             {allExercises}
           </section> : "" }
           <form onSubmit={(e) => submitNewWorkout(e)}>
             {exercises[0] ?
               <input
-                name="title"
-                value={title}
-                onChange={e => setTitle(e.target.value)}
+                name="name"
+                value={name}
+                onChange={e => setName(e.target.value)}
                 placeholder="Workout Name"
                 required
               />
               : ""}
-            {title ? <button>Add Workout</button> : ''}
+            {name ? <button>Add Workout</button> : ''}
           </form>
           <p>Begin by Adding Exercises below</p>
           <ExerciseForm addedExercises={exercises} allExercises={props.allExercises} addExercise={addExercise} />
