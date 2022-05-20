@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '/.Exercise.css'
+import './Exercise.css'
 
 const Exercise = (props) => {
     const [reps, setReps] = useState('')
