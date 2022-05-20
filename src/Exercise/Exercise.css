@@ -1,0 +1,16 @@
+.exercise-img {
+    width: 20%;
+}
+
+.exercise {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #a90b0b;
+    width: 90%;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: white;
+    color: black
+}
