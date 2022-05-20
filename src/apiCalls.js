@@ -20,4 +20,29 @@ const newExercises = () => {
     return fetchCall
 }
 
-export { newExercises }
+const getPastWorkouts = (id) => {
+    const url = `https://be-greek-god-bod.herokuapp.com//api/v1/user?id=${id}`
+    const fetchCall = fetch(url)
+        .then(response => response.json())
+            // if (response.status === 404) {
+            //     throw new Error("404: Not Found")
+            // } else if (response.status === 500) {
+            //     throw new Error("500: Server is having issues")
+            // }
+        //     return response.json()
+        // })
+    return fetchCall
+}
+
+// fetch('http://catfacts-api.appspot.com/api/facts?number=99', { mode: 'no-cors'})
+//   .then(blob => blob.json())
+//   .then(data => {
+//     console.table(data);
+//     return data;
+//   })
+//   .catch(e => {
+//     console.log(e);
+//     return e;
+//   });
+
+export { newExercises, getPastWorkouts }
