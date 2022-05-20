@@ -20,8 +20,8 @@ function App() {
     newExercises()
     .then(data => setAllExercises(data))
     getPastWorkouts(1)
-    .then(data => setPastWorkouts(data))
-    .then(console.log(pastworkouts))
+    .then(data => console.log("PastWorkouts",data))
+    // .then(console.log(pastworkouts))
   }, []) 
 
  const addWorkout = (newWorkout) => {

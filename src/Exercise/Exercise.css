@@ -2,6 +2,14 @@
     width: 20%;
 }
 
+.exercises-workout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
 .exercise {
     display: flex;
     flex-direction: row;

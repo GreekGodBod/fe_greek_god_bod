@@ -2,7 +2,7 @@ import './ExerciseForm.css'
 import { useState } from 'react'
 
 const ExerciseFrom = (props) => {
-    console.log("props1",props)
+    // console.log("props1",props)
     const [category, setCategory] = useState('')
     const [name, setName] = useState('')
 
@@ -36,7 +36,7 @@ const ExerciseFrom = (props) => {
 
             allOptions = options.map(exercise => {
                 let check = ""
-                if (this.props.addedExercises.includes(exercise)) {
+                if (props.addedExercises.includes(exercise)) {
                     check = "✅"
                 }
                 return (
@@ -55,7 +55,7 @@ const ExerciseFrom = (props) => {
                     placeholder='Choose Category'
                     name="category"
                     value={category}
-                    onChange={e => this.changeHandler(e)}>
+                    onChange={e => setCategory(e.target.value)}>
                     <option
                         value=''
                     >Choose Category</option>

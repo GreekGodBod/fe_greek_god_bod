@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import '/.Exercise.css'
 
 const Exercise = (props) => {
     const [reps, setReps] = useState('')
     const [weight, setWeight] = useState('')
     const [sets, setSets] = useState('')
-
+    // console.log(props,"props")
     const addSet = e => {
         e.preventDefault()
         const newSet = {
