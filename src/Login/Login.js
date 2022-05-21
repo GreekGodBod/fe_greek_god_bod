@@ -13,10 +13,10 @@ const Login = ({setUser}) => {
   const userId = username.charAt(username.length -1)
    setUser(userId)
 
-  if (password === `password${userId}`) {
+  if (password === `password${userId}` && username === `user_${userId}`) {
     navigate(`/dashboard/user/${userId}`)
   } else {
-    console.log('incorrect password.')
+    alert('incorrect credentials.')
     }
   }
 
