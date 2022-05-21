@@ -36,13 +36,13 @@ function App() {
    console.log(currentUser)
   return (
     <div className='App'>
-      <section className='login-section'>
+      {/* <section className='login-section'> */}
       {/* <Login setUser={setUser} /> */}
-      </section>
+      {/* </section> */}
       <h1 className='title'>GREEK GOD BOD</h1>
       <div className='components'>
           <Routes>
-           <Route path="/" element={<Login replace to="/login" setUser={setUser}/>} />
+           <Route path="/" element={<Login replace to="/login" setUser={setUser} />} />
             {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
             <Route exact path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
             <Route exact path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} addWorkout={addWorkout}/>} />

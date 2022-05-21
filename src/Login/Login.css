@@ -37,6 +37,14 @@
   outline: none;
 }
 
-.login-form {
+/* .login-form {
   width: 50%;
+} */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 50%;
 }
