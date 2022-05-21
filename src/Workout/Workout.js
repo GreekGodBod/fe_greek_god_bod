@@ -12,12 +12,9 @@ const Workout = ({ workout, deleteWorkout }) => {
 
     return (
         <section className="workout">
-            <div className="button">
-                <button className="delete-button" onClick={() => deleteWorkout(workout.id)}>:x:</button>
-            </div>
-            <h1>{workout.title}</h1>
+            <h1>{workout.name}</h1>
             {exercises}
-            {/* <NavLink to={`/doworkout/${workout.id}`}><button>FLEX!</button></NavLink> */}
+            <button className='start-workout-button'>Start Workout</button>
         </section>
     )
 }
