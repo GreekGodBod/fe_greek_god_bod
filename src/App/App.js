@@ -1,5 +1,5 @@
 import './App.css'
-import { newExercises, getPastWorkouts } from '../apiCalls'
+import { newExercises, getPastWorkouts, getSuggestedWorkouts } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
 import Dashboard from '../Dashboard/Dashboard'
@@ -13,13 +13,14 @@ function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
   const [pastworkouts, setPastWorkouts] = useState([])
-  const [suggestedWorkouts, setSuggestedWorkouts]= useState([])
+  const [suggestedWorkout, setSuggestedWorkout]= useState({})
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
 
   useEffect(() => {
     newExercises()
     .then(data => setAllExercises(data))
+    setTheSuggestedWorkout()
   }, []) 
 
  const addWorkout = (newWorkout) => {
@@ -31,7 +32,12 @@ function App() {
     getPastWorkouts(userId)
     .then(data => setPastWorkouts(data))
   }
-   console.log(currentUser)
+
+  const setTheSuggestedWorkout = () => {
+    getSuggestedWorkouts()
+    .then(data => setSuggestedWorkout(data))
+  }
+
   return (
     <div className='App'>
       {/* <section className='login-section'> */}
@@ -44,7 +50,7 @@ function App() {
             {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
             <Route exact path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
             <Route exact path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} currentUser={currentUser} addWorkout={addWorkout}/>} />
-            <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts />} />
+            <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts suggestedWorkout={suggestedWorkout}/>} />
             <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
             <Route exact path='/social/user/:id' element={<Social />} />
           </Routes>
