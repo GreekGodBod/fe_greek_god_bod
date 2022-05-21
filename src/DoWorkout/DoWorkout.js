@@ -2,7 +2,7 @@ import Exercise from "../Exercise/Exercise"
 import "./DoWorkout.css"
 
 const DoWorkout = (props) => {
-
+   
         let exercises = props.oneWorkout.exercises.map(exercise => {
             return (
                 <Exercise key={exercise.id} exercise={exercise} id={props.oneWorkout.id} />
