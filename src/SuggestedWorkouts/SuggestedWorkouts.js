@@ -9,9 +9,9 @@ const SuggestedWorkouts = ({suggestedWorkout}) => {
         <h2>Welcome! Give '{suggestedWorkout.data.attributes.name}' a try:</h2>
         {suggestedWorkout.data.attributes.exercises.map(exercise => {
           return (
-            <div className='suggested-workout-card' key={exercise.id}>
+            <div className='suggested-workout-container' key={exercise.id}>
               <h3>{exercise.name}</h3>
-              <img src={exercise.gif} alt='exercise gif' className='suggestedGif'/>
+              <img src={exercise.gif} alt='exercise gif' className='suggested-gif'/>
             </div>
           )
         })}
