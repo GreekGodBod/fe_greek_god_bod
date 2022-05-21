@@ -9,14 +9,21 @@ const Login = ({setUser}) => {
   const navigate = useNavigate()
 
 
-  const login = () => {
+  const login = (e) => {
+    e.preventDefault()
   const userId = username.charAt(username.length -1)
    setUser(userId)
-   navigate(`/dashboard/user/${userId}`)
+  //  navigate(`/dashboard/user/${userId}`)
+
+ if (password === `password${userId}`) {
+  navigate(`/dashboard/user/${userId}`)
+ } else {
+   console.log('incorrect password.')
   }
+}
 
   return (
-    <form className='login-form' onSubmit={login}>
+    <form className='login-form' onSubmit={e => login(e)}>
       <input
         type='text'
         id='usernameInput'
