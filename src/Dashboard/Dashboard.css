@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #14213d;
+  background-color: #e5e5e5;
   height: 100vh;
 }
 
@@ -50,7 +50,7 @@
   gap: 2em 1.5em;
   width: 70vw;
   justify-items: center;
-  
+
   /* align-items: center; */
 }
 
@@ -60,15 +60,16 @@
   border-radius: 1em;
   font-size: 1.5em;
   border: none;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
+  color: #e5e5e5;
+  background-color: #14213d;
   /* margin: 0; */
 }
 
 /* * {
   border: 1px solid red;
 } */
-
 
 .dash-button:hover {
   transform: scale(1.09);
