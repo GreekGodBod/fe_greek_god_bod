@@ -29,7 +29,7 @@ function App() {
   const setUser = (userId) => {
     setCurrentUser(userId)
     getPastWorkouts(userId)
-    .then(data => console.log("PastWorkouts",data))
+    .then(data => setPastWorkouts(data))
   }
    console.log(currentUser)
   return (
