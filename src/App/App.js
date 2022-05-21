@@ -7,7 +7,8 @@ import CreateWorkoutForm from '../CreateWorkoutForm/CreateWorkoutForm'
 import PastWorkouts from '../PastWorkouts/PastWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
-import { Routes, Route, Redirect, Switch } from 'react-router-dom'
+import DoWorkout from '../DoWorkout/DoWorkout'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
   const [suggestedWorkouts, setSuggestedWorkouts]= useState([])
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
+  const [oneWorkout, setOneWorkout] = useState({})
 
   useEffect(() => {
     newExercises()
@@ -31,7 +33,11 @@ function App() {
     getPastWorkouts(userId)
     .then(data => setPastWorkouts(data))
   }
-   console.log(currentUser)
+   
+  const findWorkout = (workoutName) => {
+    const workout = createdWorkouts.find(workout => workout.name === workoutName)
+    return workout
+  }
   return (
     <div className='App'>
       {/* <section className='login-section'> */}
@@ -47,7 +53,7 @@ function App() {
             <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts />} />
             <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
             <Route exact path='/social/user/:id' element={<Social />} />
-            {/* <Route exact path='/doworkout/:name' element={<DoWorkout oneWorkout={this.findWorkout(parseInt(match.params.id))}/>} /> */}
+            <Route exact path='/doworkout/:name' element={<DoWorkout oneWorkout={findWorkout}/>} />
           </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
