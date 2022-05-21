@@ -14,10 +14,11 @@ const CreateWorkoutForm = (props) => {
   const submitNewWorkout = e => {
     e.preventDefault()
     const newWorkout = {
-      id: Date.now(),
+      // id: Date.now(),
       name: name,
       exercises: exercises
     }
+    console.log(newWorkout)
       props.addWorkout(newWorkout)
       setAdded("Your workout was added!!")  
       setTimeout(() => clearInputs(), 3000)

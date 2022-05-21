@@ -1,24 +1,25 @@
 import './Dashboard.css'
 import profPic from '../images/lifter-pic.jpg'
 import { useNavigate } from 'react-router-dom'
-import { Routes, Route } from 'react-router-dom'
 
-const Dashboard = () => {
+
+const Dashboard = ({currentUser}) => {
+  console.log("dash",currentUser)
   const navigate = useNavigate()
   const navigateCreateWorkout = () => {
-    navigate('/createworkout')
+    navigate(`/createworkout/user/${currentUser}`)
   }
 
   const navigatePastWorkouts = () => {
-    navigate('/pastworkouts')
+    navigate(`/pastworkouts/user/${currentUser}`)
   }
 
   const navigateSuggestedWorkouts = () => {
-    navigate('/suggestedworkouts')
+    navigate(`/suggestedworkouts/user/${currentUser}`)
   }
 
   const navigateSocial = () => {
-    navigate('/social')
+    navigate(`/social/user/${currentUser}`)
   }
 
   return (
