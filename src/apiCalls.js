@@ -21,7 +21,7 @@ const newExercises = () => {
 }
 
 const getPastWorkouts = (id) => {
-    const url = `https://be-greek-god-bod.herokuapp.com//api/v1/user?id=${id}`
+    const url = `https://be-greek-god-bod.herokuapp.com//api/v1/user/${id}`
     const fetchCall = fetch(url)
         .then(response => response.json())
             // if (response.status === 404) {

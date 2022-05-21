@@ -1,4 +1,6 @@
 import './Login.css'
+import '../App/App.css'
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,15 +10,20 @@ const Login = ({setUser}) => {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-
-  const login = () => {
+  const login = (e) => {
+    e.preventDefault()
   const userId = username.charAt(username.length -1)
    setUser(userId)
-   navigate(`/dashboard/user/${userId}`)
+
+  if (password === `password${userId}` && username === `user_${userId}`) {
+    navigate(`/dashboard/user/${userId}`)
+  } else {
+    alert('incorrect credentials.')
+    }
   }
 
   return (
-    <form className='login-form' onSubmit={login}>
+    <form className='login-form' onSubmit={e => login(e)}>
       <input
         type='text'
         id='usernameInput'

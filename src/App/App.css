@@ -24,11 +24,3 @@ body {
   color: #ffa12e;
   font-family: 'Inter', sans-serif;
 }
-
-.login-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 100%;
-}

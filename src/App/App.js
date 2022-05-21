@@ -7,7 +7,7 @@ import CreateWorkoutForm from '../CreateWorkoutForm/CreateWorkoutForm'
 import PastWorkouts from '../PastWorkouts/PastWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Redirect, Switch } from 'react-router-dom'
 
 function App() {
   
@@ -20,8 +20,6 @@ function App() {
   useEffect(() => {
     newExercises()
     .then(data => setAllExercises(data))
-   
-    // .then(console.log(pastworkouts))
   }, []) 
 
  const addWorkout = (newWorkout) => {
@@ -31,24 +29,25 @@ function App() {
   const setUser = (userId) => {
     setCurrentUser(userId)
     getPastWorkouts(userId)
-    .then(data => console.log("PastWorkouts",data))
+    .then(data => setPastWorkouts(data))
   }
    console.log(currentUser)
   return (
     <div className='App'>
-      <section className='login-section'>
+      {/* <section className='login-section'> */}
       {/* <Login setUser={setUser} /> */}
-      </section>
+      {/* </section> */}
       <h1 className='title'>GREEK GOD BOD</h1>
       <div className='components'>
-        <Routes>
-          <Route exact path='/login' element={<Login setUser={setUser} />} />
-          <Route exact path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
-          <Route exact path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} addWorkout={addWorkout}/>} />
-          <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts />} />
-          <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts />} />
-          <Route exact path='/social/user/:id' element={<Social />} />
-        </Routes>
+          <Routes>
+           <Route path="/" element={<Login replace to="/login" setUser={setUser} />} />
+            {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
+            <Route exact path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
+            <Route exact path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} currentUser={currentUser} addWorkout={addWorkout}/>} />
+            <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts />} />
+            <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
+            <Route exact path='/social/user/:id' element={<Social />} />
+          </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
     </div>
