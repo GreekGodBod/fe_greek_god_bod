@@ -41,7 +41,7 @@ const CreateWorkoutForm = (props) => {
   }
 
   const backToDash = () => {
-    navigate('/dashboard')
+    navigate(`/dashboard/user/${props.currentUser}`)
   }
 
   return (
