@@ -47,6 +47,7 @@ function App() {
             <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts />} />
             <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
             <Route exact path='/social/user/:id' element={<Social />} />
+            {/* <Route exact path='/doworkout/:name' element={<DoWorkout oneWorkout={this.findWorkout(parseInt(match.params.id))}/>} /> */}
           </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
