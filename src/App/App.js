@@ -1,5 +1,9 @@
 import './App.css'
-import { newExercises, getPastWorkouts } from '../apiCalls'
+import {
+  newExercises,
+  getPastWorkouts,
+  getSuggestedWorkouts
+} from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
 import Dashboard from '../Dashboard/Dashboard'
@@ -13,12 +17,13 @@ import { Routes, Route, Redirect, Switch } from 'react-router-dom'
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [pastworkouts, setPastWorkouts] = useState([])
-  const [suggestedWorkouts, setSuggestedWorkouts] = useState([])
+  const [suggestedWorkout, setSuggestedWorkout] = useState({})
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
 
   useEffect(() => {
     newExercises().then((data) => setAllExercises(data))
+    setTheSuggestedWorkout()
   }, [])
 
   const addWorkout = (newWorkout) => {
@@ -29,7 +34,11 @@ function App() {
     setCurrentUser(userId)
     getPastWorkouts(userId).then((data) => setPastWorkouts(data))
   }
-  console.log(currentUser)
+
+  const setTheSuggestedWorkout = () => {
+    getSuggestedWorkouts().then((data) => setSuggestedWorkout(data))
+  }
+
   return (
     <div className='App'>
       {/* <section className='login-section'> */}
@@ -62,7 +71,7 @@ function App() {
           <Route
             exact
             path='/suggestedworkouts/user/:id'
-            element={<SuggestedWorkouts />}
+            element={<SuggestedWorkouts suggestedWorkout={suggestedWorkout} />}
           />
           <Route
             exact

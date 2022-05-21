@@ -34,6 +34,14 @@ const getPastWorkouts = (id) => {
     return fetchCall
 }
 
+const getSuggestedWorkouts = () => {
+    const url = 'https://be-greek-god-bod.herokuapp.com//api/v1/workouts'
+    const fetchCall = fetch(url)
+        .then(response => response.json())
+    return fetchCall
+}
+
+
 // fetch('http://catfacts-api.appspot.com/api/facts?number=99', { mode: 'no-cors'})
 //   .then(blob => blob.json())
 //   .then(data => {
@@ -45,4 +53,4 @@ const getPastWorkouts = (id) => {
 //     return e;
 //   });
 
-export { newExercises, getPastWorkouts }
+export { newExercises, getPastWorkouts, getSuggestedWorkouts }
