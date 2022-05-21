@@ -20,8 +20,6 @@ function App() {
   useEffect(() => {
     newExercises()
     .then(data => setAllExercises(data))
-   
-    // .then(console.log(pastworkouts))
   }, []) 
 
  const addWorkout = (newWorkout) => {
