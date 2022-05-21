@@ -1,7 +1,7 @@
 import './ExerciseForm.css'
 import { useEffect, useState } from 'react'
 
-const ExerciseFrom = (props) => {
+const ExerciseForm = (props) => {
   // console.log("props1",props)
   const [category, setCategory] = useState('')
   const [name, setName] = useState('')
@@ -47,6 +47,7 @@ const ExerciseFrom = (props) => {
       }
       return (
         <button
+          key={exercise.gifUrl}
           className='exercise-card-button'
           onClick={(e) => submitNewExercise(e, exercise)}
         >
@@ -81,4 +82,4 @@ const ExerciseFrom = (props) => {
   )
 }
 
-export default ExerciseFrom
+export default ExerciseForm
