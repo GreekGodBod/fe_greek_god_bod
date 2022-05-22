@@ -11,6 +11,7 @@ import CreateWorkoutForm from '../CreateWorkoutForm/CreateWorkoutForm'
 import PastWorkouts from '../PastWorkouts/PastWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
+import DoWorkout from '../DoWorkout/DoWorkout'
 import { Routes, Route, Redirect, Switch, useNavigate } from 'react-router-dom'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   const [suggestedWorkout, setSuggestedWorkout] = useState({})
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
+  const [oneWorkout, setOneWorkout] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -43,12 +45,17 @@ function App() {
     navigate(`/dashboard/user/${currentUser}`)
   }
 
+  const findWorkout = (workoutName) => {
+    const workout = createdWorkouts.find(workout => workout.name === workoutName)
+    setOneWorkout(workout)
+  }
+
   return (
     <div className='App'>
       {/* <section className='login-section'> */}
       {/* <Login setUser={setUser} /> */}
       {/* </section> */}
-      <h1 className='title'>GREEK GOD BOD</h1>
+      
       <div className='components'>
         <Routes>
           <Route
@@ -85,10 +92,13 @@ function App() {
               <PastWorkouts
                 createdWorkouts={createdWorkouts}
                 backToDash={backToDash}
+                currentUser={currentUser}
+                findWorkout={findWorkout}
               />
             }
           />
           <Route exact path='/social/user/:id' element={<Social />} />
+          <Route path='/doworkout/:name/user/:id/' element={<DoWorkout oneWorkout={oneWorkout} currentUser={currentUser}/>} />
         </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}

@@ -24,6 +24,7 @@ const Login = ({setUser}) => {
 
   return (
     <form className='login-form' onSubmit={e => login(e)}>
+      <h1 className='title'>GREEK GOD BOD</h1>
       <input
         type='text'
         id='usernameInput'

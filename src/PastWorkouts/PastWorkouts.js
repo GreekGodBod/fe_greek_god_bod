@@ -2,11 +2,11 @@ import './PastWorkouts.css'
 import Workout from '../Workout/Workout'
 import { useNavigate } from 'react-router-dom'
 
-const PastWorkouts = ({ createdWorkouts, backToDash }) => {
-  let workouts
+const PastWorkouts = ({createdWorkouts, currentUser, backToDash, findWorkout}) => {
+  let workouts;
   if (createdWorkouts) {
-    workouts = createdWorkouts.map((workout) => {
-      return <Workout key={workout.name} workout={workout} />
+    workouts = createdWorkouts.map(workout => {
+        return <Workout key={workout.name} findWorkout={findWorkout} currentUser={currentUser} workout={workout} />
     })
   }
 
