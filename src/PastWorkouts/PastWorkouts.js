@@ -2,11 +2,11 @@ import './PastWorkouts.css'
 import Workout from '../Workout/Workout'
 import { useNavigate } from 'react-router-dom'
 
-const PastWorkouts = ({createdWorkouts, currentUser}) => {
+const PastWorkouts = ({createdWorkouts, currentUser, backToDash, findWorkout}) => {
   let workouts;
   if (createdWorkouts) {
     workouts = createdWorkouts.map(workout => {
-        return <Workout key={workout.name} currentUser={currentUser} workout={workout} />
+        return <Workout key={workout.name} findWorkout={findWorkout} currentUser={currentUser} workout={workout} />
     })
   }
 
@@ -14,7 +14,7 @@ const PastWorkouts = ({createdWorkouts, currentUser}) => {
     <div className='past-workouts-page'>
       <div className='header-past-workouts'>
         <div className='back-to-dashboard'>
-          <button className='back-to-dashboard-button' onClick={backToDash}>
+          <button className='back-to-dashboard-button' onClick={() => backToDash}>
             Back
           </button>
         </div>
