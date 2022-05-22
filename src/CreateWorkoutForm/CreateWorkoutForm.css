@@ -36,7 +36,6 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100vh;
   background-color: #14213d;
 }
@@ -79,6 +78,7 @@ input {
 .page-title {
   color: white;
   font-size: 3.5em;
+  margin-bottom: 0.5em;
 }
 
 .form-container {
@@ -86,12 +86,14 @@ input {
   flex-direction: column;
   align-items: center;
   width: 90%;
-  height: 70%;
+  height: 60%;
   border-radius: 1em;
   overflow: scroll;
+  margin-bottom: 0.5em;
 }
 
 .begin-text {
   color: #ffa02f;
   font-size: 1.5em;
+  margin-top: 0;
 }
