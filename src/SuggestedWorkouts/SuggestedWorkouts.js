@@ -21,14 +21,14 @@ const SuggestedWorkouts = ({
       <div className='header-suggested-workouts'>
         <div className='back-to-dashboard'>
           <button className='back-to-dashboard-button' onClick={backToDash}>
-            Back
+            Back to Dashboard
           </button>
         </div>
         <h1 className='page-title'>Suggested Workouts</h1>
         <div className='spacer'></div>
       </div>
       <div className='suggested-workouts-container'>
-        <h2>
+        <h2 className='suggested-workout-message'>
           Today's suggested workout is '{suggestedWorkout.data.attributes.name}
           '!
         </h2>
