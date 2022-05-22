@@ -1,8 +1,9 @@
 import './Dashboard.css'
 import profPic from '../images/lifter-pic.jpg'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
-const Dashboard = ({ currentUser, username }) => {
+const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, setCurrentUser, setUserName }) => {
   const navigate = useNavigate()
   const navigateCreateWorkout = () => {
     navigate(`/createworkout/user/${currentUser}`)
@@ -19,6 +20,15 @@ const Dashboard = ({ currentUser, username }) => {
   const navigateSocial = () => {
     navigate(`/social/user/${currentUser}`)
   }
+  const { id } = useParams()
+
+  useEffect(() => {
+    getPastWorkouts(id).then((data) => setPastWorkouts(data))
+    setCurrentUser(id)
+    // setUserName()
+    
+  }, [])
+  console.log(id)
 
   return (
     <section className='dashboard'>
