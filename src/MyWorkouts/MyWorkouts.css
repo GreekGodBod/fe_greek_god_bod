@@ -1,15 +1,14 @@
-.header-past-workouts {
+.header-my-workouts {
   display: flex;
   flex-direction: row;
   /* position: top fixed; */
   width: 100%;
 }
 
-.past-workouts-page {
+.my-workouts-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100vh;
   background-color: #14213d;
 }
@@ -18,11 +17,14 @@
   color: white;
 }
 
-.past-workouts-container {
+.my-workouts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 90%;
-  height: 90%;
-  /* background-color: lightblue; */
+  height: 70%;
   border-radius: 1em;
+  overflow: scroll;
 }
 
 .back-to-dashboard {

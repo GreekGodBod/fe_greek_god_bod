@@ -4,59 +4,63 @@ import '../App/App.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
-const Login = ({setUser}) => {
+const Login = ({ setUser }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   const login = (e) => {
     e.preventDefault()
-  const userId = username.charAt(username.length -1)
-   setUser(userId)
+    const userId = username.charAt(username.length - 1)
+    setUser(userId)
 
-  if (password === `password${userId}` && username === `user_${userId}`) {
-    navigate(`/dashboard/user/${userId}`)
-  } else {
-    alert('incorrect credentials.')
+    if (password === `password${userId}` && username === `user_${userId}`) {
+      navigate(`/dashboard/user/${userId}`)
+    } else {
+      alert('incorrect credentials.')
     }
   }
 
   return (
-    <form className='login-form' onSubmit={e => login(e)}>
-      <h1 className='title'>GREEK GOD BOD</h1>
-      <input
-        type='text'
-        id='usernameInput'
-        name='username'
-        value={username}
-        className='username-input no-outline'
-        placeholder='Username:'
-        aria-label='username input'
-        onChange={e => setUsername(e.target.value)}
-      />
-      <br />
-      <br />
-      <input
-        type='password'
-        id='passwordInput'
-        name='password'
-        value={password}
-        className='password-input no-outline'
-        placeholder='Password:'
-        aria-label='password input'
-        onChange={e => setPassword(e.target.value)}
-      />
-      <br />
-      <br />
-      <div className='button-container'>
-
-        <input
-          type='submit'
-          id='submit'
-          value='Login'
-          className='login-button'
-        />
+    <form className='login-form' onSubmit={(e) => login(e)}>
+      <div className='top-half'>
+        <div className='login-info-container'>
+          <input
+            type='text'
+            id='usernameInput'
+            name='username'
+            value={username}
+            className='username-input no-outline login-input'
+            placeholder='Username:'
+            aria-label='username input'
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <br />
+          <br />
+          <input
+            type='password'
+            id='passwordInput'
+            name='password'
+            value={password}
+            className='password-input no-outline login-input'
+            placeholder='Password:'
+            aria-label='password input'
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+          <br />
+          <div className='login-button-container'>
+            <input
+              type='submit'
+              id='submit'
+              value='Login'
+              className='login-button'
+            />
+          </div>
+        </div>
+      </div>
+      <div className='bottom-half'>
+        <h1 className='title'>GREEK GOD BOD</h1>
       </div>
     </form>
   )

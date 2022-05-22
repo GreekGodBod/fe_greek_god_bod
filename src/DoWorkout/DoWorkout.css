@@ -1,7 +1,15 @@
-.do-workout-exercises {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.do-workout-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #14213d;
 }
 
+.do-workout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  height: 70%;
+}

@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
+  background-color: #14213d;
   height: 100vh;
 }
 
@@ -22,8 +22,8 @@
   height: 25vh;
   width: 65vw;
   margin: 1em;
-  font-size: 2em;
-  border-radius: 0.5em;
+  /* font-size: 2em; */
+  border-radius: 0.2em;
   color: #14213d;
   /* margin-top: 1em; */
 }
@@ -50,26 +50,19 @@
   gap: 2em 1.5em;
   width: 70vw;
   justify-items: center;
-
-  /* align-items: center; */
 }
 
 .dash-button {
   height: 20vh;
   width: 29.5vw;
-  border-radius: 1em;
-  font-size: 1.5em;
+  border-radius: 0.2em;
+  font-size: 2.5em;
   border: none;
   transition: 0.3s;
   cursor: pointer;
   color: #e5e5e5;
-  background-color: #14213d;
-  /* margin: 0; */
+  background-color: #3f5a91;
 }
-
-/* * {
-  border: 1px solid red;
-} */
 
 .dash-button:hover {
   transform: scale(1.09);
