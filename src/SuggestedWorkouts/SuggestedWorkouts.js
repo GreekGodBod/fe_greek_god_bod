@@ -1,15 +1,20 @@
 import './SuggestedWorkouts.css'
 import { useNavigate } from 'react-router-dom'
 
-const SuggestedWorkouts = ({ suggestedWorkout, backToDash, addWorkout }) => {
+const SuggestedWorkouts = ({
+  suggestedWorkout,
+  backToDash,
+  addWorkout,
+  openPopup,
+  isOpen,
+  setIsOpen
+}) => {
   // const submitNewWorkout = (e) => {
   //   e.preventDefault()
   //   console.log(suggestedWorkout)
-  //   props.addWorkout(suggestedWorkout)
+  //   addWorkout(suggestedWorkout)
   //   openPopup()
   // }
-
-  //add openPopup, closePopup, setIsOpen all to app, pass down to CreateWorkoutForm and SuggestedWorkouts
 
   return (
     <div className='suggested-workouts-page'>
@@ -42,6 +47,10 @@ const SuggestedWorkouts = ({ suggestedWorkout, backToDash, addWorkout }) => {
           )
         })}
       </div>
+      {/* <button className='add-suggested-workout' onClick={submitNewWorkout}>
+        Add to My Workouts
+      </button> 
+      This functionality isn't working because suggested workout object is in different format as created workout object*/}
     </div>
   )
 }
