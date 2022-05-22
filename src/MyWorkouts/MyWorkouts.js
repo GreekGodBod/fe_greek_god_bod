@@ -1,6 +1,6 @@
 import './MyWorkouts.css'
 import Workout from '../Workout/Workout'
-import { useNavigate } from 'react-router-dom'
+
 
 const MyWorkouts = ({
   createdWorkouts,

@@ -42,15 +42,20 @@ const getSuggestedWorkouts = () => {
 }
 
 
-// fetch('http://catfacts-api.appspot.com/api/facts?number=99', { mode: 'no-cors'})
-//   .then(blob => blob.json())
-//   .then(data => {
-//     console.table(data);
-//     return data;
-//   })
-//   .catch(e => {
-//     console.log(e);
-//     return e;
-//   });
+const postCreatedWorkout = (createdWorkout) => {
+    return fetch('http://localhost:3001/api/v1/urls', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(createdWorkout)
+    })
+    .then(response => {
+      if (response.status === 400){
+        throw new Error("404:Not Found")
+      } else if (response.status === 500){
+        throw new Error("500: Server is having issues")
+      }
+      return response.json()
+    })
+  }
 
-export { newExercises, getPastWorkouts, getSuggestedWorkouts }
+export { newExercises, getPastWorkouts, getSuggestedWorkouts, postCreatedWorkout }
