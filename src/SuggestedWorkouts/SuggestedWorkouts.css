@@ -19,9 +19,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 60%;
   height: 80%;
-  /* background-color: lightblue; */
+  /* background-color: #14213d; */
   border-radius: 1em;
   overflow: scroll;
 }
