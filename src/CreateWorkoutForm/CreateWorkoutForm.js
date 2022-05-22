@@ -10,6 +10,12 @@ const CreateWorkoutForm = (props) => {
   const [exercises, setExercises] = useState([])
   const [added, setAdded] = useState([])
   const navigate = useNavigate()
+  const { id } = useParams()
+
+  useEffect(() => {
+    props.getPastWorkouts(id).then((data) => props.setPastWorkouts(data))
+    props.setCurrentUser(id)
+  }, [])
 
   const directWorkouts = () => {
     closePopup()
@@ -42,15 +48,6 @@ const CreateWorkoutForm = (props) => {
     setExercises([])
     setAdded('')
   }
-
-  const { id } = useParams()
-
-  useEffect(() => {
-    props.getPastWorkouts(id).then((data) => props.setPastWorkouts(data))
-    props.setCurrentUser(id)
-    // setUserName()
-    
-  }, [])
 
   let allExercises
 
