@@ -1,13 +1,6 @@
 import './Popup.css'
-import { useNavigate } from 'react-router-dom'
 
 const Popup = ({ closePopup, directWorkouts }) => {
-  const navigate = useNavigate()
-
-  // const directWorkouts = () => {
-  //   navigate(`/pastworkouts/${currentUser}`)
-  // }
-
   return (
     <div className='popup-box'>
       <div className='box'>
