@@ -21,6 +21,7 @@ function App() {
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
   const [oneWorkout, setOneWorkout] = useState({})
+  const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -46,8 +47,14 @@ function App() {
   }
 
   const findWorkout = (workoutName) => {
-    const workout = createdWorkouts.find(workout => workout.name === workoutName)
+    const workout = createdWorkouts.find(
+      (workout) => workout.name === workoutName
+    )
     setOneWorkout(workout)
+  }
+
+  const openPopup = () => {
+    setIsOpen(!isOpen)
   }
 
   return (
@@ -55,7 +62,7 @@ function App() {
       {/* <section className='login-section'> */}
       {/* <Login setUser={setUser} /> */}
       {/* </section> */}
-      
+
       <div className='components'>
         <Routes>
           <Route
@@ -77,13 +84,22 @@ function App() {
                 currentUser={currentUser}
                 addWorkout={addWorkout}
                 backToDash={backToDash}
+                openPopup={openPopup}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
               />
             }
           />
           <Route
             exact
             path='/suggestedworkouts/user/:id'
-            element={<SuggestedWorkouts suggestedWorkout={suggestedWorkout} />}
+            element={
+              <SuggestedWorkouts
+                suggestedWorkout={suggestedWorkout}
+                backToDash={backToDash}
+                addWorkout={addWorkout}
+              />
+            }
           />
           <Route
             exact
@@ -98,7 +114,12 @@ function App() {
             }
           />
           <Route exact path='/social/user/:id' element={<Social />} />
-          <Route path='/doworkout/:name/user/:id/' element={<DoWorkout oneWorkout={oneWorkout} currentUser={currentUser}/>} />
+          <Route
+            path='/doworkout/:name/user/:id/'
+            element={
+              <DoWorkout oneWorkout={oneWorkout} currentUser={currentUser} />
+            }
+          />
         </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
