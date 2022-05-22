@@ -24,7 +24,7 @@ const Exercise = (props) => {
             })
         }
 
-    const doWorkoutPage = `http://localhost:3000/doworkout/${props.id}`
+    const doWorkoutPage = `http://localhost:3000/doworkout/${props.workoutName}/user/${props.currentUser}`
         
     return (
         <section className="exercise">
@@ -33,7 +33,7 @@ const Exercise = (props) => {
                 <p>{props.exercise.name}</p>
                 <p>Equipment: {props.exercise.equipment}</p>
             </div>
-            {window.location.href === doWorkoutPage &&
+            {/* {window.location.href === doWorkoutPage && */}
                 <div>
                     {allSets}
                     <form onSubmit={(e) => addSet(e)}>
@@ -58,7 +58,7 @@ const Exercise = (props) => {
                         </div>
                     </form>
                 </div>
-            }
+            {/* } */}
         </section>
     )
 }
