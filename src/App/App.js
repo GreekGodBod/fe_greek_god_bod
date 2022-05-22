@@ -120,6 +120,9 @@ function App() {
                 backToDash={backToDash}
                 currentUser={currentUser}
                 findWorkout={findWorkout}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
               />
             }
           />
