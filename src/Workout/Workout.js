@@ -2,7 +2,7 @@ import Exercise from '../Exercise/Exercise'
 import './Workout.css'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const Workout = ({ workout, deleteWorkout, currentUser }) => {
+const Workout = ({ workout, deleteWorkout, currentUser, findWorkout }) => {
     let { name } = useParams()
 
     const navigate = useNavigate()
@@ -10,11 +10,11 @@ const Workout = ({ workout, deleteWorkout, currentUser }) => {
 
     if (workout) {
         exercises = workout.exercises.map((exercise) => {
-            return <Exercise key={exercise.id} id={workout.id} exercise={exercise} />
+            return <Exercise key={exercise.id} workoutName={workout.name} currentUser={currentUser} id={workout.id} exercise={exercise} />
         })
     }
     const startWorkout = (workoutName) => {
-        // findWorkout(name)
+        findWorkout(workoutName)
         navigate(`/doworkout/${workoutName}/user/${currentUser}`)
     }
 
