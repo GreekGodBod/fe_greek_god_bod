@@ -13,7 +13,7 @@ import MyWorkouts from '../MyWorkouts/MyWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import DoWorkout from '../DoWorkout/DoWorkout'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -25,8 +25,10 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [username, setUsername] = useState('')
   const navigate = useNavigate()
+  let id = useParams()
 
   useEffect(() => {
+    getPastWorkouts(id).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
   }, [])
@@ -39,7 +41,7 @@ function App() {
 
   const setUser = (userId) => {
     setCurrentUser(userId)
-    getPastWorkouts(userId).then((data) => setPastWorkouts(data))
+    // getPastWorkouts(userId).then((data) => setPastWorkouts(data))
   }
 
   const setTheSuggestedWorkout = () => {
