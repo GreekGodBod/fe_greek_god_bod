@@ -8,7 +8,7 @@ import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
 import Dashboard from '../Dashboard/Dashboard'
 import CreateWorkoutForm from '../CreateWorkoutForm/CreateWorkoutForm'
-import PastWorkouts from '../PastWorkouts/PastWorkouts'
+import MyWorkouts from '../MyWorkouts/MyWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import DoWorkout from '../DoWorkout/DoWorkout'
@@ -106,9 +106,9 @@ function App() {
           />
           <Route
             exact
-            path='/pastworkouts/user/:id'
+            path='/myworkouts/user/:id'
             element={
-              <PastWorkouts
+              <MyWorkouts
                 createdWorkouts={createdWorkouts}
                 backToDash={backToDash}
                 currentUser={currentUser}
