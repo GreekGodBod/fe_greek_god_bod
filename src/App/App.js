@@ -40,6 +40,11 @@ function App() {
     .then(data => setSuggestedWorkout(data))
   }
 
+  const findWorkout = (workoutName) => {
+    const workout = createdWorkouts.find(workout => workout.name === workoutName)
+    setOneWorkout(workout)
+  }
+
   return (
     <div className='App'>
       {/* <section className='login-section'> */}
@@ -53,8 +58,9 @@ function App() {
             <Route exact path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
             <Route exact path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} currentUser={currentUser} addWorkout={addWorkout}/>} />
             <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts suggestedWorkout={suggestedWorkout}/>} />
-            <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
+            <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts} currentUser={currentUser}/>} />
             <Route exact path='/social/user/:id' element={<Social />} />
+            <Route path='/doworkout/:name/user/:id/' element={<DoWorkout oneWorkout={oneWorkout}/>} />
           </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
