@@ -2,8 +2,8 @@ import './CreateWorkoutForm.css'
 import ExerciseForm from '../ExerciseForm/ExerciseForm'
 import Exercise from '../Exercise/Exercise'
 import Popup from '../Popup/Popup'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const CreateWorkoutForm = (props) => {
   const [name, setName] = useState('')
@@ -42,6 +42,15 @@ const CreateWorkoutForm = (props) => {
     setExercises([])
     setAdded('')
   }
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    props.getPastWorkouts(id).then((data) => props.setPastWorkouts(data))
+    props.setCurrentUser(id)
+    // setUserName()
+    
+  }, [])
 
   let allExercises
 
