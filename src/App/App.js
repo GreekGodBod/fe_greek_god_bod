@@ -32,7 +32,7 @@ function App() {
 
   const addWorkout = (newWorkout) => {
     postCreatedWorkout(newWorkout)
-    .then(data => console.log(data))
+    .then(data => console.log("post",data))
     // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
