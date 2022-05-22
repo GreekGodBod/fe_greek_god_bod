@@ -1,3 +1,10 @@
+.header-past-workouts {
+  display: flex;
+  flex-direction: row;
+  /* position: top fixed; */
+  width: 100%;
+}
+
 .past-workouts-page {
   display: flex;
   flex-direction: column;
@@ -14,6 +21,13 @@
 .past-workouts-container {
   width: 90%;
   height: 90%;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   border-radius: 1em;
+}
+
+.back-to-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
