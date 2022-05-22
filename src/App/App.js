@@ -92,11 +92,13 @@ function App() {
               <PastWorkouts
                 createdWorkouts={createdWorkouts}
                 backToDash={backToDash}
+                currentUser={currentUser}
+                findWorkout={findWorkout}
               />
             }
           />
           <Route exact path='/social/user/:id' element={<Social />} />
-          <Route path='/doworkout/:name/user/:id/' element={<DoWorkout oneWorkout={oneWorkout}/>} />
+          <Route path='/doworkout/:name/user/:id/' element={<DoWorkout oneWorkout={oneWorkout} currentUser={currentUser}/>} />
         </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
