@@ -23,6 +23,7 @@ function App() {
   const [createdWorkouts, setCreatedWorkouts] = useState([])
   const [oneWorkout, setOneWorkout] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const [username, setUsername] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -31,9 +32,9 @@ function App() {
   }, [])
 
   const addWorkout = (newWorkout) => {
-    postCreatedWorkout(newWorkout)
-    .then(data => console.log("post",data))
-    // setCreatedWorkouts([...createdWorkouts, newWorkout])
+    // postCreatedWorkout(newWorkout)
+    // .then(data => console.log("post",data))
+    setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {
@@ -70,13 +71,13 @@ function App() {
         <Routes>
           <Route
             path='/'
-            element={<Login replace to='/login' setUser={setUser} />}
+            element={<Login replace to='/login' setUsername={setUsername} setUser={setUser} />}
           />
           {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
           <Route
             exact
             path='/dashboard/user/:id'
-            element={<Dashboard currentUser={currentUser} />}
+            element={<Dashboard username={username} currentUser={currentUser} />}
           />
           <Route
             exact
