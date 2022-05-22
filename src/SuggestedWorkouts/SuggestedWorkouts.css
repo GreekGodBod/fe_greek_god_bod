@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100vh;
   background-color: #14213d;
   color: white;
@@ -11,7 +10,6 @@
 .header-suggested-workouts {
   display: flex;
   flex-direction: row;
-  /* position: top fixed; */
   width: 100%;
 }
 
@@ -19,11 +17,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
-  height: 80%;
-  /* background-color: #14213d; */
+  width: 90%;
+  height: 70%;
   border-radius: 1em;
   overflow: scroll;
+}
+
+.suggested-workout-message {
+  font-size: 2em;
 }
 
 .suggested-gif {
@@ -41,6 +42,7 @@
   height: 40vh;
   margin: 1em;
   border-radius: 1em;
+  font-size: 1.5em;
 }
 
 .name-container {
