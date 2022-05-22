@@ -4,7 +4,6 @@ import Exercise from '../Exercise/Exercise'
 import Popup from '../Popup/Popup'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { clear } from '@testing-library/user-event/dist/clear'
 
 const CreateWorkoutForm = (props) => {
   const [name, setName] = useState('')
@@ -24,6 +23,7 @@ const CreateWorkoutForm = (props) => {
   const submitNewWorkout = (e) => {
     e.preventDefault()
     const newWorkout = {
+      id:props.currentUser,
       name: name,
       exercises: exercises
     }

@@ -2,7 +2,8 @@ import './App.css'
 import {
   newExercises,
   getPastWorkouts,
-  getSuggestedWorkouts
+  getSuggestedWorkouts,
+  postCreatedWorkout
 } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
@@ -30,7 +31,9 @@ function App() {
   }, [])
 
   const addWorkout = (newWorkout) => {
-    setCreatedWorkouts([...createdWorkouts, newWorkout])
+    postCreatedWorkout(newWorkout)
+    .then(data => console.log(data))
+    // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {

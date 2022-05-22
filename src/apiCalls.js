@@ -43,7 +43,7 @@ const getSuggestedWorkouts = () => {
 
 
 const postCreatedWorkout = (createdWorkout) => {
-    return fetch('http://localhost:3001/api/v1/urls', {
+    return fetch('https://be-greek-god-bod.herokuapp.com//api/v1/user', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(createdWorkout)
