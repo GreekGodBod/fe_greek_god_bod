@@ -15,16 +15,18 @@
   background-color: #405a91;
   border-radius: 10px;
   margin: 1.5em;
-  height: 22vh;
+  height: 25vh;
   width: 12vw;
+  font-size: 1.2em;
 }
 
 .exercise-card-select {
   background-color: #ffa02f;
   border-radius: 10px;
   margin: 1.5em;
-  height: 22vh;
+  height: 25vh;
   width: 12vw;
+  font-size: 1.2em;
 }
 
 .name-text {
