@@ -8,14 +8,45 @@
   color: white;
 }
 
+.header-suggested-workouts {
+  display: flex;
+  flex-direction: row;
+  /* position: top fixed; */
+  width: 100%;
+}
+
 .suggested-workouts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 90%;
-  height: 90%;
-  background-color: lightblue;
+  height: 80%;
+  /* background-color: lightblue; */
   border-radius: 1em;
+  overflow: scroll;
 }
 
 .suggested-gif {
-  height: 20%;
-  width: 20%;
+  height: 15vh;
+  border-radius: 50%;
+  margin: 0.5em;
+  /* width: 20%; */
+}
+
+.suggested-workout-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #3f5a91;
+  width: 30vw;
+  height: 40vh;
+  margin: 1em;
+  border-radius: 1em;
+}
+
+.name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
