@@ -2,7 +2,7 @@ import Exercise from '../Exercise/Exercise'
 import './Workout.css'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const Workout = ({ workout, deleteWorkout }) => {
+const Workout = ({ workout, deleteWorkout, currentUser }) => {
     let { name } = useParams()
 
     const navigate = useNavigate()
@@ -14,13 +14,10 @@ const Workout = ({ workout, deleteWorkout }) => {
         })
     }
 
-    // const findWorkout = (workoutName) => {
-    //     const workout = createdWorkouts.find(workout => workout.name === workoutName)
-    //     return workout
-    //   }
+
     const startWorkout = (workoutName) => {
         // findWorkout(name)
-        navigate(`/doworkout/${workoutName}`)
+        navigate(`/doworkout/${workoutName}/user/${currentUser}`)
     }
 
     return (
