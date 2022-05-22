@@ -9,8 +9,8 @@ const Dashboard = ({ currentUser }) => {
     navigate(`/createworkout/user/${currentUser}`)
   }
 
-  const navigatePastWorkouts = () => {
-    navigate(`/pastworkouts/user/${currentUser}`)
+  const navigateMyWorkouts = () => {
+    navigate(`/myworkouts/user/${currentUser}`)
   }
 
   const navigateSuggestedWorkouts = () => {
@@ -45,10 +45,10 @@ const Dashboard = ({ currentUser }) => {
             Suggested Workouts
           </button>
           <button
-            className='past-workout-button dash-button'
-            onClick={navigatePastWorkouts}
+            className='my-workout-button dash-button'
+            onClick={navigateMyWorkouts}
           >
-            Past Workouts
+            My Workouts
           </button>
         </section>
       </div>
