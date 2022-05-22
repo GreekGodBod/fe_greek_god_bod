@@ -55,7 +55,7 @@ function App() {
       {/* <section className='login-section'> */}
       {/* <Login setUser={setUser} /> */}
       {/* </section> */}
-      <h1 className='title'>GREEK GOD BOD</h1>
+      
       <div className='components'>
         <Routes>
           <Route
