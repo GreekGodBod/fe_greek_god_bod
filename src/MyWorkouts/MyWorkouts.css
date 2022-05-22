@@ -1,0 +1,35 @@
+.header-my-workouts {
+  display: flex;
+  flex-direction: row;
+  /* position: top fixed; */
+  width: 100%;
+}
+
+.my-workouts-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #14213d;
+}
+
+.page-title {
+  color: white;
+}
+
+.my-workouts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 70%;
+  border-radius: 1em;
+  overflow: scroll;
+}
+
+.back-to-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
