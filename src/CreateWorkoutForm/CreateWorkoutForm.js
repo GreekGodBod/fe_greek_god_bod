@@ -13,6 +13,7 @@ const CreateWorkoutForm = (props) => {
   const navigate = useNavigate()
 
   const directWorkouts = () => {
+    closePopup()
     navigate(`/pastworkouts/user/${props.currentUser}`)
   }
 
@@ -77,14 +78,14 @@ const CreateWorkoutForm = (props) => {
           {name ? (
             <button className='add-workout-button'>Add Workout</button>
           ) : (
-            <button className='disabled' disabled>
+            <button className='add-workout-button disabled' disabled>
               Add Workout
             </button>
           )}
         </div>
       </form>
       <p className='begin-text'>
-        Click the exercises below to add to your workout!
+        Select a muscle group, then click on exercises to add!
       </p>
       <div className='form-container'>
         <ExerciseForm
