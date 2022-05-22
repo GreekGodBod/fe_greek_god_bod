@@ -1,11 +1,20 @@
 import './SuggestedWorkouts.css'
 import { useNavigate } from 'react-router-dom'
 
-const SuggestedWorkouts = () => {
+const SuggestedWorkouts = ({suggestedWorkout}) => {
   return (
     <div className='suggested-workouts-page'>
       <div className='suggested-workouts-container'>
-        <h1 className='page-title'>Suggested Workouts</h1>
+        <h1 className='page-title'>Suggested Workout</h1>
+        <h2>Welcome! Give '{suggestedWorkout.data.attributes.name}' a try:</h2>
+        {suggestedWorkout.data.attributes.exercises.map(exercise => {
+          return (
+            <div className='suggested-workout-container' key={exercise.id}>
+              <h3>{exercise.name}</h3>
+              <img src={exercise.gif} alt='exercise gif' className='suggested-gif'/>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

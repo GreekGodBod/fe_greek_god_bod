@@ -1,5 +1,5 @@
 import './App.css'
-import { newExercises, getPastWorkouts } from '../apiCalls'
+import { newExercises, getPastWorkouts, getSuggestedWorkouts } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
 import Dashboard from '../Dashboard/Dashboard'
@@ -14,7 +14,7 @@ function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
   const [pastworkouts, setPastWorkouts] = useState([])
-  const [suggestedWorkouts, setSuggestedWorkouts]= useState([])
+  const [suggestedWorkout, setSuggestedWorkout]= useState({})
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
   const [oneWorkout, setOneWorkout] = useState({})
@@ -22,6 +22,7 @@ function App() {
   useEffect(() => {
     newExercises()
     .then(data => setAllExercises(data))
+    setTheSuggestedWorkout()
   }, []) 
 
  const addWorkout = (newWorkout) => {
@@ -33,11 +34,12 @@ function App() {
     getPastWorkouts(userId)
     .then(data => setPastWorkouts(data))
   }
-   
-  const findWorkout = (workoutName) => {
-    const workout = createdWorkouts.find(workout => workout.name === workoutName)
-    return workout
+
+  const setTheSuggestedWorkout = () => {
+    getSuggestedWorkouts()
+    .then(data => setSuggestedWorkout(data))
   }
+
   return (
     <div className='App'>
       {/* <section className='login-section'> */}
@@ -48,12 +50,11 @@ function App() {
           <Routes>
            <Route path="/" element={<Login replace to="/login" setUser={setUser} />} />
             {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
-            <Route path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
-            <Route path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} currentUser={currentUser} addWorkout={addWorkout}/>} />
-            <Route path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts />} />
-            <Route path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
-            <Route path='/social/user/:id' element={<Social />} />
-            <Route path='/doworkout/user/:id/:name' element={<DoWorkout oneWorkout={findWorkout}/>} />
+            <Route exact path='/dashboard/user/:id'  element={<Dashboard currentUser={currentUser}/>} />
+            <Route exact path='/createworkout/user/:id' element={<CreateWorkoutForm allExercises={allExercises} currentUser={currentUser} addWorkout={addWorkout}/>} />
+            <Route exact path='/suggestedworkouts/user/:id' element={<SuggestedWorkouts suggestedWorkout={suggestedWorkout}/>} />
+            <Route exact path='/pastworkouts/user/:id' element={<PastWorkouts createdWorkouts={createdWorkouts}/>} />
+            <Route exact path='/social/user/:id' element={<Social />} />
           </Routes>
       </div>
       {/* <Dashboard currentUser={currentUser} /> */}
