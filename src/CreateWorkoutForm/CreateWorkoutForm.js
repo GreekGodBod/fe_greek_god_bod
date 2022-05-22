@@ -14,7 +14,7 @@ const CreateWorkoutForm = (props) => {
 
   const directWorkouts = () => {
     closePopup()
-    navigate(`/pastworkouts/user/${props.currentUser}`)
+    navigate(`/myworkouts/user/${props.currentUser}`)
   }
 
   const addExercise = (newExercise) => {
@@ -59,7 +59,7 @@ const CreateWorkoutForm = (props) => {
             className='back-to-dashboard-button'
             onClick={props.backToDash}
           >
-            Back
+            Back to Dashboard
           </button>
         </div>
         <h1 className='page-title'>Create Your Workout</h1>
