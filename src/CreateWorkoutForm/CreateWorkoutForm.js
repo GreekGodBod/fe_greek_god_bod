@@ -65,7 +65,7 @@ const CreateWorkoutForm = (props) => {
         <h1 className='page-title'>Create Your Workout</h1>
         <div className='spacer'></div>
       </section>
-      <form onSubmit={(e) => submitNewWorkout(e)}>
+      {/* <form onSubmit={(e) => submitNewWorkout(e)}>
         <div className='add-workout-container'>
           <input
             name='name'
@@ -83,7 +83,7 @@ const CreateWorkoutForm = (props) => {
             </button>
           )}
         </div>
-      </form>
+      </form> */}
       <p className='begin-text'>
         Select a muscle group, then click on exercises to add!
       </p>
@@ -94,6 +94,27 @@ const CreateWorkoutForm = (props) => {
           addExercise={addExercise}
         />
       </div>
+      {exercises.length !== 0 && (
+        <form onSubmit={(e) => submitNewWorkout(e)}>
+          <div className='add-workout-container'>
+            <input
+              name='name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder='Workout Name'
+              required
+            />
+
+            {name ? (
+              <button className='add-workout-button'>Add Workout</button>
+            ) : (
+              <button className='add-workout-button disabled' disabled>
+                Add Workout
+              </button>
+            )}
+          </div>
+        </form>
+      )}
       {props.isOpen && (
         <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
       )}
