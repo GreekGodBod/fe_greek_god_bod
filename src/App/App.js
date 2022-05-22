@@ -10,9 +10,8 @@ import Dashboard from '../Dashboard/Dashboard'
 import CreateWorkoutForm from '../CreateWorkoutForm/CreateWorkoutForm'
 import PastWorkouts from '../PastWorkouts/PastWorkouts'
 import Social from '../Social/Social'
-import Popup from '../Popup/Popup'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
-import { Routes, Route, Redirect, Switch } from 'react-router-dom'
+import { Routes, Route, Redirect, Switch, useNavigate } from 'react-router-dom'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -20,6 +19,7 @@ function App() {
   const [suggestedWorkout, setSuggestedWorkout] = useState({})
   const [allExercises, setAllExercises] = useState([])
   const [createdWorkouts, setCreatedWorkouts] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     newExercises().then((data) => setAllExercises(data))
@@ -37,6 +37,10 @@ function App() {
 
   const setTheSuggestedWorkout = () => {
     getSuggestedWorkouts().then((data) => setSuggestedWorkout(data))
+  }
+
+  const backToDash = () => {
+    navigate(`/dashboard/user/${currentUser}`)
   }
 
   return (
@@ -65,6 +69,7 @@ function App() {
                 allExercises={allExercises}
                 currentUser={currentUser}
                 addWorkout={addWorkout}
+                backToDash={backToDash}
               />
             }
           />
@@ -76,7 +81,12 @@ function App() {
           <Route
             exact
             path='/pastworkouts/user/:id'
-            element={<PastWorkouts createdWorkouts={createdWorkouts} />}
+            element={
+              <PastWorkouts
+                createdWorkouts={createdWorkouts}
+                backToDash={backToDash}
+              />
+            }
           />
           <Route exact path='/social/user/:id' element={<Social />} />
         </Routes>
