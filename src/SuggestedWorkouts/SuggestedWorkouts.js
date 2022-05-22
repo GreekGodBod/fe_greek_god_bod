@@ -1,17 +1,43 @@
 import './SuggestedWorkouts.css'
 import { useNavigate } from 'react-router-dom'
 
-const SuggestedWorkouts = ({suggestedWorkout}) => {
+const SuggestedWorkouts = ({ suggestedWorkout, backToDash, addWorkout }) => {
+  // const submitNewWorkout = (e) => {
+  //   e.preventDefault()
+  //   console.log(suggestedWorkout)
+  //   props.addWorkout(suggestedWorkout)
+  //   openPopup()
+  // }
+
+  //add openPopup, closePopup, setIsOpen all to app, pass down to CreateWorkoutForm and SuggestedWorkouts
+
   return (
     <div className='suggested-workouts-page'>
+      <div className='header-suggested-workouts'>
+        <div className='back-to-dashboard'>
+          <button className='back-to-dashboard-button' onClick={backToDash}>
+            Back
+          </button>
+        </div>
+        <h1 className='page-title'>Suggested Workouts</h1>
+        <div className='spacer'></div>
+      </div>
       <div className='suggested-workouts-container'>
-        <h1 className='page-title'>Suggested Workout</h1>
-        <h2>Welcome! Give '{suggestedWorkout.data.attributes.name}' a try:</h2>
-        {suggestedWorkout.data.attributes.exercises.map(exercise => {
+        <h2>
+          Today's suggested workout is '{suggestedWorkout.data.attributes.name}
+          '!
+        </h2>
+        {suggestedWorkout.data.attributes.exercises.map((exercise) => {
           return (
             <div className='suggested-workout-container' key={exercise.id}>
-              <h3>{exercise.name}</h3>
-              <img src={exercise.gif} alt='exercise gif' className='suggested-gif'/>
+              <img
+                src={exercise.gif}
+                alt='exercise gif'
+                className='suggested-gif'
+              />
+              <div className='name-container'>
+                <h3>{exercise.name}</h3>
+              </div>
             </div>
           )
         })}
