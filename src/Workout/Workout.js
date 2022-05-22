@@ -19,7 +19,8 @@ const Workout = ({ workout, deleteWorkout }) => {
   return (
     <section className='workout'>
       <h1>{workout.name}</h1>
-      {exercises}
+      {/* {exercises} commented out because may be better to not show exercises
+      since we will have long list of workouts, potentially */}
       <button
         className='start-workout-button'
         onClick={() => startWorkout(workout.name)}

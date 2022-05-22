@@ -1,18 +1,35 @@
 import './CreateWorkoutForm.css'
 import ExerciseForm from '../ExerciseForm/ExerciseForm'
 import Exercise from '../Exercise/Exercise'
+import Popup from '../Popup/Popup'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { clear } from '@testing-library/user-event/dist/clear'
 
 const CreateWorkoutForm = (props) => {
   const [name, setName] = useState('')
   const [exercises, setExercises] = useState([])
   const [added, setAdded] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
+
+  const openPopup = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const closePopup = () => {
+    setIsOpen(!isOpen)
+    clearInputs()
+  }
+
+  const directWorkouts = () => {
+    navigate(`/pastworkouts/user/${props.currentUser}`)
+  }
 
   const addExercise = (newExercise) => {
     setExercises([...exercises, newExercise])
   }
+
   const submitNewWorkout = (e) => {
     e.preventDefault()
     const newWorkout = {
@@ -22,8 +39,7 @@ const CreateWorkoutForm = (props) => {
     }
     console.log(newWorkout)
     props.addWorkout(newWorkout)
-    setAdded('Your workout was added!!')
-    setTimeout(() => clearInputs(), 3000)
+    openPopup()
   }
 
   const clearInputs = () => {
@@ -40,15 +56,18 @@ const CreateWorkoutForm = (props) => {
     })
   }
 
-  const backToDash = () => {
-    navigate(`/dashboard/user/${props.currentUser}`)
-  }
+  // const backToDash = () => {
+  //   navigate(`/dashboard/user/${props.currentUser}`)
+  // }
 
   return (
     <div className='create-workout-page'>
-      <section className='header'>
+      <section className='header-create-workout'>
         <div className='back-to-dashboard'>
-          <button className='back-to-dashboard-button' onClick={backToDash}>
+          <button
+            className='back-to-dashboard-button'
+            onClick={props.backToDash}
+          >
             Back
           </button>
         </div>
@@ -84,6 +103,9 @@ const CreateWorkoutForm = (props) => {
           addExercise={addExercise}
         />
       </div>
+      {isOpen && (
+        <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
+      )}
     </div>
   )
 }

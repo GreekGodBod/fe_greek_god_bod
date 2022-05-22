@@ -1,20 +1,26 @@
 .workout {
   display: flex;
   flex-direction: column;
-  color: black;
+  width: 30vw;
+  color: white;
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
-  margin:10px;
-  padding:10px;
-  background-color: lightgray;
+  margin: 10px;
+  padding: 10px;
+  background-color: #3f5a91;
 }
 
 .delete-button {
-  border: none; 
+  border: none;
   background: none;
 }
 
-.button {
-  margin-left:97%;
+.start-workout-button {
+  background-color: #14213d;
+  border: none;
+  color: #ffa02f;
+  padding: 3;
+  border-radius: 0.5em;
+  cursor: pointer;
 }
