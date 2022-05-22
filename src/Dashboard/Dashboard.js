@@ -2,7 +2,7 @@ import './Dashboard.css'
 import profPic from '../images/lifter-pic.jpg'
 import { useNavigate } from 'react-router-dom'
 
-const Dashboard = ({ currentUser }) => {
+const Dashboard = ({ currentUser, username }) => {
   console.log('dash', currentUser)
   const navigate = useNavigate()
   const navigateCreateWorkout = () => {
@@ -24,7 +24,7 @@ const Dashboard = ({ currentUser }) => {
   return (
     <section className='dashboard'>
       <div className='welcome-buttons-container'>
-        <h1 className='welcome-message'>Welcome, User!</h1>
+        <h1 className='welcome-message'>Welcome, {username}</h1>
         <section className='button-container '>
           <button
             className='social-button dash-button'
