@@ -25,23 +25,23 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [username, setUsername] = useState('')
   const navigate = useNavigate()
-  let id = useParams()
+  // const { id } = useParams()
 
   useEffect(() => {
-    getPastWorkouts(id).then((data) => setPastWorkouts(data))
+    // getPastWorkouts(id).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
   }, [])
-
+  // console.log(id)
   const addWorkout = (newWorkout) => {
     // postCreatedWorkout(newWorkout)
     // .then(data => console.log("post",data))
-    setCreatedWorkouts([...createdWorkouts, newWorkout])
+    // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {
     setCurrentUser(userId)
-    // getPastWorkouts(userId).then((data) => setPastWorkouts(data))
+    getPastWorkouts(userId).then((data) => setPastWorkouts(data))
   }
 
   const setTheSuggestedWorkout = () => {
@@ -73,7 +73,14 @@ function App() {
           />
           <Route
             path='/dashboard/user/:id'
-            element={<Dashboard username={username} currentUser={currentUser} />}
+            element={<Dashboard
+              username={username}
+              currentUser={currentUser}
+              getPastWorkouts={getPastWorkouts}
+              setPastWorkouts={setPastWorkouts}
+              setCurrentUser={setCurrentUser}
+              setUsername={setUsername}
+            />}
           />
           <Route
             path='/createworkout/user/:id'
@@ -86,6 +93,9 @@ function App() {
                 openPopup={openPopup}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
               />
             }
           />
