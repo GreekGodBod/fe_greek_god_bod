@@ -125,7 +125,6 @@ function App() {
           />
         </Routes>
       </div>
-      {/* <Dashboard currentUser={currentUser} /> */}
     </div>
   )
 }
