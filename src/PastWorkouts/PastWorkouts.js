@@ -14,7 +14,7 @@ const PastWorkouts = ({createdWorkouts, currentUser, backToDash, findWorkout}) =
     <div className='past-workouts-page'>
       <div className='header-past-workouts'>
         <div className='back-to-dashboard'>
-          <button className='back-to-dashboard-button' onClick={() => backToDash}>
+          <button className='back-to-dashboard-button' onClick={backToDash}>
             Back
           </button>
         </div>
