@@ -1,7 +1,6 @@
 import './MyWorkouts.css'
 import Workout from '../Workout/Workout'
 
-
 const MyWorkouts = ({
   createdWorkouts,
   currentUser,

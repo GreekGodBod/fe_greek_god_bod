@@ -3,7 +3,6 @@ import profPic from '../images/lifter-pic.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Dashboard = ({ currentUser, username }) => {
-  console.log('dash', currentUser)
   const navigate = useNavigate()
   const navigateCreateWorkout = () => {
     navigate(`/createworkout/user/${currentUser}`)

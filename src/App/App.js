@@ -13,7 +13,7 @@ import MyWorkouts from '../MyWorkouts/MyWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import DoWorkout from '../DoWorkout/DoWorkout'
-import { Routes, Route, Redirect, Switch, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -63,24 +63,17 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <section className='login-section'> */}
-      {/* <Login setUser={setUser} /> */}
-      {/* </section> */}
-
       <div className='components'>
         <Routes>
           <Route
             path='/'
             element={<Login replace to='/login' setUsername={setUsername} setUser={setUser} />}
           />
-          {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
           <Route
-            exact
             path='/dashboard/user/:id'
             element={<Dashboard username={username} currentUser={currentUser} />}
           />
           <Route
-            exact
             path='/createworkout/user/:id'
             element={
               <CreateWorkoutForm
@@ -95,7 +88,6 @@ function App() {
             }
           />
           <Route
-            exact
             path='/suggestedworkouts/user/:id'
             element={
               <SuggestedWorkouts
@@ -109,7 +101,6 @@ function App() {
             }
           />
           <Route
-            exact
             path='/myworkouts/user/:id'
             element={
               <MyWorkouts
@@ -120,7 +111,7 @@ function App() {
               />
             }
           />
-          <Route exact path='/social/user/:id' element={<Social />} />
+          <Route path='/social/user/:id' element={<Social />} />
           <Route
             path='/doworkout/:name/user/:id/'
             element={

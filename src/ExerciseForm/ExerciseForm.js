@@ -1,14 +1,11 @@
 import './ExerciseForm.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const ExerciseForm = (props) => {
-  // console.log("props1",props)
+  
   const [category, setCategory] = useState('')
   const [name, setName] = useState('')
 
-  const changeHandler = (e) => {
-    // this.setState({ ...this.state, [e.target.name]: e.target.value })
-  }
 
   const submitNewExercise = (e, exercise) => {
     e.preventDefault()
