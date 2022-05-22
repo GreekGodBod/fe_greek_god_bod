@@ -22,6 +22,10 @@ const CreateWorkoutForm = (props) => {
     clearInputs()
   }
 
+  const directWorkouts = () => {
+    navigate(`/pastworkouts/user/${props.currentUser}`)
+  }
+
   const addExercise = (newExercise) => {
     setExercises([...exercises, newExercise])
   }
@@ -52,15 +56,18 @@ const CreateWorkoutForm = (props) => {
     })
   }
 
-  const backToDash = () => {
-    navigate(`/dashboard/user/${props.currentUser}`)
-  }
+  // const backToDash = () => {
+  //   navigate(`/dashboard/user/${props.currentUser}`)
+  // }
 
   return (
     <div className='create-workout-page'>
-      <section className='header'>
+      <section className='header-create-workout'>
         <div className='back-to-dashboard'>
-          <button className='back-to-dashboard-button' onClick={backToDash}>
+          <button
+            className='back-to-dashboard-button'
+            onClick={props.backToDash}
+          >
             Back
           </button>
         </div>
@@ -96,7 +103,9 @@ const CreateWorkoutForm = (props) => {
           addExercise={addExercise}
         />
       </div>
-      {isOpen && <Popup openPopup={openPopup} closePopup={closePopup} />}
+      {isOpen && (
+        <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
+      )}
     </div>
   )
 }
