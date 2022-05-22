@@ -12,10 +12,16 @@ const PastWorkouts = ({createdWorkouts, currentUser}) => {
 
   return (
     <div className='past-workouts-page'>
-      <div className='past-workouts-container'>
+      <div className='header-past-workouts'>
+        <div className='back-to-dashboard'>
+          <button className='back-to-dashboard-button' onClick={backToDash}>
+            Back
+          </button>
+        </div>
         <h1 className='page-title'>Past Workouts</h1>
-      {workouts}
+        <div className='spacer'></div>
       </div>
+      <div className='past-workouts-container'>{workouts}</div>
     </div>
   )
 }
