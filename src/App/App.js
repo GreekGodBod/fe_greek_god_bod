@@ -98,6 +98,9 @@ function App() {
                 suggestedWorkout={suggestedWorkout}
                 backToDash={backToDash}
                 addWorkout={addWorkout}
+                openPopup={openPopup}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
               />
             }
           />
