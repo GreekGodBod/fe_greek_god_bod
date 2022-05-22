@@ -1,28 +1,42 @@
-import Exercise from "../Exercise/Exercise"
+import Exercise from '../Exercise/Exercise'
 import { useNavigate } from 'react-router-dom'
-import "./DoWorkout.css"
+import './DoWorkout.css'
 
 const DoWorkout = (props) => {
-    const navigate = useNavigate()
-        let exercises = props.oneWorkout.exercises.map(exercise => {
-            return (
-                <Exercise key={exercise.id} exercise={exercise} id={props.oneWorkout.id} />
-            )
-        })
+  const navigate = useNavigate()
 
-        const navigation = () => {
-            navigate(`/dashboard/user/${props.currentUser}`)
-        }
-        return (
-            <section>
-                <button onClick={navigation}>Home</button >
-                <h1>{props.oneWorkout.title}</h1>
-                <section className="do-workout-exercises" >
-                    {exercises}
-                </section>
-            </section>
-        )
-    
+  let exercises = props.oneWorkout.exercises.map((exercise) => {
+    return (
+      <Exercise
+        key={exercise.id}
+        exercise={exercise}
+        id={props.oneWorkout.id}
+      />
+    )
+  })
+
+  const navigateMyWorkouts = () => {
+    navigate(`/myworkouts/user/${props.currentUser}`)
+  }
+
+  return (
+    <div className='do-workout-page'>
+      <section className='header-create-workout'>
+        <div className='back-to-dashboard'>
+          <button
+            className='back-to-dashboard-button'
+            onClick={navigateMyWorkouts}
+          >
+            Back to My Workouts
+          </button>
+        </div>
+        <h1 className='page-title'>Test Title</h1>
+        {/* props.oneWorkout.title not working for some reason, needs more investigation */}
+        <div className='spacer'></div>
+      </section>
+      <section className='do-workout-container'>{exercises}</section>
+    </div>
+  )
 }
 
 export default DoWorkout
