@@ -10,17 +10,7 @@ const CreateWorkoutForm = (props) => {
   const [name, setName] = useState('')
   const [exercises, setExercises] = useState([])
   const [added, setAdded] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
-
-  const openPopup = () => {
-    setIsOpen(!isOpen)
-  }
-
-  const closePopup = () => {
-    setIsOpen(!isOpen)
-    clearInputs()
-  }
 
   const directWorkouts = () => {
     navigate(`/pastworkouts/user/${props.currentUser}`)
@@ -33,13 +23,17 @@ const CreateWorkoutForm = (props) => {
   const submitNewWorkout = (e) => {
     e.preventDefault()
     const newWorkout = {
-      // id: Date.now(),
       name: name,
       exercises: exercises
     }
     console.log(newWorkout)
     props.addWorkout(newWorkout)
-    openPopup()
+    props.openPopup()
+  }
+
+  const closePopup = () => {
+    props.setIsOpen(!props.isOpen)
+    clearInputs()
   }
 
   const clearInputs = () => {
@@ -55,10 +49,6 @@ const CreateWorkoutForm = (props) => {
       return <Exercise key={exercise.id} exercise={exercise} />
     })
   }
-
-  // const backToDash = () => {
-  //   navigate(`/dashboard/user/${props.currentUser}`)
-  // }
 
   return (
     <div className='create-workout-page'>
@@ -103,7 +93,7 @@ const CreateWorkoutForm = (props) => {
           addExercise={addExercise}
         />
       </div>
-      {isOpen && (
+      {props.isOpen && (
         <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
       )}
     </div>
