@@ -36,7 +36,7 @@ function App() {
   const addWorkout = (newWorkout) => {
     // postCreatedWorkout(newWorkout)
     // .then(data => console.log("post",data))
-    // setCreatedWorkouts([...createdWorkouts, newWorkout])
+    setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {
@@ -69,18 +69,27 @@ function App() {
         <Routes>
           <Route
             path='/'
-            element={<Login replace to='/login' setUsername={setUsername} setUser={setUser} />}
+            element={
+              <Login
+                replace
+                to='/login'
+                setUsername={setUsername}
+                setUser={setUser}
+              />
+            }
           />
           <Route
             path='/dashboard/user/:id'
-            element={<Dashboard
-              username={username}
-              currentUser={currentUser}
-              getPastWorkouts={getPastWorkouts}
-              setPastWorkouts={setPastWorkouts}
-              setCurrentUser={setCurrentUser}
-              setUsername={setUsername}
-            />}
+            element={
+              <Dashboard
+                username={username}
+                currentUser={currentUser}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
+                setUsername={setUsername}
+              />
+            }
           />
           <Route
             path='/createworkout/user/:id'
