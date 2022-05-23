@@ -109,6 +109,11 @@ function App() {
                 openPopup={openPopup}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
+                getSuggestedWorkouts={getSuggestedWorkouts}
+                setSuggestedWorkout={setSuggestedWorkout}
               />
             }
           />
