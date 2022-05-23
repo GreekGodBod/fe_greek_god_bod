@@ -35,8 +35,6 @@ function App() {
   // console.log(id)
   const addWorkout = (newWorkout) => {
     postCreatedWorkout(newWorkout)
-    // .then(data => set)
-    // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {
@@ -116,6 +114,8 @@ function App() {
                 backToDash={backToDash}
                 addWorkout={addWorkout}
                 openPopup={openPopup}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
                 getPastWorkouts={getPastWorkouts}
                 setPastWorkouts={setPastWorkouts}
                 currentUser={currentUser}
