@@ -10,7 +10,8 @@ const MyWorkouts = ({
   findWorkout,
   getPastWorkouts,
   setPastWorkouts,
-  setCurrentUser
+  setCurrentUser,
+  pastWorkouts
 }) => {
 
   const { id } = useParams()
@@ -19,10 +20,10 @@ const MyWorkouts = ({
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
     setCurrentUser(id)
   }, [])
-  
+  console.log('past', pastWorkouts)
   let workouts
-  if (createdWorkouts) {
-    workouts = createdWorkouts.map((workout) => {
+  if (pastWorkouts) {
+    workouts = pastWorkouts.data.attributes.workouts.map((workout) => {
       return (
         <Workout
           key={workout.name}

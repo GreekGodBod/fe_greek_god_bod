@@ -4,7 +4,7 @@ import './Exercise.css'
 const Exercise = (props) => {
   const [reps, setReps] = useState('')
   const [weight, setWeight] = useState('')
-  const [sets, setSets] = useState('')
+//   const [sets, setSets] = useState('')
   
   const addSet = (e) => {
     e.preventDefault()
@@ -12,14 +12,15 @@ const Exercise = (props) => {
       reps: reps,
       weight: weight
     }
-    setSets([...sets, newSet])
+    props.addSets(newSet)
+    // setSets([...sets, newSet])
     setReps('')
     setWeight('')
   }
 
   let allSets
-  if (sets[0]) {
-    allSets = sets.map((set, i) => {
+  if (props.sets[0]) {
+    allSets = props.sets.map((set, i) => {
       return (
         <p key={i}>
           Set {(i += 1)}: {set.reps} reps x {set.weight} lbs{' '}
@@ -33,7 +34,7 @@ const Exercise = (props) => {
   return (
     <section className='exercise'>
       <div className='image-container'>
-        <img className='exercise-img' src={props.exercise.gifUrl} />
+        <img className='exercise-img' src={props.exercise.gif} />
       </div>
       <div className='exercise-info-container'>
         <div className='exercise-info'>
