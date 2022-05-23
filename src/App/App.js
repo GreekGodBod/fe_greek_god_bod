@@ -53,9 +53,7 @@ function App() {
   }
 
   const findWorkout = (workoutName) => {
-    const workout = createdWorkouts.find(
-      (workout) => workout.name === workoutName
-    )
+    const workout = pastworkouts.data.attributes.workouts.find(workout => workout.name === workoutName)
     setOneWorkout(workout)
   }
 
