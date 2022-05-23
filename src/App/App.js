@@ -28,14 +28,14 @@ function App() {
   // const { id } = useParams()
 
   useEffect(() => {
-    // getPastWorkouts(id).then((data) => setPastWorkouts(data))
+    getPastWorkouts(currentUser).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
   }, [])
   // console.log(id)
   const addWorkout = (newWorkout) => {
-    // postCreatedWorkout(newWorkout)
-    // .then(data => console.log("post",data))
+    postCreatedWorkout(newWorkout)
+    // .then(data => set)
     // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
@@ -128,6 +128,7 @@ function App() {
                 getPastWorkouts={getPastWorkouts}
                 setPastWorkouts={setPastWorkouts}
                 setCurrentUser={setCurrentUser}
+                pastWorkouts={pastworkouts}
               />
             }
           />
