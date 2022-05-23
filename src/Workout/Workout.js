@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Workout = ({ workout, deleteWorkout, currentUser, findWorkout }) => {
   let { name } = useParams()
-
+console.log("workout",workout)
   const navigate = useNavigate()
   let exercises
 
@@ -15,7 +15,7 @@ const Workout = ({ workout, deleteWorkout, currentUser, findWorkout }) => {
           key={exercise.id}
           workoutName={workout.name}
           currentUser={currentUser}
-          id={workout.id}
+        //   id={workout.id}
           exercise={exercise}
         />
       )
