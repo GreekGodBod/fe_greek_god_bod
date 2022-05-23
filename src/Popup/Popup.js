@@ -4,9 +4,6 @@ const Popup = ({ closePopup, directWorkouts }) => {
   return (
     <div className='popup-box'>
       <div className='box'>
-        {/* <span className='close-icon' onClick={closePopup}>
-          x
-        </span> */}
         <p className='created-notification'>Your workout has been added!</p>
         <div className='popup-button-container'>
           <button
