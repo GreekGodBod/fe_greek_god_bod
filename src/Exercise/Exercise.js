@@ -4,7 +4,7 @@ import './Exercise.css'
 const Exercise = (props) => {
   const [reps, setReps] = useState('')
   const [weight, setWeight] = useState('')
-  const [sets, setSets] = useState('')
+//   const [sets, setSets] = useState('')
   
   const addSet = (e) => {
     e.preventDefault()
@@ -12,7 +12,8 @@ const Exercise = (props) => {
       reps: reps,
       weight: weight
     }
-    setSets([...sets, newSet])
+    props.addSets(newSet)
+    // setSets([...sets, newSet])
     setReps('')
     setWeight('')
   }
