@@ -29,11 +29,11 @@ const SuggestedWorkouts = ({
     getSuggestedWorkouts().then((data) => setSuggestedWorkout(data))
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
     setCurrentUser(id)
+    console.log("hi")
   }, [])
   console.log(suggestedWorkout)
-  if (suggestedWorkout.data.attributes) {
-
-// its erroring out on the fact that it doens't know what "attributes are on line 51 which makes me think its an async thing but I put the if statement in there to say loading if it isn't loaded yet so I'm not sure..."
+  if (suggestedWorkout.data.attributes.name === "killer shoulder day") {
+    // not sure what is happening here... for some reason it skips the if statement and errors on "attributes are undefined" line 51 which means it can't find the data (it should say loading) and doesn't run the useEffect
     return (
 
       <div className='suggested-workouts-page'>
