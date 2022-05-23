@@ -1,5 +1,6 @@
 import Exercise from '../Exercise/Exercise'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import './DoWorkout.css'
 
 const DoWorkout = (props) => {
@@ -17,7 +18,8 @@ const [sets, setSets] = useState('')
         key={exercise.id}
         exercise={exercise}
         id={props.oneWorkout.id}
-        addSet={addSet}
+        addSets={addSets}
+        sets={sets}
       />
     )
   })
