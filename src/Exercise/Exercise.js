@@ -5,7 +5,7 @@ const Exercise = (props) => {
   const [reps, setReps] = useState('')
   const [weight, setWeight] = useState('')
   const [sets, setSets] = useState('')
-  // console.log(props,"props")
+  
   const addSet = (e) => {
     e.preventDefault()
     const newSet = {
@@ -28,7 +28,7 @@ const Exercise = (props) => {
     })
   }
 
-  const doWorkoutPage = `http://localhost:3000/doworkout/${props.workoutName}/user/${props.currentUser}`
+//   const doWorkoutPage = `http://localhost:3000/doworkout/${props.workoutName}/user/${props.currentUser}`
 
   return (
     <section className='exercise'>
@@ -64,7 +64,6 @@ const Exercise = (props) => {
             </div>
           </form>
         </div>
-        {/* } */}
       </div>
     </section>
   )

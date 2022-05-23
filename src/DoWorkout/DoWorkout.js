@@ -30,8 +30,7 @@ const DoWorkout = (props) => {
             Back to My Workouts
           </button>
         </div>
-        <h1 className='page-title'>Test Title</h1>
-        {/* props.oneWorkout.title not working for some reason, needs more investigation */}
+        <h1 className='page-title'>{props.oneWorkout.name}</h1>
         <div className='spacer'></div>
       </section>
       <section className='do-workout-container'>{exercises}</section>

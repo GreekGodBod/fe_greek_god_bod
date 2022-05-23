@@ -4,17 +4,18 @@ import '../App/App.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Login = ({ setUser }) => {
-  const [username, setUsername] = useState('')
+const Login = ({ setUser, setUsername }) => {
+  const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   const login = (e) => {
     e.preventDefault()
-    const userId = username.charAt(username.length - 1)
+    const userId = name.charAt(name.length - 1)
     setUser(userId)
+    setUsername(name)
 
-    if (password === `password${userId}` && username === `user_${userId}`) {
+    if (password === `password${userId}` && name === `user_${userId}`) {
       navigate(`/dashboard/user/${userId}`)
     } else {
       alert('incorrect credentials.')
@@ -27,13 +28,13 @@ const Login = ({ setUser }) => {
         <div className='login-info-container'>
           <input
             type='text'
-            id='usernameInput'
-            name='username'
-            value={username}
+            id='nameInput'
+            name='name'
+            value={name}
             className='username-input no-outline login-input'
             placeholder='Username:'
             aria-label='username input'
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <br />
           <br />

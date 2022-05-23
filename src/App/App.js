@@ -2,7 +2,8 @@ import './App.css'
 import {
   newExercises,
   getPastWorkouts,
-  getSuggestedWorkouts
+  getSuggestedWorkouts,
+  postCreatedWorkout
 } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
@@ -12,7 +13,7 @@ import MyWorkouts from '../MyWorkouts/MyWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import DoWorkout from '../DoWorkout/DoWorkout'
-import { Routes, Route, Redirect, Switch, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -22,15 +23,20 @@ function App() {
   const [createdWorkouts, setCreatedWorkouts] = useState([])
   const [oneWorkout, setOneWorkout] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const [username, setUsername] = useState('')
   const navigate = useNavigate()
+  // const { id } = useParams()
 
   useEffect(() => {
+    // getPastWorkouts(id).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
   }, [])
-
+  // console.log(id)
   const addWorkout = (newWorkout) => {
-    setCreatedWorkouts([...createdWorkouts, newWorkout])
+    // postCreatedWorkout(newWorkout)
+    // .then(data => console.log("post",data))
+    // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {
@@ -59,24 +65,24 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <section className='login-section'> */}
-      {/* <Login setUser={setUser} /> */}
-      {/* </section> */}
-
       <div className='components'>
         <Routes>
           <Route
             path='/'
-            element={<Login replace to='/login' setUser={setUser} />}
+            element={<Login replace to='/login' setUsername={setUsername} setUser={setUser} />}
           />
-          {/* <Route exact path='/login' element={<Login setUser={setUser} />} /> */}
           <Route
-            exact
             path='/dashboard/user/:id'
-            element={<Dashboard currentUser={currentUser} />}
+            element={<Dashboard
+              username={username}
+              currentUser={currentUser}
+              getPastWorkouts={getPastWorkouts}
+              setPastWorkouts={setPastWorkouts}
+              setCurrentUser={setCurrentUser}
+              setUsername={setUsername}
+            />}
           />
           <Route
-            exact
             path='/createworkout/user/:id'
             element={
               <CreateWorkoutForm
@@ -87,11 +93,13 @@ function App() {
                 openPopup={openPopup}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
               />
             }
           />
           <Route
-            exact
             path='/suggestedworkouts/user/:id'
             element={
               <SuggestedWorkouts
@@ -101,11 +109,15 @@ function App() {
                 openPopup={openPopup}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
+                getSuggestedWorkouts={getSuggestedWorkouts}
+                setSuggestedWorkout={setSuggestedWorkout}
               />
             }
           />
           <Route
-            exact
             path='/myworkouts/user/:id'
             element={
               <MyWorkouts
@@ -113,10 +125,13 @@ function App() {
                 backToDash={backToDash}
                 currentUser={currentUser}
                 findWorkout={findWorkout}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
               />
             }
           />
-          <Route exact path='/social/user/:id' element={<Social />} />
+          <Route path='/social/user/:id' element={<Social />} />
           <Route
             path='/doworkout/:name/user/:id/'
             element={

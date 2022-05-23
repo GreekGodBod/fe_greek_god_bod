@@ -1,13 +1,25 @@
 import './MyWorkouts.css'
 import Workout from '../Workout/Workout'
-import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const MyWorkouts = ({
   createdWorkouts,
   currentUser,
   backToDash,
-  findWorkout
+  findWorkout,
+  getPastWorkouts,
+  setPastWorkouts,
+  setCurrentUser
 }) => {
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    getPastWorkouts(id).then((data) => setPastWorkouts(data))
+    setCurrentUser(id)
+  }, [])
+  
   let workouts
   if (createdWorkouts) {
     workouts = createdWorkouts.map((workout) => {
