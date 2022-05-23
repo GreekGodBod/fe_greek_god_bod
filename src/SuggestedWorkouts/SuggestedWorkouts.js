@@ -2,12 +2,15 @@ import './SuggestedWorkouts.css'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Popup from '../Popup/Popup'
 
 const SuggestedWorkouts = ({
   suggestedWorkout,
   backToDash,
   addWorkout,
   openPopup,
+  isOpen,
+  setIsOpen,
   currentUser,
   getPastWorkouts,
   setCurrentUser,
@@ -15,6 +18,8 @@ const SuggestedWorkouts = ({
   getSuggestedWorkouts,
   setSuggestedWorkout
 }) => {
+  const navigate = useNavigate()
+
   const { id } = useParams()
   console.log('suggested', suggestedWorkout)
 
@@ -37,6 +42,15 @@ const SuggestedWorkouts = ({
     console.log(newWorkout)
     addWorkout(newWorkout)
     openPopup()
+  }
+
+  const directWorkouts = () => {
+    openPopup()
+    navigate(`/myworkouts/user/${currentUser}`)
+  }
+
+  const closeSuggestedPopup = () => {
+    setIsOpen(!isOpen)
   }
 
   if (suggestedWorkout) {
@@ -75,9 +89,14 @@ const SuggestedWorkouts = ({
         <button className='add-suggested-workout' onClick={submitNewWorkout}>
           Add to My Workouts
         </button>
-        {/* {props.isOpen && (
-          <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
-        )} */}
+        {isOpen && (
+          <Popup
+            openPopup={openPopup}
+            closeSuggestedPopup={closeSuggestedPopup}
+            directWorkouts={directWorkouts}
+            currentUser={currentUser}
+          />
+        )}
       </div>
     )
   } else {
