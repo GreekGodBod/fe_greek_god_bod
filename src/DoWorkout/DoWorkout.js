@@ -3,7 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import './DoWorkout.css'
 
 const DoWorkout = (props) => {
+const [sets, setSets] = useState('')
   const navigate = useNavigate()
+
+  const addSets = (newSet) => {
+    setSets([...sets, newSet])
+  }
+
 
   let exercises = props.oneWorkout.exercises.map((exercise) => {
     return (
@@ -11,6 +17,7 @@ const DoWorkout = (props) => {
         key={exercise.id}
         exercise={exercise}
         id={props.oneWorkout.id}
+        addSet={addSet}
       />
     )
   })
