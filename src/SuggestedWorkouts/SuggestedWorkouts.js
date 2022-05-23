@@ -8,21 +8,13 @@ const SuggestedWorkouts = ({
   backToDash,
   addWorkout,
   openPopup,
-  isOpen,
-  setIsOpen,
+  currentUser,
   getPastWorkouts,
   setCurrentUser,
   setPastWorkouts,
   getSuggestedWorkouts,
   setSuggestedWorkout
 }) => {
-  // const submitNewWorkout = (e) => {
-  //   e.preventDefault()
-  //   console.log(suggestedWorkout)
-  //   addWorkout(suggestedWorkout)
-  //   openPopup()
-  // }
-
   const { id } = useParams()
   console.log('suggested', suggestedWorkout)
 
@@ -32,7 +24,21 @@ const SuggestedWorkouts = ({
     setCurrentUser(id)
     console.log('suggested', suggestedWorkout)
   }, [])
+
   console.log(suggestedWorkout)
+
+  const submitNewWorkout = (e) => {
+    e.preventDefault()
+    const newWorkout = {
+      id: currentUser,
+      name: suggestedWorkout.data.name,
+      exercises: suggestedWorkout.data.exercises
+    }
+    console.log(newWorkout)
+    addWorkout(newWorkout)
+    openPopup()
+  }
+
   if (suggestedWorkout) {
     // not sure what is happening here... for some reason it skips the if statement and errors on "attributes are undefined" line 51 which means it can't find the data (it should say loading) and doesn't run the useEffect
     return (
@@ -48,11 +54,10 @@ const SuggestedWorkouts = ({
         </div>
         <div className='suggested-workouts-container'>
           <h2 className='suggested-workout-message'>
-            Today's suggested workout is '
-            {suggestedWorkout.data.attributes.name}
+            Today's suggested workout is '{suggestedWorkout.data.name}
             '!
           </h2>
-          {suggestedWorkout.data.attributes.exercises.map((exercise) => {
+          {suggestedWorkout.data.exercises.map((exercise) => {
             return (
               <div className='suggested-workout-container' key={exercise.id}>
                 <img
@@ -67,10 +72,12 @@ const SuggestedWorkouts = ({
             )
           })}
         </div>
-        {/* <button className='add-suggested-workout' onClick={submitNewWorkout}>
-        Add to My Workouts
-      </button> 
-      This functionality isn't working because suggested workout object is in different format as created workout object*/}
+        <button className='add-suggested-workout' onClick={submitNewWorkout}>
+          Add to My Workouts
+        </button>
+        {/* {props.isOpen && (
+          <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
+        )} */}
       </div>
     )
   } else {
