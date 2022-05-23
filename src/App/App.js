@@ -116,10 +116,9 @@ function App() {
                 backToDash={backToDash}
                 addWorkout={addWorkout}
                 openPopup={openPopup}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
                 getPastWorkouts={getPastWorkouts}
                 setPastWorkouts={setPastWorkouts}
+                currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 getSuggestedWorkouts={getSuggestedWorkouts}
                 setSuggestedWorkout={setSuggestedWorkout}
