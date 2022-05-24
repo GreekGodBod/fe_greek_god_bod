@@ -140,12 +140,17 @@ function App() {
               />
             }
           />
-          <Route path='/social/user/:id' element={<Social />} />
+          <Route path='/social/user/:id' element={<Social
+            getPastWorkouts={getPastWorkouts}
+            setCurrentUser={setCurrentUser}
+            setPastWorkouts={setPastWorkouts}
+            username={username}
+          />} />
           <Route
             path='/doworkout/:name/user/:id/'
             element={
-              <DoWorkout oneWorkout={oneWorkout} 
-              currentUser={currentUser} 
+              <DoWorkout oneWorkout={oneWorkout}
+              currentUser={currentUser}
               findWorkout={findWorkout}
               />
             }
