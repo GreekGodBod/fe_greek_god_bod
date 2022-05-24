@@ -35,8 +35,6 @@ function App() {
   // console.log(id)
   const addWorkout = (newWorkout) => {
     postCreatedWorkout(newWorkout)
-    // .then(data => set)
-    // setCreatedWorkouts([...createdWorkouts, newWorkout])
   }
 
   const setUser = (userId) => {
@@ -53,7 +51,9 @@ function App() {
   }
 
   const findWorkout = (workoutName) => {
-    const workout = pastworkouts.data.attributes.workouts.find(workout => workout.name === workoutName)
+    const workout = pastworkouts.data.attributes.workouts.find(
+      (workout) => workout.name === workoutName
+    )
     setOneWorkout(workout)
   }
 
@@ -67,18 +67,27 @@ function App() {
         <Routes>
           <Route
             path='/'
-            element={<Login replace to='/login' setUsername={setUsername} setUser={setUser} />}
+            element={
+              <Login
+                replace
+                to='/login'
+                setUsername={setUsername}
+                setUser={setUser}
+              />
+            }
           />
           <Route
             path='/dashboard/user/:id'
-            element={<Dashboard
-              username={username}
-              currentUser={currentUser}
-              getPastWorkouts={getPastWorkouts}
-              setPastWorkouts={setPastWorkouts}
-              setCurrentUser={setCurrentUser}
-              setUsername={setUsername}
-            />}
+            element={
+              <Dashboard
+                username={username}
+                currentUser={currentUser}
+                getPastWorkouts={getPastWorkouts}
+                setPastWorkouts={setPastWorkouts}
+                setCurrentUser={setCurrentUser}
+                setUsername={setUsername}
+              />
+            }
           />
           <Route
             path='/createworkout/user/:id'
@@ -109,6 +118,7 @@ function App() {
                 setIsOpen={setIsOpen}
                 getPastWorkouts={getPastWorkouts}
                 setPastWorkouts={setPastWorkouts}
+                currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 getSuggestedWorkouts={getSuggestedWorkouts}
                 setSuggestedWorkout={setSuggestedWorkout}

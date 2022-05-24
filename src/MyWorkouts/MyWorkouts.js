@@ -13,7 +13,6 @@ const MyWorkouts = ({
   setCurrentUser,
   pastWorkouts
 }) => {
-
   const { id } = useParams()
 
   useEffect(() => {
