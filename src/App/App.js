@@ -62,7 +62,7 @@ function App() {
   }
 
   const submitCompletedWorkout = (workout) => {
-    patchWorkout(workout)
+    patchWorkout(workout, currentUser)
     .then(data => console.log(data))
   }
 

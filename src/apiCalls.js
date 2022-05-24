@@ -58,8 +58,8 @@ const postCreatedWorkout = (createdWorkout) => {
     })
   }
 
-  const patchWorkout = (workout) => {
-    return fetch('https://be-greek-god-bod.herokuapp.com//api/v1/user', {
+  const patchWorkout = (workout, id) => {
+    return fetch(`https://be-greek-god-bod.herokuapp.com//api/v1/user/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(workout)
