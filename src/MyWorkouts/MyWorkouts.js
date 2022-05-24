@@ -22,6 +22,7 @@ const MyWorkouts = ({
   }, [])
   console.log('past', pastWorkouts)
   let workouts
+  console.log("PW",pastWorkouts)
   if (pastWorkouts) {
     workouts = pastWorkouts.data.attributes.workouts.map((workout) => {
       return (
