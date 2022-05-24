@@ -9,7 +9,7 @@ const Exercise = (props) => {
   const addSet = (e) => {
     e.preventDefault()
     const newSet = {
-      id:props.exercise.name,  
+      workout_exercise_id:props.exercise.id,  
       reps: reps,
       weight_lbs: weight
     }
