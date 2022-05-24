@@ -6,14 +6,19 @@ import './DoWorkout.css'
 const DoWorkout = (props) => {
     const [allSets, setAllSets] = useState([])
     const navigate = useNavigate()
-    console.log(allSets)
     
-
-    //find the right exercise with .find? and then
-    //excerise.intervals.push(newSet) with reps and weight_lbs
-    //send the oneWorkout with the intervals in the patch 
-    
-
+    console.log(props.oneWorkout.workout_instance[0].intervals)
+    let sets;
+    const addCompletedWorkout = () => {
+        props.oneWorkout.exercises.forEach(exercise => {
+            sets = allSets.filter(set => set.name === exercise.name)
+            props.oneWorkout.workout_instance[0].intervals.push(sets)
+            console.log('sets',sets)
+        })
+        console.log("allsets", allSets)
+        console.log(props.oneWorkout)
+        // props.submitCompletedWorkout(newWorkout)
+    }
 
     let exercises = props.oneWorkout.exercises.map((exercise) => {
         return (
@@ -46,6 +51,7 @@ const DoWorkout = (props) => {
                 <div className='spacer'></div>
             </section>
             <section className='do-workout-container'>{exercises}</section>
+            <button onClick={addCompletedWorkout}>Complete Workout</button>
         </div>
     )
 }
