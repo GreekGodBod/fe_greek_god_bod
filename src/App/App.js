@@ -63,7 +63,7 @@ function App() {
 
   const submitCompletedWorkout = (workout) => {
     patchWorkout(workout)
-    .then(response => console.log(response))
+    .then(data => console.log(data))
   }
 
   return (
@@ -152,6 +152,7 @@ function App() {
               <DoWorkout oneWorkout={oneWorkout} 
               currentUser={currentUser} 
               findWorkout={findWorkout}
+              submitCompletedWorkout={submitCompletedWorkout}
               />
             }
           />

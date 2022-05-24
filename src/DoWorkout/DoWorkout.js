@@ -12,7 +12,7 @@ const DoWorkout = (props) => {
     useEffect(() => {
       props.findWorkout(name)
     }, [])
-    console.log("one",props.oneWorkout)
+    // console.log("one",props.oneWorkout)
     if(props.oneWorkout.exercises){
     let sets;
     const addCompletedWorkout = () => {
@@ -23,8 +23,8 @@ const DoWorkout = (props) => {
             console.log('sets',sets)
         })
         console.log("one",props.oneWorkout)
-        console.log("allsets", allSets)
-        // props.submitCompletedWorkout(newWorkout)
+        // console.log("allsets", allSets)
+        props.submitCompletedWorkout(props.oneWorkout)
     }
 
     let exercises = props.oneWorkout.exercises.map((exercise) => {
