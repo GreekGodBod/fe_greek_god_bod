@@ -19,36 +19,38 @@ const MyWorkouts = ({
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
     setCurrentUser(id)
   }, [])
-  console.log('past', pastWorkouts)
+console.log(pastWorkouts)
   let workouts
-  console.log("PW",pastWorkouts)
-  if (pastWorkouts) {
-    workouts = pastWorkouts.data.attributes.workouts.map((workout) => {
-      return (
-        <Workout
-          key={workout.name}
-          findWorkout={findWorkout}
-          currentUser={currentUser}
-          workout={workout}
-        />
-      )
-    })
-  }
 
-  return (
-    <div className='my-workouts-page'>
-      <div className='header-my-workouts'>
-        <div className='back-to-dashboard'>
-          <button className='back-to-dashboard-button' onClick={backToDash}>
-            Back to Dashboard
-          </button>
+  if (pastWorkouts.workouts) {
+  workouts = pastWorkouts.workouts.map((workout) => {
+    return (
+      <Workout
+        key={workout.name}
+        findWorkout={findWorkout}
+        currentUser={currentUser}
+        workout={workout}
+      />
+    )
+  })
+
+  
+    return (
+      <div className='my-workouts-page'>
+        <div className='header-my-workouts'>
+          <div className='back-to-dashboard'>
+            <button className='back-to-dashboard-button' onClick={backToDash}>
+              Back to Dashboard
+            </button>
+          </div>
+          <h1 className='page-title'>My Workouts</h1>
+          <div className='spacer'></div>
         </div>
-        <h1 className='page-title'>My Workouts</h1>
-        <div className='spacer'></div>
+        <div className='my-workouts-container'>{workouts}</div>
       </div>
-      <div className='my-workouts-container'>{workouts}</div>
-    </div>
-  )
+    )
+  } else return <h1>Loading</h1>
+
 }
 
 export default MyWorkouts

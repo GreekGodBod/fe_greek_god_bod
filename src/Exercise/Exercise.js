@@ -9,7 +9,7 @@ const Exercise = (props) => {
   const addSet = (e) => {
     e.preventDefault()
     const newSet = {
-      id:props.exercise.name,  
+      workout_exercise_id:props.exercise.id,  
       reps: reps,
       weight_lbs: weight
     }
@@ -35,7 +35,7 @@ const Exercise = (props) => {
   return (
     <section className='exercise'>
       <div className='image-container'>
-        <img className='exercise-img' src={props.exercise.gif} />
+        <img className='exercise-img' src={props.exercise.gif_url} />
       </div>
       <div className='exercise-info-container'>
         <div className='exercise-info'>

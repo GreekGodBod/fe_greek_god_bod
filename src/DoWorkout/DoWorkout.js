@@ -1,23 +1,29 @@
 import Exercise from '../Exercise/Exercise'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import './DoWorkout.css'
 
 const DoWorkout = (props) => {
     const [allSets, setAllSets] = useState([])
     const navigate = useNavigate()
     
-    console.log(props.oneWorkout.workout_instance[0].intervals)
+    const { name } = useParams()
+
+    useEffect(() => {
+      props.findWorkout(name)
+    }, [])
+    console.log("one",props.oneWorkout)
+    if(props.oneWorkout.exercises){
     let sets;
     const addCompletedWorkout = () => {
         props.oneWorkout.exercises.forEach(exercise => {
-            sets = allSets.filter(set => set.id === exercise.name)
-            props.oneWorkout.workout_instance[0].intervals.push(sets)
-            //once data is changed "workout_instance will need to be "exercise"
+            sets = allSets.filter(set => set.workout_exercise_id === exercise.id)
+            exercise.intervals.push(sets)
+            
             console.log('sets',sets)
         })
+        console.log("one",props.oneWorkout)
         console.log("allsets", allSets)
-        console.log(props.oneWorkout)
         // props.submitCompletedWorkout(newWorkout)
     }
 
@@ -54,7 +60,7 @@ const DoWorkout = (props) => {
             <section className='do-workout-container'>{exercises}</section>
             <button onClick={addCompletedWorkout}>Complete Workout</button>
         </div>
-    )
+    )} else return <h1>Loading..</h1>
 }
 
 export default DoWorkout
