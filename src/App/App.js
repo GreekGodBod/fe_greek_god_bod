@@ -52,9 +52,8 @@ function App() {
   }
 
   const findWorkout = (workoutName) => {
-    const workout = pastworkouts.data.attributes.workouts.find(
-      (workout) => workout.name === workoutName
-    )
+    const workout = pastworkouts.workouts.find(
+      (workout) => workout.name === workoutName)
     setOneWorkout(workout)
   }
 
@@ -145,7 +144,10 @@ function App() {
           <Route
             path='/doworkout/:name/user/:id/'
             element={
-              <DoWorkout oneWorkout={oneWorkout} currentUser={currentUser} />
+              <DoWorkout oneWorkout={oneWorkout} 
+              currentUser={currentUser} 
+              findWorkout={findWorkout}
+              />
             }
           />
         </Routes>
