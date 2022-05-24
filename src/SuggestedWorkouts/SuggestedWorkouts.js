@@ -30,7 +30,6 @@ const SuggestedWorkouts = ({
     console.log('suggested', suggestedWorkout)
   }, [])
 
-  console.log(suggestedWorkout)
 
   const submitNewWorkout = (e) => {
     e.preventDefault()
@@ -53,8 +52,8 @@ const SuggestedWorkouts = ({
     setIsOpen(!isOpen)
   }
 
-  if (suggestedWorkout) {
-    // not sure what is happening here... for some reason it skips the if statement and errors on "attributes are undefined" line 51 which means it can't find the data (it should say loading) and doesn't run the useEffect
+  if (suggestedWorkout.data) {
+    
     return (
       <div className='suggested-workouts-page'>
         <div className='header-suggested-workouts'>
