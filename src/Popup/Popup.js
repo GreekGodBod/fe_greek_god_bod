@@ -17,7 +17,7 @@ const Popup = ({
           >
             See my workout
           </button>
-          {window.location.href === `/suggestedworkouts/user/${currentUser}` ? (
+          {window.location.pathname == `/createworkout/user/${currentUser}` ? (
             <button className='make-another popup-button' onClick={closePopup}>
               Make another workout
             </button>
