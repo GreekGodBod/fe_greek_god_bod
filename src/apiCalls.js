@@ -58,4 +58,20 @@ const postCreatedWorkout = (createdWorkout) => {
     })
   }
 
-export { newExercises, getPastWorkouts, getSuggestedWorkouts, postCreatedWorkout }
+  const patchWorkout = (workout) => {
+    return fetch('https://be-greek-god-bod.herokuapp.com//api/v1/user', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(workout)
+    })
+    .then(response => {
+      if (response.status === 400){
+        throw new Error("404:Not Found")
+      } else if (response.status === 500){
+        throw new Error("500: Server is having issues")
+      }
+      return response.json()
+    })
+  }
+
+export { newExercises, getPastWorkouts, getSuggestedWorkouts, postCreatedWorkout, patchWorkout }
