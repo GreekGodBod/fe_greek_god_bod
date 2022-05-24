@@ -11,8 +11,9 @@ const DoWorkout = (props) => {
     let sets;
     const addCompletedWorkout = () => {
         props.oneWorkout.exercises.forEach(exercise => {
-            sets = allSets.filter(set => set.name === exercise.name)
+            sets = allSets.filter(set => set.id === exercise.name)
             props.oneWorkout.workout_instance[0].intervals.push(sets)
+            //once data is changed "workout_instance will need to be "exercise"
             console.log('sets',sets)
         })
         console.log("allsets", allSets)
