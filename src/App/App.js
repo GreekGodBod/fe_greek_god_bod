@@ -34,6 +34,7 @@ function App() {
   }, [])
   // console.log(id)
   const addWorkout = (newWorkout) => {
+    console.log(JSON.stringify(newWorkout))
     postCreatedWorkout(newWorkout)
     // .then(data => set)
     // setCreatedWorkouts([...createdWorkouts, newWorkout])
