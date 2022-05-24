@@ -23,7 +23,7 @@ const MyWorkouts = ({
   let workouts
   console.log("PW",pastWorkouts)
   if (pastWorkouts) {
-    workouts = pastWorkouts.data.attributes.workouts.map((workout) => {
+    workouts = pastWorkouts.workouts.map((workout) => {
       return (
         <Workout
           key={workout.name}
@@ -34,7 +34,7 @@ const MyWorkouts = ({
       )
     })
   }
-
+// if(pastWorkouts.data.attributes.workouts[0]){
   return (
     <div className='my-workouts-page'>
       <div className='header-my-workouts'>
@@ -49,6 +49,8 @@ const MyWorkouts = ({
       <div className='my-workouts-container'>{workouts}</div>
     </div>
   )
+// } else return <h1>Loading</h1>
+  
 }
 
 export default MyWorkouts
