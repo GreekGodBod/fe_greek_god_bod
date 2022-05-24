@@ -35,7 +35,7 @@ const Exercise = (props) => {
   return (
     <section className='exercise'>
       <div className='image-container'>
-        <img className='exercise-img' src={props.exercise.gif} />
+        <img className='exercise-img' src={props.exercise.gif_url} />
       </div>
       <div className='exercise-info-container'>
         <div className='exercise-info'>
