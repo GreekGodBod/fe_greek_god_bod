@@ -29,7 +29,7 @@ const CreateWorkoutForm = (props) => {
   const submitNewWorkout = (e) => {
     e.preventDefault()
     const newWorkout = {
-      id:props.currentUser,
+      id: props.currentUser,
       name: name,
       exercises: exercises
     }
@@ -38,7 +38,7 @@ const CreateWorkoutForm = (props) => {
   }
 
   const closePopup = () => {
-    props.setIsOpen(!props.isOpen)
+    props.openPopup()
     clearInputs()
   }
 
@@ -121,7 +121,11 @@ const CreateWorkoutForm = (props) => {
         </form>
       )}
       {props.isOpen && (
-        <Popup closePopup={closePopup} directWorkouts={directWorkouts} />
+        <Popup
+          closePopup={closePopup}
+          directWorkouts={directWorkouts}
+          currentUser={props.currentUser}
+        />
       )}
     </div>
   )
