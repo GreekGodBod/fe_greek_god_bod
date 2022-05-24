@@ -4,23 +4,24 @@ import './Exercise.css'
 const Exercise = (props) => {
   const [reps, setReps] = useState('')
   const [weight, setWeight] = useState('')
-//   const [sets, setSets] = useState('')
+  const [sets, setSets] = useState('')
   
   const addSet = (e) => {
     e.preventDefault()
     const newSet = {
+      id:props.exercise.name,  
       reps: reps,
-      weight: weight
+      weight_lbs: weight
     }
-    props.addSets(newSet)
-    // setSets([...sets, newSet])
+    setSets([...sets, newSet])
+    props.setAllSets([...props.allSets, newSet])
     setReps('')
     setWeight('')
   }
 
   let allSets
-  if (props.sets[0]) {
-    allSets = props.sets.map((set, i) => {
+  if (sets[0]) {
+    allSets = sets.map((set, i) => {
       return (
         <p key={i}>
           Set {(i += 1)}: {set.reps} reps x {set.weight} lbs{' '}

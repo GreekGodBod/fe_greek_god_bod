@@ -33,7 +33,6 @@ const CreateWorkoutForm = (props) => {
       name: name,
       exercises: exercises
     }
-    console.log(newWorkout)
     props.addWorkout(newWorkout)
     props.openPopup()
   }
