@@ -3,7 +3,8 @@ import {
   newExercises,
   getPastWorkouts,
   getSuggestedWorkouts,
-  postCreatedWorkout
+  postCreatedWorkout,
+  patchWorkout
 } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
@@ -13,7 +14,7 @@ import MyWorkouts from '../MyWorkouts/MyWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import DoWorkout from '../DoWorkout/DoWorkout'
-import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -25,14 +26,13 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [username, setUsername] = useState('')
   const navigate = useNavigate()
-  // const { id } = useParams()
 
   useEffect(() => {
     getPastWorkouts(currentUser).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
   }, [])
-  // console.log(id)
+ 
   const addWorkout = (newWorkout) => {
     console.log(JSON.stringify(newWorkout))
     postCreatedWorkout(newWorkout)
@@ -59,6 +59,11 @@ function App() {
 
   const openPopup = () => {
     setIsOpen(!isOpen)
+  }
+
+  const submitCompletedWorkout = (workout) => {
+    patchWorkout(workout)
+    .then(response => console.log(response))
   }
 
   return (
