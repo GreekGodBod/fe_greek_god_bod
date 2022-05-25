@@ -38,6 +38,11 @@ describe('Create Workout page load', () => {
         .should('have.text', 'Select a muscle group, then click on exercises to add!')
       })
       
+      it('should display a back to dashboard button', () => {
+        cy.get('.back-to-dashboard-button')
+          .should('have.text', 'Back to Dashboard')
+        })
+        
     
 
 })
