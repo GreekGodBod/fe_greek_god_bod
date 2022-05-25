@@ -21,4 +21,9 @@ describe('Login page load', () => {
       cy.get('.suggested-workout-message')
         .should('have.text', "Today\'s suggested workout is 'killer back day'!")
       })
+
+    it('should display the suggested workout', () => {
+      cy.get('.name-container')
+        .should('have.text', "alternate lateral pulldown")
+      })
   })
