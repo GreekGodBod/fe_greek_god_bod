@@ -84,7 +84,7 @@ const ChatBox = (props) => {
           key={message.id}
         >
           <p>
-            {message.name}: {message.content}
+            <b>{message.name}:</b> {message.content}
           </p>
         </div>
       )
