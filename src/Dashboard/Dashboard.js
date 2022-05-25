@@ -3,17 +3,23 @@ import profPic from '../images/lifter-pic.jpg'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, setCurrentUser, fetchUsers }) => {
+const Dashboard = ({
+  currentUser,
+  getPastWorkouts,
+  setPastWorkouts,
+  setCurrentUser,
+  fetchUsers
+}) => {
   const [users, setUsers] = useState([])
-  
+
   const navigate = useNavigate()
   const { id } = useParams()
-  
-  let user;
-  if(users[0]){
-    user = users.find(user => user.id == id)
+
+  let user
+  if (users[0]) {
+    user = users.find((user) => user.id == id)
   }
-    
+
   const navigateCreateWorkout = () => {
     navigate(`/createworkout/user/${currentUser}`)
   }
@@ -29,13 +35,11 @@ const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, se
   const navigateSocial = () => {
     navigate(`/social/user/${currentUser}`)
   }
-  
 
   useEffect(() => {
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
     setCurrentUser(id)
-    fetchUsers().then(data => setUsers(data))
-    
+    fetchUsers().then((data) => setUsers(data))
   }, [])
 
   return (
