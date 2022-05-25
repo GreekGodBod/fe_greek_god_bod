@@ -18,4 +18,8 @@ describe('Login page load', () => {
     .should('be.visible')
     })
 
+    it('should display an App title', () => {
+      cy.get('.title')
+       .should('have.text', 'GREEK GOD BOD')
+      })
   })
