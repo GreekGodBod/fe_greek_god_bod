@@ -4,7 +4,7 @@ const newExercises = () => {
         method: 'GET',
         headers: {
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-            'X-RapidAPI-Key': '0db63607a1mshb7058632ce290c3p10e57ajsn0d36c557c666'
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
         }
     };
 

@@ -28,8 +28,8 @@ const ChatBox = (props) => {
 
 
   useEffect(() => {
-    // const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
-    const URL = 'ws://localhost:5000/cable'
+    const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
+    // const URL = 'ws://localhost:5000/cable'
     if (!cable.current) {
       cable.current = createConsumer(URL)
     }
