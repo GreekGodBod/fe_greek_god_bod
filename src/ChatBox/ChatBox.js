@@ -1,8 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
-import { createConsumer } from '@rails/actioncable'
+// import { createConsumer } from '@rails/actioncable'
+import * as ActionCable from '@rails/actioncable'
 import './ChatBox.css'
+
+ActionCable.logger.enabled = true
+const { createConsumer } = ActionCable
 
 const ChatBox = (props) => {
   // const [username, setUsername] = useState('')
@@ -24,14 +28,15 @@ const ChatBox = (props) => {
 
 
   useEffect(() => {
-    const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
+    // const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
+    const URL = 'ws://localhost:5000/cable'
     if (!cable.current) {
       cable.current = createConsumer(URL)
     }
 
     const paramsToSend = {
-      channel: 'ChatChannel',
-      username: user.name
+      channel: 'SocialChannel',
+      username: props.username
     }
   
     const handlers = {
@@ -87,7 +92,7 @@ const ChatBox = (props) => {
           key={message.id}
         >
           <p>
-            {message.name}: {message.content}
+            <b>{message.name}:</b> {message.content}
           </p>
         </div>
       )
