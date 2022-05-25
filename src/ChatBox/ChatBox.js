@@ -12,14 +12,15 @@ const ChatBox = (props) => {
   useEffect(() => {
     props.fetchChat()
     .then(data => setMessages([...messages, data]))
-    // props.getMessages()
-    // .then(data => setMessages([...messages, data]))
   }, [])
   // }, [params.id, loggedInUser.id])
 console.log(messages)
   useEffect(() => {
     const URL = 'ws://be-greek-god-bod.herokuapp.com/cable';
-    cable = createConsumer(URL);
+    if(!cable.current){
+      cable.current = createConsumer(URL);
+    }
+    
 
     const paramsToSend ={
       channel: 'ChatChannel',
@@ -37,14 +38,16 @@ console.log(messages)
 
       disconnected() {
         console.log("disconnected")
+        cable.current = null
       }
     }
 
-    const subscription = cable.subscriptions.create(paramsToSend, handlers)
+    const subscription = cable.current.subscriptions.create(paramsToSend, handlers)
 
     return function cleanup() {
       console.log("unsubbing from", props.username)
       subscription.unsubscribe()
+      cable.current = null
     }
   }, [])
 
