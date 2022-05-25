@@ -1,9 +1,25 @@
 describe('Login page load', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://be-greek-god-bod.herokuapp.com//api/v1/workouts', {
+    cy.intercept('GET', 'https://exercisedb.p.rapidapi.com/exercises', {
       statusCode: 200,
-      fixture: 'suggestedWorkout.json'
+      fixture: 'exercises.json'
       })
+
+      cy.intercept('GET', 'https://be-greek-god-bod.herokuapp.com//api/v1/user', {
+        statusCode: 200,
+        fixture: 'users.json'
+        })
+
+      cy.intercept('GET', 'https://be-greek-god-bod.herokuapp.com//api/v1/user/1', {
+        statusCode: 200,
+        fixture: 'pastWorkouts.json'
+        })
+
+      cy.intercept('GET', 'https://be-greek-god-bod.herokuapp.com//api/v1/workouts', {
+        statusCode: 200,
+        fixture: 'suggestedWorkout.json'
+      })
+      
     cy.visit('http://localhost:3000/suggestedworkouts/user/1');
     })
     
