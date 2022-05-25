@@ -24,7 +24,7 @@ const Exercise = (props) => {
     allSets = sets.map((set, i) => {
       return (
         <p key={i}>
-          Set {(i += 1)}: {set.reps} reps x {set.weight} lbs{' '}
+          Set {(i += 1)}: {set.reps} reps x {set.weight_lbs} lbs{' '}
         </p>
       )
     })

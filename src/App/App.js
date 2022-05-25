@@ -3,7 +3,10 @@ import {
   newExercises,
   getPastWorkouts,
   getSuggestedWorkouts,
-  postCreatedWorkout
+  postCreatedWorkout,
+  patchWorkout,
+  fetchChat,
+  fetchUsers
 } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
@@ -13,9 +16,10 @@ import MyWorkouts from '../MyWorkouts/MyWorkouts'
 import Social from '../Social/Social'
 import SuggestedWorkouts from '../SuggestedWorkouts/SuggestedWorkouts'
 import DoWorkout from '../DoWorkout/DoWorkout'
-import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function App() {
+  const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const [pastworkouts, setPastWorkouts] = useState([])
   const [suggestedWorkout, setSuggestedWorkout] = useState({})
@@ -25,14 +29,14 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [username, setUsername] = useState('')
   const navigate = useNavigate()
-  // const { id } = useParams()
 
   useEffect(() => {
     getPastWorkouts(currentUser).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
+    fetchUsers().then(data => setUsers(data))
   }, [])
-  // console.log(id)
+ 
   const addWorkout = (newWorkout) => {
     console.log(JSON.stringify(newWorkout))
     postCreatedWorkout(newWorkout)
@@ -61,6 +65,15 @@ function App() {
     setIsOpen(!isOpen)
   }
 
+  const submitCompletedWorkout = (workout) => {
+    patchWorkout(workout, currentUser)
+    .then(data => console.log(data))
+  }
+
+  // const getMessages = () => {
+  //   fetchChat()
+  // }
+
   return (
     <div className='App'>
       <div className='components'>
@@ -86,6 +99,7 @@ function App() {
                 setPastWorkouts={setPastWorkouts}
                 setCurrentUser={setCurrentUser}
                 setUsername={setUsername}
+                fetchUsers={fetchUsers}
               />
             }
           />
@@ -145,6 +159,8 @@ function App() {
             setCurrentUser={setCurrentUser}
             setPastWorkouts={setPastWorkouts}
             username={username}
+            // getMessages={getMessages}
+            fetchChat={fetchChat}
           />} />
           <Route
             path='/doworkout/:name/user/:id/'
@@ -152,6 +168,7 @@ function App() {
               <DoWorkout oneWorkout={oneWorkout}
               currentUser={currentUser}
               findWorkout={findWorkout}
+              submitCompletedWorkout={submitCompletedWorkout}
               />
             }
           />
