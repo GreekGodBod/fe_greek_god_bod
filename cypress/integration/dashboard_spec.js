@@ -27,4 +27,9 @@ describe('Dashboard page load', () => {
       cy.get('.my-workout-button')
         .should('have.text', 'My Workouts')
       })
+
+    it('should display an image for the user', () => {
+      cy.get('.profile-pic')
+        .should('be.visible')
+      })
   })
