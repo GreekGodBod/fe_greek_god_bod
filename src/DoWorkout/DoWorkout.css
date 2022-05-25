@@ -13,3 +13,13 @@
   overflow: scroll;
   height: 70%;
 }
+
+.complete-workout-button {
+  background-color: #ffa02f;
+  color: #14213d;
+  margin-top: 1em;
+  border: 0;
+  border-radius: 0.5em;
+  font-size: 1.3em;
+  cursor: pointer;
+}
