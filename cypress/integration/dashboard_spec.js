@@ -1,12 +1,11 @@
 describe('Dashboard page load', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/dashboard/user/1');
-    })
-    
-    it('should display a welcome message', () => {
-    cy.get('.welcome-message')
-     .should('have.text', 'Welcome, ')
-    })
+      cy.intercept('GET', 'https://be-greek-god-bod.herokuapp.com//api/v1/user', {
+        statusCode: 200,
+        fixture: 'users.json'
+        }).as('users')
+      cy.visit('http://localhost:3000/dashboard/user/1');
+      })
 
     it('should display a button labeled Social', () => {
       cy.get('.social-button')
