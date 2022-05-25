@@ -19,7 +19,7 @@ const MyWorkouts = ({
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
     setCurrentUser(id)
   }, [])
-console.log(pastWorkouts)
+
   let workouts
 
   if (pastWorkouts.workouts) {

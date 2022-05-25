@@ -12,19 +12,16 @@ const DoWorkout = (props) => {
     useEffect(() => {
       props.findWorkout(name)
     }, [])
-    console.log("one",props.oneWorkout)
+
     if(props.oneWorkout.exercises){
     let sets;
     const addCompletedWorkout = () => {
         props.oneWorkout.exercises.forEach(exercise => {
             sets = allSets.filter(set => set.workout_exercise_id === exercise.id)
-            exercise.intervals.push(sets)
-            
-            console.log('sets',sets)
+            sets.forEach(set => exercise.intervals.push(set))
+
         })
-        console.log("one",props.oneWorkout)
-        console.log("allsets", allSets)
-        // props.submitCompletedWorkout(newWorkout)
+        props.submitCompletedWorkout(props.oneWorkout)
     }
 
     let exercises = props.oneWorkout.exercises.map((exercise) => {
