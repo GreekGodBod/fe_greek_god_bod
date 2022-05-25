@@ -1,20 +1,28 @@
 import React from 'react'
-// import consumer from '../cable.js';
+import { useParams } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
 import { createConsumer } from '@rails/actioncable'
 import './ChatBox.css'
 
 const ChatBox = (props) => {
-  const [username, setUsername] = useState('')
+  // const [username, setUsername] = useState('')
   const [content, setContent] = useState('')
   const [messages, setMessages] = useState([])
+  const { id } = useParams()
   let cable = useRef()
 
   useEffect(() => {
     props.fetchChat().then((data) => setMessages([...messages, data]))
   }, [])
-  // }, [params.id, loggedInUser.id])
+  
   console.log(messages)
+
+  let user;
+  if(props.users[0]){
+    user = props.users.find(user => user.id == id)
+  }
+
+
   useEffect(() => {
     const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
     if (!cable.current) {
@@ -23,7 +31,7 @@ const ChatBox = (props) => {
 
     const paramsToSend = {
       channel: 'ChatChannel',
-      username: props.username
+      username: user.name
     }
 
     const handlers = {
@@ -47,21 +55,16 @@ const ChatBox = (props) => {
     )
 
     return function cleanup() {
-      console.log('unsubbing from', props.username)
+      console.log('unsubbing from', user.name)
       subscription.unsubscribe()
       cable.current = null
     }
   }, [])
 
-  // useEffect(() => {
-  //   consumer.disconnect()
-  //   console.log('hello')
-  // }, [props.username, messages])
-
   const handleSubmit = (e) => {
     e.preventDefault()
     const data = {
-      username: props.username,
+      username: user.name,
       content: content
     }
     fetch('https://be-greek-god-bod.herokuapp.com//api/v1/social', {
@@ -77,7 +80,7 @@ const ChatBox = (props) => {
         <div
           className={
             //conditional rendering for styling depending on who is signed in below
-            message.name === props.username
+            message.name === user.name
               ? 'chat-message-main-user'
               : 'chat-message'
           }
