@@ -2,10 +2,7 @@ import './ExerciseForm.css'
 import { useState } from 'react'
 
 const ExerciseForm = (props) => {
-  
   const [category, setCategory] = useState('')
-  const [name, setName] = useState('')
-
 
   const submitNewExercise = (e, exercise) => {
     e.preventDefault()

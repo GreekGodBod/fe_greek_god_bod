@@ -3,43 +3,36 @@ import Workout from '../Workout/Workout'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 
-const MyWorkouts = ({
-  createdWorkouts,
-  currentUser,
-  backToDash,
-  findWorkout,
-  getPastWorkouts,
-  setPastWorkouts,
-  setCurrentUser,
-  pastWorkouts
-}) => {
+const MyWorkouts = (props) => {
   const { id } = useParams()
 
   useEffect(() => {
-    getPastWorkouts(id).then((data) => setPastWorkouts(data))
-    setCurrentUser(id)
+    props.getPastWorkouts(id).then((data) => props.setPastWorkouts(data))
+    props.setCurrentUser(id)
   }, [])
 
   let workouts
 
-  if (pastWorkouts.workouts) {
-  workouts = pastWorkouts.workouts.map((workout) => {
-    return (
-      <Workout
-        key={workout.name}
-        findWorkout={findWorkout}
-        currentUser={currentUser}
-        workout={workout}
-      />
-    )
-  })
+  if (props.pastWorkouts.workouts) {
+    workouts = props.pastWorkouts.workouts.map((workout) => {
+      return (
+        <Workout
+          key={workout.name}
+          findWorkout={props.findWorkout}
+          currentUser={props.currentUser}
+          workout={workout}
+        />
+      )
+    })
 
-  
     return (
       <div className='my-workouts-page'>
         <div className='header-my-workouts'>
           <div className='back-to-dashboard'>
-            <button className='back-to-dashboard-button' onClick={backToDash}>
+            <button
+              className='back-to-dashboard-button'
+              onClick={props.backToDash}
+            >
               Back to Dashboard
             </button>
           </div>
@@ -50,7 +43,6 @@ const MyWorkouts = ({
       </div>
     )
   } else return <h1>Loading</h1>
-
 }
 
 export default MyWorkouts
