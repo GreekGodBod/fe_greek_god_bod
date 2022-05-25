@@ -36,4 +36,19 @@ describe('Login page load', () => {
       cy.get('.add-suggested-workout')
         .should('have.text', 'Add to My Workouts')
       })
+
+    it('should be able to add to workouts', () => {
+      cy.get('.add-suggested-workout')
+        .should('have.text', 'Add to My Workouts')
+        .click()
+      })
+
+    it('should display a popup after the workout has been added', () => {
+      cy.get('.add-suggested-workout')
+        .should('have.text', 'Add to My Workouts')
+        .click()
+
+      cy.get('.created-notification')
+        .should('have.text', 'Your workout has been added!')
+      })
   })
