@@ -99,6 +99,7 @@ function App() {
                 setPastWorkouts={setPastWorkouts}
                 setCurrentUser={setCurrentUser}
                 setUsername={setUsername}
+                fetchUsers={fetchUsers}
               />
             }
           />

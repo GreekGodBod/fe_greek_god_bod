@@ -1,10 +1,19 @@
 import './Dashboard.css'
 import profPic from '../images/lifter-pic.jpg'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, setCurrentUser, setUserName }) => {
+const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, setCurrentUser, fetchUsers }) => {
+  const [users, setUsers] = useState([])
+  
   const navigate = useNavigate()
+  const { id } = useParams()
+  
+  let user;
+  if(users[0]){
+    user = users.find(user => user.id == id)
+  }
+    
   const navigateCreateWorkout = () => {
     navigate(`/createworkout/user/${currentUser}`)
   }
@@ -20,20 +29,19 @@ const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, se
   const navigateSocial = () => {
     navigate(`/social/user/${currentUser}`)
   }
-  const { id } = useParams()
+  
 
   useEffect(() => {
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
     setCurrentUser(id)
-    // setUserName()
+    fetchUsers().then(data => setUsers(data))
     
   }, [])
-  console.log(id)
 
   return (
     <section className='dashboard'>
       <div className='welcome-buttons-container'>
-        <h1 className='welcome-message'>Welcome, {username}</h1>
+        {user && <h1 className='welcome-message'>Welcome, {user.name}</h1>}
         <section className='button-container '>
           <button
             className='social-button dash-button'
