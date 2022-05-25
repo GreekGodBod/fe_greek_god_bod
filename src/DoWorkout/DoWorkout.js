@@ -62,7 +62,7 @@ const DoWorkout = (props) => {
         </button>
       </div>
     )
-  } else return <h1>Loading..</h1>
+  } else return <h1>Loading...</h1>
 }
 
 export default DoWorkout
