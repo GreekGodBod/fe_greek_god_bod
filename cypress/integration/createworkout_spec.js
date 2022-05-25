@@ -38,11 +38,19 @@ describe('Create Workout page load', () => {
         .should('have.text', 'Select a muscle group, then click on exercises to add!')
       })
       
-      it('should display a back to dashboard button', () => {
-        cy.get('.back-to-dashboard-button')
-          .should('have.text', 'Back to Dashboard')
-        })
+    it('should display a back to dashboard button', () => {
+      cy.get('.back-to-dashboard-button')
+        .should('have.text', 'Back to Dashboard')
+      })
         
-    
+    it('should display a dropdown menu', () => {
+      cy.get('.exercise-form')
+        .contains('abs')
+      })
+
+    it('should be able to select a workout from the dropdown', () => {
+      cy.get('.select-category')
+        .select('abs')
+      })
 
 })
