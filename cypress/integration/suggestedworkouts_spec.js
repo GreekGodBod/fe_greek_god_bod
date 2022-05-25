@@ -16,4 +16,9 @@ describe('Login page load', () => {
       cy.get('.back-to-dashboard-button')
        .should('have.text', 'Back to Dashboard')
       })
+
+    it('should display a sub header for what the suggested workout is', () => {
+      cy.get('.suggested-workout-message')
+        .should('have.text', "Today\'s suggested workout is 'killer back day'!")
+      })
   })
