@@ -18,7 +18,8 @@ const DoWorkout = (props) => {
     const addCompletedWorkout = () => {
         props.oneWorkout.exercises.forEach(exercise => {
             sets = allSets.filter(set => set.workout_exercise_id === exercise.id)
-            exercise.intervals.push(sets)
+            sets.forEach(set => exercise.intervals.push(set))
+            // exercise.intervals.push(sets)
             
             console.log('sets',sets)
         })
