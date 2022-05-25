@@ -31,4 +31,9 @@ describe('Login page load', () => {
       cy.get('.suggested-gif')
         .should('be.visible')
       })
+
+    it('should display a button for adding to workouts', () => {
+      cy.get('.add-suggested-workout')
+        .should('have.text', 'Add to My Workouts')
+      })
   })
