@@ -1,0 +1,246 @@
+{
+  "id": 1,
+  "user": {
+  "id": 1,
+  "name": "user_1",
+  "password": "password1",
+  "created_at": "2022-05-25T17:03:53.342Z",
+  "updated_at": "2022-05-25T17:03:53.342Z"
+  },
+  "workouts": [
+  {
+  "id": 1,
+  "name": "killer chest day",
+  "exercises": [
+  {
+  "id": 1,
+  "name": "barbell bench press",
+  "equipment": "barbell",
+  "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0025.gif",
+  "intervals": [
+  {
+  "id": 1,
+  "reps": 12,
+  "weight_lbs": 130,
+  "workout_exercise_id": 1
+  },
+  {
+  "id": 7,
+  "reps": 12,
+  "weight_lbs": 135,
+  "workout_exercise_id": 1
+  },
+  {
+  "id": 13,
+  "reps": 12,
+  "weight_lbs": 140,
+  "workout_exercise_id": 1
+  },
+  {
+  "id": 19,
+  "reps": 12,
+  "weight_lbs": 145,
+  "workout_exercise_id": 1
+  },
+  {
+  "id": 25,
+  "reps": 12,
+  "weight_lbs": 150,
+  "workout_exercise_id": 1
+  }
+  ]
+  },
+  {
+  "id": 2,
+  "name": "barbell incline bench press",
+  "equipment": "barbell",
+  "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0047.gif",
+  "intervals": [
+  {
+  "id": 3,
+  "reps": 12,
+  "weight_lbs": 130,
+  "workout_exercise_id": 3
+  },
+  {
+  "id": 9,
+  "reps": 12,
+  "weight_lbs": 135,
+  "workout_exercise_id": 3
+  },
+  {
+  "id": 15,
+  "reps": 12,
+  "weight_lbs": 140,
+  "workout_exercise_id": 3
+  },
+  {
+  "id": 21,
+  "reps": 12,
+  "weight_lbs": 145,
+  "workout_exercise_id": 3
+  },
+  {
+  "id": 27,
+  "reps": 12,
+  "weight_lbs": 150,
+  "workout_exercise_id": 3
+  }
+  ]
+  },
+  {
+  "id": 3,
+  "name": "barbell decline bench press",
+  "equipment": "barbell",
+  "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0033.gif",
+  "intervals": [
+  {
+  "id": 4,
+  "reps": 12,
+  "weight_lbs": 130,
+  "workout_exercise_id": 4
+  },
+  {
+  "id": 10,
+  "reps": 12,
+  "weight_lbs": 135,
+  "workout_exercise_id": 4
+  },
+  {
+  "id": 16,
+  "reps": 12,
+  "weight_lbs": 140,
+  "workout_exercise_id": 4
+  },
+  {
+  "id": 22,
+  "reps": 12,
+  "weight_lbs": 145,
+  "workout_exercise_id": 4
+  },
+  {
+  "id": 28,
+  "reps": 12,
+  "weight_lbs": 150,
+  "workout_exercise_id": 4
+  }
+  ]
+  },
+  {
+  "id": 4,
+  "name": "deep push up",
+  "equipment": "dumbbell",
+  "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/1274.gif",
+  "intervals": [
+  {
+  "id": 5,
+  "reps": 12,
+  "weight_lbs": 130,
+  "workout_exercise_id": 5
+  },
+  {
+  "id": 11,
+  "reps": 12,
+  "weight_lbs": 135,
+  "workout_exercise_id": 5
+  },
+  {
+  "id": 17,
+  "reps": 12,
+  "weight_lbs": 140,
+  "workout_exercise_id": 5
+  },
+  {
+  "id": 23,
+  "reps": 12,
+  "weight_lbs": 145,
+  "workout_exercise_id": 5
+  },
+  {
+  "id": 29,
+  "reps": 12,
+  "weight_lbs": 150,
+  "workout_exercise_id": 5
+  }
+  ]
+  },
+  {
+  "id": 5,
+  "name": "dumbbell fly",
+  "equipment": "dumbbell",
+  "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0308.gif",
+  "intervals": [
+  {
+  "id": 6,
+  "reps": 12,
+  "weight_lbs": 130,
+  "workout_exercise_id": 6
+  },
+  {
+  "id": 12,
+  "reps": 12,
+  "weight_lbs": 135,
+  "workout_exercise_id": 6
+  },
+  {
+  "id": 18,
+  "reps": 12,
+  "weight_lbs": 140,
+  "workout_exercise_id": 6
+  },
+  {
+  "id": 24,
+  "reps": 12,
+  "weight_lbs": 145,
+  "workout_exercise_id": 6
+  },
+  {
+  "id": 30,
+  "reps": 12,
+  "weight_lbs": 150,
+  "workout_exercise_id": 6
+  }
+  ]
+  },
+  {
+  "id": 6,
+  "name": "alternate lateral pulldown",
+  "equipment": "cable",
+  "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+  "intervals": [
+  {
+  "id": 2,
+  "reps": 12,
+  "weight_lbs": 130,
+  "workout_exercise_id": 2
+  },
+  {
+  "id": 8,
+  "reps": 12,
+  "weight_lbs": 135,
+  "workout_exercise_id": 2
+  },
+  {
+  "id": 14,
+  "reps": 12,
+  "weight_lbs": 140,
+  "workout_exercise_id": 2
+  },
+  {
+  "id": 20,
+  "reps": 12,
+  "weight_lbs": 145,
+  "workout_exercise_id": 2
+  },
+  {
+  "id": 26,
+  "reps": 12,
+  "weight_lbs": 150,
+  "workout_exercise_id": 2
+  }
+  ]
+  }
+  ]
+  }
+  ]
+}
