@@ -33,6 +33,11 @@ describe('Create Workout page load', () => {
        .should('have.text', 'Create Your Workout')
       })
 
-
+    it('should display a sub header', () => {
+      cy.get('.begin-text')
+        .should('have.text', 'Select a muscle group, then click on exercises to add!')
+      })
+      
+    
 
 })
