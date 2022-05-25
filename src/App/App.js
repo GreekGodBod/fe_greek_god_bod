@@ -5,7 +5,8 @@ import {
   getSuggestedWorkouts,
   postCreatedWorkout,
   patchWorkout,
-  fetchChat
+  fetchChat,
+  fetchUsers
 } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
@@ -18,6 +19,7 @@ import DoWorkout from '../DoWorkout/DoWorkout'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function App() {
+  const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const [pastworkouts, setPastWorkouts] = useState([])
   const [suggestedWorkout, setSuggestedWorkout] = useState({})
@@ -32,6 +34,7 @@ function App() {
     getPastWorkouts(currentUser).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
+    fetchUsers().then(data => setUsers(data))
   }, [])
  
   const addWorkout = (newWorkout) => {
