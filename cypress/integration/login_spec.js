@@ -1,6 +1,6 @@
 describe('Login page load', () => {
   beforeEach(() => {
-    cy.intercept('GET', '', {
+    cy.intercept('GET', 'https://be-greek-god-bod.herokuapp.com//api/v1/user', {
       statusCode: 200,
       fixture: 'users.json'
       })
@@ -8,8 +8,14 @@ describe('Login page load', () => {
     })
     
     it('should display a login form with username, password, and login button', () => {
-    cy.get('.nameInput')
+    cy.get('.username-input')
      .should('be.visible')
+
+    cy.get('.password-input')
+    .should('be.visible')
+
+    cy.get('.login-button')
+    .should('be.visible')
     })
 
   })
