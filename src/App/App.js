@@ -4,7 +4,8 @@ import {
   getPastWorkouts,
   getSuggestedWorkouts,
   postCreatedWorkout,
-  patchWorkout
+  patchWorkout,
+  fetchChat
 } from '../apiCalls'
 import Login from '../Login/Login'
 import { useState, useEffect } from 'react'
@@ -65,6 +66,10 @@ function App() {
     patchWorkout(workout, currentUser)
     .then(data => console.log(data))
   }
+
+  // const getMessages = () => {
+  //   fetchChat()
+  // }
 
   return (
     <div className='App'>
@@ -150,6 +155,8 @@ function App() {
             setCurrentUser={setCurrentUser}
             setPastWorkouts={setPastWorkouts}
             username={username}
+            // getMessages={getMessages}
+            fetchChat={fetchChat}
           />} />
           <Route
             path='/doworkout/:name/user/:id/'
