@@ -53,4 +53,9 @@ describe('Create Workout page load', () => {
         .select('abs')
       })
 
+    it('should display ab workouts', () => {
+      cy.get('.select-category')
+        .select('abs')
+    })
+
 })
