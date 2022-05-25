@@ -35,7 +35,7 @@ const Dashboard = ({
   const navigateSocial = () => {
     navigate(`/social/user/${currentUser}`)
   }
-  
+
   const logout = () => {
     navigate('/')
     setCurrentUser('')
@@ -50,8 +50,9 @@ const Dashboard = ({
   return (
     <section className='dashboard'>
       <div className='welcome-buttons-container'>
-        <button className='logout-button' onClick={logout}>Logout</button>
-        <h1 className='welcome-message'>Welcome, </h1>
+        <button className='logout-button' onClick={logout}>
+          Logout
+        </button>
         {user && <h1 className='welcome-message'>Welcome, {user.name}</h1>}
         <section className='button-container '>
           <button
