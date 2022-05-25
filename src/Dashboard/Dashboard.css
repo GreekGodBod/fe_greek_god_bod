@@ -13,6 +13,21 @@
   align-items: center;
 }
 
+.logout-button {
+  background-color: #3f5a91;
+  color: white;
+  border: none;
+  font-size: 1.5em;
+  border-radius: 0.5em;
+  padding: 3;
+  cursor: pointer;
+  outline: inherit;
+  position: fixed;
+  margin:15px;
+  top: 0;
+  left: 0
+}
+
 .welcome-message {
   display: flex;
   flex-direction: column;
