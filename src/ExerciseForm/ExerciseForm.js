@@ -63,6 +63,7 @@ const ExerciseForm = (props) => {
   return (
     <form className='exercise-form'>
       <select
+        className='select-category'
         placeholder='Choose Category'
         name='category'
         value={category}
