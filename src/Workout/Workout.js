@@ -15,7 +15,6 @@ const Workout = (props) => {
           key={exercise.id}
           workoutName={props.workout.name}
           currentUser={props.currentUser}
-          //   id={props.workout.id}
           exercise={exercise}
         />
       )
