@@ -1,7 +1,6 @@
 .header-my-workouts {
   display: flex;
   flex-direction: row;
-  /* position: top fixed; */
   width: 100%;
 }
 

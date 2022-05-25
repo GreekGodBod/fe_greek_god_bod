@@ -2,10 +2,7 @@ import './ExerciseForm.css'
 import { useState } from 'react'
 
 const ExerciseForm = (props) => {
-  
   const [category, setCategory] = useState('')
-  const [name, setName] = useState('')
-
 
   const submitNewExercise = (e, exercise) => {
     e.preventDefault()
@@ -66,6 +63,7 @@ const ExerciseForm = (props) => {
   return (
     <form className='exercise-form'>
       <select
+        className='select-category'
         placeholder='Choose Category'
         name='category'
         value={category}

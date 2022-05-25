@@ -1,11 +1,6 @@
 import './Popup.css'
 
-const Popup = ({
-  closePopup,
-  directWorkouts,
-  currentUser,
-  closeSuggestedPopup
-}) => {
+const Popup = (props) => {
   return (
     <div className='popup-box'>
       <div className='box'>
@@ -13,18 +8,22 @@ const Popup = ({
         <div className='popup-button-container'>
           <button
             className='see-my-workout popup-button'
-            onClick={directWorkouts}
+            onClick={props.directWorkouts}
           >
             See my workout
           </button>
-          {window.location.pathname == `/createworkout/user/${currentUser}` ? (
-            <button className='make-another popup-button' onClick={closePopup}>
+          {window.location.pathname ==
+          `/createworkout/user/${props.currentUser}` ? (
+            <button
+              className='make-another popup-button'
+              onClick={props.closePopup}
+            >
               Make another workout
             </button>
           ) : (
             <button
               className='close popup-button'
-              onClick={closeSuggestedPopup}
+              onClick={props.closeSuggestedPopup}
             >
               Okay
             </button>
