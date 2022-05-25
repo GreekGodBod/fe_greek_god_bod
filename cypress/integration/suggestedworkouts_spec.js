@@ -26,4 +26,9 @@ describe('Login page load', () => {
       cy.get('.name-container')
         .should('have.text', "alternate lateral pulldown")
       })
+
+    it('should display a gif for the suggested workout', () => {
+      cy.get('.suggested-gif')
+        .should('be.visible')
+      })
   })
