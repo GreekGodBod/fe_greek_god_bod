@@ -81,7 +81,6 @@ const ChatBox = (props) => {
       return (
         <div
           className={
-            //conditional rendering for styling depending on who is signed in below
             message.name === props.username
               ? 'chat-message-main-user'
               : 'chat-message'
@@ -113,7 +112,7 @@ const ChatBox = (props) => {
       </section>
     )
   } else {
-    return <h1>Loading</h1>
+    return <h1 className='loading'>Loading...</h1>
   }
 }
 
