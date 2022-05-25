@@ -33,7 +33,7 @@ const ChatBox = (props) => {
       channel: 'ChatChannel',
       username: user.name
     }
-
+  
     const handlers = {
       received(data) {
         setMessages([...messages, data])
