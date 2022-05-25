@@ -2,38 +2,36 @@ import Exercise from '../Exercise/Exercise'
 import './Workout.css'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const Workout = ({ workout, deleteWorkout, currentUser, findWorkout }) => {
+const Workout = (props) => {
   let { name } = useParams()
 
   const navigate = useNavigate()
   let exercises
 
-  if (workout) {
-    exercises = workout.exercises.map((exercise) => {
+  if (props.workout) {
+    exercises = props.workout.exercises.map((exercise) => {
       return (
         <Exercise
           key={exercise.id}
-          workoutName={workout.name}
-          currentUser={currentUser}
-        //   id={workout.id}
+          workoutName={props.workout.name}
+          currentUser={props.currentUser}
+          //   id={props.workout.id}
           exercise={exercise}
         />
       )
     })
   }
   const startWorkout = (workoutName) => {
-    findWorkout(workoutName)
-    navigate(`/doworkout/${workoutName}/user/${currentUser}`)
+    props.findWorkout(workoutName)
+    navigate(`/doworkout/${workoutName}/user/${props.currentUser}`)
   }
 
   return (
     <section className='workout'>
-      <h1 className='workout-name'>{workout.name}</h1>
-      {/* {exercises} commented out because may be better to not show exercises
-      since we will have long list of workouts, potentially ----- I like */}
+      <h1 className='workout-name'>{props.workout.name}</h1>
       <button
         className='start-workout-button'
-        onClick={() => startWorkout(workout.name)}
+        onClick={() => startWorkout(props.workout.name)}
       >
         Start Workout
       </button>
