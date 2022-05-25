@@ -12,8 +12,12 @@
 }
 
 .social-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 90%;
   height: 90%;
   background-color: lightblue;
   border-radius: 1em;
+  /* overflow: scroll; */
 }
