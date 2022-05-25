@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# 💪 Greek God Bod 💪
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Motivating yourself to build strong workout habits and routines is a constant challenge! Studies show that tracking your workouts and progress can accelerate short and long term habit building for your fitness routines and goals. The Greek God Bod app was built to make those Herculean efforts easier and more fun! Get ready to engage God Mode, while sharing your gains with other users and friends!
 
-## Available Scripts
+## Deployed Link
 
-In the project directory, you can run:
 
-### `npm start`
+## Link to Backend Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Backend Repository](https://github.com/GreekGodBod/be_greek_god_bod)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Visual Project Overview
 
-### `npm test`
+- Logging In
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![]()
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Navigating to the Social Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![]()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+- Navigating to the Create Workout Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![]()
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Navigating to the Suggested Workouts Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![]()
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Navigating to the My Workouts Page
+
+![]()
+
+## Stretch Tech
+
+Our team decided to take on the challenge of learning, implementing, and testing this application using WebSockets.
+
+## Contributors
+
+- [Jake Dunafon](https://github.com/J-Dunny)
+- [Sulaiman Birashk](https://github.com/SullyBirashk)
+- [Francesca McConnell](https://github.com/mcfrann)
+- [Greg Flaherty](https://github.com/gregoryjflaherty)
+- [Geena Jackson](https://github.com/gjax78)
+- [Sam Smith](https://github.com/samlsmith424)
+- [Daniel Solomon](https://github.com/danielsolomon332)
+
+## Tech Stack
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%purple)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+
+## Project Wireframe, Project Board and Project Spec
+
+- If you want to view our project Wireframe, [click here]()
+- Project Structure Organized with [GitHub Project Board](https://github.com/orgs/GreekGodBod/projects/4)
+- If you want to see the Turing Project Spec, [click here](https://mod4.turing.edu/projects/capstone/)
+
+## Getting Started with Create React App
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps:
+
+## Installation
+
+1. In your terminal, clone the repo
+   ```sh
+   git clone https://github.com/GreekGodBod/fe_greek_god_bod
+   ```
+2. `cd` into that directory
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Start the server
+   ```sh
+   npm start
+   ```
+
+## Future State
+- Person-to-person messaging
+- A calendar to add specific workouts to specific days of the week
+- Nutrition Tracker
 
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
