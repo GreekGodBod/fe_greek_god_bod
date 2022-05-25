@@ -16,7 +16,7 @@ const ChatBox = (props) => {
   // }, [params.id, loggedInUser.id])
 console.log(messages)
   useEffect(() => {
-    const URL = 'ws://be-greek-god-bod.herokuapp.com/cable';
+    const URL = 'wss://be-greek-god-bod.herokuapp.com/cable';
     if(!cable.current){
       cable.current = createConsumer(URL);
     }
