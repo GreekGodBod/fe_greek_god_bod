@@ -18,7 +18,7 @@ const Social = (props) => {
         <div className='chatbox'>
           <ChatBox
           username={props.username}
-          // getMessages={props.getMessages}
+          users={props.users}
           fetchChat={props.fetchChat}
           />
         </div>
