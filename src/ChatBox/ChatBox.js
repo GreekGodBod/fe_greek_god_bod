@@ -1,38 +1,69 @@
 import React from 'react';
-import consumer from '../cable.js';
-import { useEffect, useState } from 'react'
+// import consumer from '../cable.js';
+import { useEffect, useState, useRef } from 'react'
+import { createConsumer } from '@rails/actioncable';
 
 const ChatBox = (props) => {
   const [username, setUsername] = useState('')
   const [content, setContent] = useState('')
+  const [messages, setMessages] = useState([])
+  let cable = useRef()
 
   useEffect(() => {
-    consumer.subscriptions.create({
+    props.fetchChat()
+    .then(data => setMessages([...messages, data]))
+    // props.getMessages()
+    // .then(data => setMessages([...messages, data]))
+  }, [])
+  // }, [params.id, loggedInUser.id])
+console.log(messages)
+  useEffect(() => {
+    const URL = 'ws://be-greek-god-bod.herokuapp.com/cable';
+    cable = createConsumer(URL);
+
+    const paramsToSend ={
       channel: 'ChatChannel',
-      username: props.username,
-    }, {
-      connected: () => console.log('connected'),
-      disconnected: () => console.log('disconnected'),
-      received: data => console.log(data),
-  })
+      username: props.username
+    }
+
+    const handlers = {
+      received(data) {
+        setMessages([...messages, data])
+      },
+
+      connected() {
+        console.log("connected")
+      },
+
+      disconnected() {
+        console.log("disconnected")
+      }
+    }
+
+    const subscription = cable.subscriptions.create(paramsToSend, handlers)
+
+    return function cleanup() {
+      console.log("unsubbing from", props.username)
+      subscription.unsubscribe()
+    }
   }, [])
 
-  useEffect(() => {
-    consumer.disconnect()
-    console.log('hello')
-  }, [])
+  // useEffect(() => {
+  //   consumer.disconnect()
+  //   console.log('hello')
+  // }, [props.username, messages])
 
   const handleSubmit = (e) => {
-  e.preventDefault()
-  const chat = {
-    username: props.username,
-    content: content
-  }
-  fetch('http://localhost:3000/messages', {
-    method: 'POST',
-    body: JSON.stringify(chat)
-  })
-  console.log(chat)
+    e.preventDefault()
+    const data = {
+      username: props.username,
+      content: content
+    }
+    fetch('https://be-greek-god-bod.herokuapp.com//api/v1/social', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    console.log(data)
   }
 
   return (
