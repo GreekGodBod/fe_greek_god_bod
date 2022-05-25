@@ -153,19 +153,15 @@ function App() {
               />
             }
           />
-          <Route
-            path='/social/user/:id'
-            element={
-              <Social
-                getPastWorkouts={getPastWorkouts}
-                setCurrentUser={setCurrentUser}
-                setPastWorkouts={setPastWorkouts}
-                username={username}
-                // getMessages={getMessages}
-                fetchChat={fetchChat}
-              />
-            }
-          />
+          <Route path='/social/user/:id' element={<Social
+            getPastWorkouts={getPastWorkouts}
+            setCurrentUser={setCurrentUser}
+            setPastWorkouts={setPastWorkouts}
+            username={username}
+            users={users}
+            // getMessages={getMessages}
+            fetchChat={fetchChat}
+          />} />
           <Route
             path='/doworkout/:name/user/:id/'
             element={
