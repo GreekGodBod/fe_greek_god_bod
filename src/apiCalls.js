@@ -74,4 +74,9 @@ const postCreatedWorkout = (createdWorkout) => {
     })
   }
 
-export { newExercises, getPastWorkouts, getSuggestedWorkouts, postCreatedWorkout, patchWorkout }
+  const fetchChat = () => {
+    return fetch('https://be-greek-god-bod.herokuapp.com//api/v1/social')
+      .then(response => response.json())
+  }
+
+export { newExercises, getPastWorkouts, getSuggestedWorkouts, postCreatedWorkout, patchWorkout, fetchChat }
