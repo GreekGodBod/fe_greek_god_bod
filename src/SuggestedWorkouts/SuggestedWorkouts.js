@@ -4,61 +4,46 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Popup from '../Popup/Popup'
 
-const SuggestedWorkouts = ({
-  suggestedWorkout,
-  backToDash,
-  addWorkout,
-  openPopup,
-  isOpen,
-  setIsOpen,
-  currentUser,
-  getPastWorkouts,
-  setCurrentUser,
-  setPastWorkouts,
-  getSuggestedWorkouts,
-  setSuggestedWorkout
-}) => {
+const SuggestedWorkouts = (props) => {
   const navigate = useNavigate()
 
   const { id } = useParams()
-  console.log('suggested', suggestedWorkout)
 
   useEffect(() => {
-    getSuggestedWorkouts().then((data) => setSuggestedWorkout(data))
-    getPastWorkouts(id).then((data) => setPastWorkouts(data))
-    setCurrentUser(id)
-    console.log('suggested', suggestedWorkout)
+    props.getSuggestedWorkouts().then((data) => props.setSuggestedWorkout(data))
+    props.getPastWorkouts(id).then((data) => props.setPastWorkouts(data))
+    props.setCurrentUser(id)
   }, [])
-
 
   const submitNewWorkout = (e) => {
     e.preventDefault()
     const newWorkout = {
-      id: currentUser,
-      name: suggestedWorkout.data.name,
-      exercises: suggestedWorkout.data.exercises
+      id: props.currentUser,
+      name: props.suggestedWorkout.data.name,
+      exercises: props.suggestedWorkout.data.exercises
     }
-    console.log(newWorkout)
-    addWorkout(newWorkout)
-    openPopup()
+    props.addWorkout(newWorkout)
+    props.openPopup()
   }
 
   const directWorkouts = () => {
-    openPopup()
-    navigate(`/myworkouts/user/${currentUser}`)
+    props.openPopup()
+    navigate(`/myworkouts/user/${props.currentUser}`)
   }
 
   const closeSuggestedPopup = () => {
-    setIsOpen(!isOpen)
+    props.setIsOpen(!props.isOpen)
   }
 
-  if (suggestedWorkout.data) {
-    
+  if (props.suggestedWorkout.data) {
     return (
       <div className='suggested-workouts-page'>
         <div className='header-suggested-workouts'>
           <div className='back-to-dashboard'>
-            <button className='back-to-dashboard-button' onClick={backToDash}>
+            <button
+              className='back-to-dashboard-button'
+              onClick={props.backToDash}
+            >
               Back to Dashboard
             </button>
           </div>
@@ -67,10 +52,10 @@ const SuggestedWorkouts = ({
         </div>
         <div className='suggested-workouts-container'>
           <h2 className='suggested-workout-message'>
-            Today's suggested workout is '{suggestedWorkout.data.name}
+            Today's suggested workout is '{props.suggestedWorkout.data.name}
             '!
           </h2>
-          {suggestedWorkout.data.exercises.map((exercise) => {
+          {props.suggestedWorkout.data.exercises.map((exercise) => {
             return (
               <div className='suggested-workout-container' key={exercise.id}>
                 <img
@@ -88,12 +73,12 @@ const SuggestedWorkouts = ({
         <button className='add-suggested-workout' onClick={submitNewWorkout}>
           Add to My Workouts
         </button>
-        {isOpen && (
+        {props.isOpen && (
           <Popup
-            openPopup={openPopup}
+            openPopup={props.openPopup}
             closeSuggestedPopup={closeSuggestedPopup}
             directWorkouts={directWorkouts}
-            currentUser={currentUser}
+            currentUser={props.currentUser}
           />
         )}
       </div>
