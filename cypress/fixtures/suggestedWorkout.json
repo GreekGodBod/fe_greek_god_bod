@@ -7,46 +7,14 @@
   "updated_at": "2022-05-25T00:43:28.872Z",
   "status": "completed",
   "exercises": [
-  {
-  "id": 6,
-  "name": "alternate lateral pulldown",
-  "created_at": "2022-05-25T00:43:28.932Z",
-  "updated_at": "2022-05-25T00:43:28.932Z",
-  "gif": "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-  "equipment": "cable"
-  },
-  {
-  "id": 7,
-  "name": "cable rope crossover seated row",
-  "created_at": "2022-05-25T00:43:28.937Z",
-  "updated_at": "2022-05-25T00:43:28.937Z",
-  "gif": "http://d205bpvrqc9yn1.cloudfront.net/1320.gif",
-  "equipment": "cable"
-  },
-  {
-  "id": 8,
-  "name": "pull up (neutral grip)",
-  "created_at": "2022-05-25T00:43:28.941Z",
-  "updated_at": "2022-05-25T00:43:28.941Z",
-  "gif": "http://d205bpvrqc9yn1.cloudfront.net/0651.gif",
-  "equipment": "body weight"
-  },
-  {
-  "id": 9,
-  "name": "rope climb",
-  "created_at": "2022-05-25T00:43:28.945Z",
-  "updated_at": "2022-05-25T00:43:28.945Z",
-  "gif": "http://d205bpvrqc9yn1.cloudfront.net/0680.gif",
-  "equipment": "rope"
-  },
-  {
-  "id": 10,
-  "name": "smith narrow row",
-  "created_at": "2022-05-25T00:43:28.950Z",
-  "updated_at": "2022-05-25T00:43:28.950Z",
-  "gif": "http://d205bpvrqc9yn1.cloudfront.net/0761.gif",
-  "equipment": "smith machine"
+      {
+        "id": 6,
+        "name": "alternate lateral pulldown",
+        "created_at": "2022-05-25T00:43:28.932Z",
+        "updated_at": "2022-05-25T00:43:28.932Z",
+        "gif": "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+        "equipment": "cable"
+      }
+    ]
   }
-  ]
-  }
-  }
+}
