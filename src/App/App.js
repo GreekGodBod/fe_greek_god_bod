@@ -34,9 +34,9 @@ function App() {
     getPastWorkouts(currentUser).then((data) => setPastWorkouts(data))
     newExercises().then((data) => setAllExercises(data))
     setTheSuggestedWorkout()
-    fetchUsers().then(data => setUsers(data))
+    fetchUsers().then((data) => setUsers(data))
   }, [])
- 
+
   const addWorkout = (newWorkout) => {
     console.log(JSON.stringify(newWorkout))
     postCreatedWorkout(newWorkout)
@@ -57,7 +57,8 @@ function App() {
 
   const findWorkout = (workoutName) => {
     const workout = pastworkouts.workouts.find(
-      (workout) => workout.name === workoutName)
+      (workout) => workout.name === workoutName
+    )
     setOneWorkout(workout)
   }
 
@@ -66,8 +67,7 @@ function App() {
   }
 
   const submitCompletedWorkout = (workout) => {
-    patchWorkout(workout, currentUser)
-    .then(data => console.log(data))
+    patchWorkout(workout, currentUser).then((data) => console.log(data))
   }
 
   // const getMessages = () => {
@@ -93,7 +93,6 @@ function App() {
             path='/dashboard/user/:id'
             element={
               <Dashboard
-                username={username}
                 currentUser={currentUser}
                 getPastWorkouts={getPastWorkouts}
                 setPastWorkouts={setPastWorkouts}
@@ -154,21 +153,27 @@ function App() {
               />
             }
           />
-          <Route path='/social/user/:id' element={<Social
-            getPastWorkouts={getPastWorkouts}
-            setCurrentUser={setCurrentUser}
-            setPastWorkouts={setPastWorkouts}
-            username={username}
-            // getMessages={getMessages}
-            fetchChat={fetchChat}
-          />} />
+          <Route
+            path='/social/user/:id'
+            element={
+              <Social
+                getPastWorkouts={getPastWorkouts}
+                setCurrentUser={setCurrentUser}
+                setPastWorkouts={setPastWorkouts}
+                username={username}
+                // getMessages={getMessages}
+                fetchChat={fetchChat}
+              />
+            }
+          />
           <Route
             path='/doworkout/:name/user/:id/'
             element={
-              <DoWorkout oneWorkout={oneWorkout}
-              currentUser={currentUser}
-              findWorkout={findWorkout}
-              submitCompletedWorkout={submitCompletedWorkout}
+              <DoWorkout
+                oneWorkout={oneWorkout}
+                currentUser={currentUser}
+                findWorkout={findWorkout}
+                submitCompletedWorkout={submitCompletedWorkout}
               />
             }
           />
