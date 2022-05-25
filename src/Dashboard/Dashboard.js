@@ -30,6 +30,9 @@ const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, se
     navigate(`/social/user/${currentUser}`)
   }
   
+  const logout = () => {
+    navigate('/')
+  }
 
   useEffect(() => {
     getPastWorkouts(id).then((data) => setPastWorkouts(data))
@@ -41,6 +44,7 @@ const Dashboard = ({ currentUser, username, getPastWorkouts, setPastWorkouts, se
   return (
     <section className='dashboard'>
       <div className='welcome-buttons-container'>
+        <button onClick={logout}>Logout</button>
         {user && <h1 className='welcome-message'>Welcome, {user.name}</h1>}
         <section className='button-container '>
           <button
