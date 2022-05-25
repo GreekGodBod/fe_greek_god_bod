@@ -5,11 +5,11 @@ const Exercise = (props) => {
   const [reps, setReps] = useState('')
   const [weight, setWeight] = useState('')
   const [sets, setSets] = useState('')
-  
+
   const addSet = (e) => {
     e.preventDefault()
     const newSet = {
-      workout_exercise_id:props.exercise.id,  
+      workout_exercise_id: props.exercise.id,
       reps: reps,
       weight_lbs: weight
     }
@@ -30,8 +30,6 @@ const Exercise = (props) => {
     })
   }
 
-//   const doWorkoutPage = `http://localhost:3000/doworkout/${props.workoutName}/user/${props.currentUser}`
-
   return (
     <section className='exercise'>
       <div className='image-container'>
@@ -42,7 +40,6 @@ const Exercise = (props) => {
           <p className='exercise-text'>{props.exercise.name}</p>
           <p className='exercise-text'>Equipment: {props.exercise.equipment}</p>
         </div>
-        {/* {window.location.href === doWorkoutPage && */}
         <div>
           {allSets}
           <form onSubmit={(e) => addSet(e)}>
