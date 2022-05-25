@@ -159,6 +159,7 @@ function App() {
             setCurrentUser={setCurrentUser}
             setPastWorkouts={setPastWorkouts}
             username={username}
+            users={users}
             // getMessages={getMessages}
             fetchChat={fetchChat}
           />} />
