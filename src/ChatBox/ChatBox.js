@@ -12,7 +12,7 @@ const ChatBox = (props) => {
   // const [username, setUsername] = useState('')
   const [content, setContent] = useState('')
   const [recieved, setRecieved] = useState(0)
-  const [messages, setMessages] = useState([])
+  // const [messages, setMessages] = useState([])
   const { id } = useParams()
   let cable = useRef()
 
@@ -21,7 +21,7 @@ const ChatBox = (props) => {
     let data;
     const response = await fetch('https://be-greek-god-bod.herokuapp.com//api/v1/social')
       data = await response.json()
-      setMessages(data)
+      props.setMessages(data)
   }
 
 
@@ -31,7 +31,7 @@ const ChatBox = (props) => {
     fetchChat()
   }, [recieved])
   
-  console.log(messages)
+  console.log(props.messages)
 
   let user;
   if(props.users[0]){
@@ -53,9 +53,9 @@ const ChatBox = (props) => {
   
     const handlers = {
       received(data) {
-        console.log("data",messages)
-        setTimeout(() => setRecieved(recieved + 1), 1000)
-        // setMessages([...messages, data])
+        console.log("data",props.messages)
+        // setTimeout(() => setRecieved(recieved + 1), 1000)
+        props.setMessages([...props.messages, data])
       },
 
       connected() {
@@ -91,10 +91,10 @@ const ChatBox = (props) => {
     console.log(JSON.stringify(data))
     
   }
-  console.log('2',messages)
+  console.log('2',props.messages)
 
-  if (messages) {
-    let chatConvo = messages.map((message) => {
+  if (props.messages) {
+    let chatConvo = props.messages.map((message) => {
       return (
         <div
           className={

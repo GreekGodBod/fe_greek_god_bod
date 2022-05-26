@@ -31,6 +31,8 @@ const Social = (props) => {
             username={props.username}
             users={props.users}
             fetchChat={props.fetchChat}
+            messages={props.messages}
+            setMessages={props.setMessages}
           />
         </div>
       </div>

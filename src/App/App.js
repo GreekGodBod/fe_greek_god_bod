@@ -28,6 +28,7 @@ function App() {
   const [oneWorkout, setOneWorkout] = useState({})
   const [isOpen, setIsOpen] = useState(false)
   const [username, setUsername] = useState('')
+  const [messages, setMessages] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -163,7 +164,8 @@ function App() {
                 username={username}
                 users={users}
                 backToDash={backToDash}
-                // getMessages={getMessages}
+                messages={messages}
+                setMessages={setMessages}
                 fetchChat={fetchChat}
               />
             }
