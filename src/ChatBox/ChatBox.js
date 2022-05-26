@@ -11,6 +11,7 @@ const { createConsumer } = ActionCable
 const ChatBox = (props) => {
   // const [username, setUsername] = useState('')
   const [content, setContent] = useState('')
+  const [recieved, setRecieved] = useState(0)
   const [messages, setMessages] = useState([])
   const { id } = useParams()
   let cable = useRef()
@@ -36,7 +37,7 @@ const ChatBox = (props) => {
 
   useEffect(() => {
     props.fetchChat().then((data) => setMessages(data))
-  }, [])
+  }, [recieved])
   
   console.log(messages)
 
@@ -61,7 +62,8 @@ const ChatBox = (props) => {
     const handlers = {
       received(data) {
         console.log("data",messages)
-        setMessages([...messages, data])
+        setRecieved(recieved += 1)
+        // setMessages([...messages, data])
       },
 
       connected() {
