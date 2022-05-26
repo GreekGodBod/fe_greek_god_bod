@@ -33,4 +33,18 @@ describe('My workouts page load', () => {
         .should('have.text', 'My Workouts')
       })
 
+    it('should display a workout', () => {
+      cy.get('.workout-name')
+        .should('have.text', 'killer chest day')
+      })
+
+    it('should display a back to dashboard button', () => {
+      cy.get('.back-to-dashboard-button')
+      .should('have.text', 'Back to Dashboard')
+    })
+
+    it('should display a start workout  button', () => {
+      cy.get('.start-workout-button')
+      .should('have.text', 'Start Workout')
+    })
 })
