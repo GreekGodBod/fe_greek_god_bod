@@ -49,10 +49,10 @@ const Dashboard = ({
 
   return (
     <section className='dashboard'>
+      <button className='logout-button' onClick={logout}>
+        Logout
+      </button>
       <div className='welcome-buttons-container'>
-        <button className='logout-button' onClick={logout}>
-          Logout
-        </button>
         {user && <h1 className='welcome-message'>Welcome, {user.name}</h1>}
         <section className='button-container '>
           <button

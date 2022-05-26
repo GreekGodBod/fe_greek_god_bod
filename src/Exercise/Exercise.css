@@ -45,3 +45,51 @@
   font-size: 1.5em;
   color: #ffa02f;
 }
+
+.add-set-button {
+  margin: 0.5em;
+}
+
+.rep-input,
+.weight-input {
+  margin: 0.2em;
+}
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .exercise {
+    width: 85vw;
+    flex-direction: column;
+    font-size: 1em;
+  }
+
+  .exercise-text {
+    margin: 0;
+    width: 100%;
+    font-size: 2em;
+  }
+
+  .exercise-img {
+    width: 95%;
+  }
+
+  .set-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-set-button {
+    font-size: 2em;
+    width: 10vw;
+  }
+
+  .add-set {
+    margin: 0;
+  }
+
+  .set-info {
+    font-size: 2em;
+  }
+}

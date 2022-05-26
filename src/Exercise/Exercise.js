@@ -23,7 +23,7 @@ const Exercise = (props) => {
   if (sets[0]) {
     allSets = sets.map((set, i) => {
       return (
-        <p key={i}>
+        <p className='set-info' key={i}>
           Set {(i += 1)}: {set.reps} reps x {set.weight_lbs} lbs{' '}
         </p>
       )
@@ -47,6 +47,7 @@ const Exercise = (props) => {
               <p className='add-set'>Add Set:</p>
               <input
                 value={reps}
+                className='rep-input'
                 name='reps'
                 placeholder='Repetitions'
                 onChange={(e) => setReps(e.target.value)}
@@ -54,12 +55,13 @@ const Exercise = (props) => {
               ></input>
               <input
                 name='weight'
+                className='weight-input'
                 value={weight}
                 placeholder='Weight'
                 onChange={(e) => setWeight(e.target.value)}
                 required
               ></input>
-              <button>+</button>
+              <button className='add-set-button'>+</button>
             </div>
           </form>
         </div>

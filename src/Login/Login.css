@@ -77,3 +77,28 @@
   height: 55vh;
   width: 100vw;
 }
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 5em;
+  }
+
+  .login-info-container {
+    width: 55vw;
+    background-color: #14213d56;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 0;
+  }
+
+  .top-half {
+    justify-content: center;
+    height: 55vh;
+  }
+
+  .bottom-half {
+    height: 45vh;
+  }
+}
