@@ -61,13 +61,7 @@ const ChatBox = (props) => {
     const handlers = {
       received(data) {
         console.log("data",data)
-        setMessages(prevState  => [
-          ...prevState, 
-          {
-            messages: messages[0],
-            data: data
-          }
-        ])
+        setMessages(prevState  => [...prevState, data])
       },
 
       connected() {
