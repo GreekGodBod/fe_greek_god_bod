@@ -29,6 +29,12 @@ const Exercise = (props) => {
       )
     })
   }
+  let intervals;
+  if (props.exercise) {
+    intervals = props.exercise.intervals.map((interval, i) => {
+      return <p className='previous-interval-reps'>Set {(i += 1)}: {interval.reps} reps x {interval.weight_lbs} lbs</p>
+    })
+  }
 
   return (
     <section className='exercise'>
@@ -39,12 +45,25 @@ const Exercise = (props) => {
         <div className='exercise-info'>
           <p className='exercise-text'>{props.exercise.name}</p>
           <p className='exercise-text'>Equipment: {props.exercise.equipment}</p>
+          
+
         </div>
         <div>
-          {allSets}
+          <section className='all-sets'>
+            <div className='set-columns'>
+            <p className='prev-current-sets'>Previous Sets:</p>
+              {intervals}
+            </div>
+            <div className='set-columns'>
+              <p className='prev-current-sets'>Current Workout:</p>
+              {allSets}
+            </div>
+          </section>
           <form onSubmit={(e) => addSet(e)}>
             <div className='set-form'>
+
               <p className='add-set'>Add Set:</p>
+
               <input
                 value={reps}
                 className='rep-input'

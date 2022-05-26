@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: 100%;
 }
 
@@ -55,6 +55,26 @@
   margin: 0.2em;
 }
 
+.all-sets {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.set-info,
+.previous-interval-reps,
+.set-columns  {
+display: flex;
+flex-direction: column;
+margin: 0;
+}
+
+.set-info, 
+.previous-interval-reps, 
+.prev-current-sets {
+  font-size: 1.5em;
+}
 /*-----------breakpoints------------*/
 
 @media screen and (max-width: 500px) {
@@ -89,7 +109,14 @@
     margin: 0;
   }
 
-  .set-info {
-    font-size: 2em;
+  .set-info, 
+  .previous-interval-reps, 
+  .prev-current-sets {
+    font-size: 1.3em;
+  }
+
+  .all-sets {
+    width: 85vw;
+    justify-content: space-around;
   }
 }

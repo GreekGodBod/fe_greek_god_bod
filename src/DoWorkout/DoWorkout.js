@@ -20,9 +20,11 @@ const DoWorkout = (props) => {
         sets = allSets.filter((set) => set.workout_exercise_id === exercise.id)
         sets.forEach((set) => exercise.intervals.push(set))
       })
+      console.log(props.oneWorkout)
       props.submitCompletedWorkout(props.oneWorkout)
-    }
-
+      alert('Your workout has been completed!')
+    } 
+    
     let exercises = props.oneWorkout.exercises.map((exercise) => {
       return (
         <Exercise
