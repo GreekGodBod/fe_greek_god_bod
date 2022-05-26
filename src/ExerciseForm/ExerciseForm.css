@@ -42,3 +42,27 @@ button.exercise-card-button {
   cursor: pointer;
   outline: inherit;
 }
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .exercise-cards-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .exercise-card,
+  .exercise-card-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    margin: 0.5em;
+    height: 37vh;
+  }
+
+  .category-img {
+    width: 80%;
+    margin: 0.4em;
+  }
+}
