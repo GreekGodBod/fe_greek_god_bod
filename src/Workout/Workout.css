@@ -29,3 +29,11 @@
   cursor: pointer;
   font-size: 1.5em;
 }
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .workout {
+    width: 80vw;
+  }
+}
