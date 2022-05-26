@@ -4,6 +4,7 @@ Motivating yourself to build strong workout habits and routines is a constant ch
 
 ## Deployed Link
 
+- [Heroku Deployment](https://fe-greek-god-bod.herokuapp.com/)
 
 ## Link to Backend Repository
 
@@ -11,7 +12,6 @@ Motivating yourself to build strong workout habits and routines is a constant ch
 
 ## Backend Endpoints
 
-- [Exercises](https://exercisedb.p.rapidapi.com/exercises)
 - [Suggested Workouts](https://be-greek-god-bod.herokuapp.com//api/v1/workouts)
 - [Past/My Workout](https://be-greek-god-bod.herokuapp.com//api/v1/user/1)
 - [Social](https://be-greek-god-bod.herokuapp.com//api/v1/social)
@@ -41,9 +41,6 @@ Our team decided to take on the challenge of learning, implementing, and testing
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
-![WebSocket]<p>
-<img height=“150” width=“350" src=“https://miro.medium.com/max/800/1*_6Zt1h5jopuP9syi-VDoMg.jpeg”>
-</p>
 
 ## Project Wireframe, Project Board and Project Spec
 
