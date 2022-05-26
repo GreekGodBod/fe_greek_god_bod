@@ -15,9 +15,28 @@ const ChatBox = (props) => {
   const { id } = useParams()
   let cable = useRef()
 
+
+
+
+  // const fetchChat = async () => {
+  //   let data;
+  //   if (messageUser) {
+  //     data = {
+  //       user_a_id: loggedInUser.id,
+  //       user_b_id: messageUser,
+  //       id: params.id
+  //     }
+  //   } else {
+  //     const response = await fetch(`https://be-tribe.herokuapp.com/api/v1/conversations/${params.id}`)
+  //     data = await response.json();
+  //   }
+
+
+
+
   useEffect(() => {
     props.fetchChat().then((data) => setMessages([...messages, data]))
-  }, [])
+  }, [messages])
   
   console.log(messages)
 
@@ -57,12 +76,12 @@ const ChatBox = (props) => {
 
     const subscription = cable.current.subscriptions.create(paramsToSend, handlers)
 
-    return function cleanup() {
-      console.log('unsubbing from', user.name)
-      subscription.unsubscribe()
-      cable.current = null
-    }
-  }, [id, messages, user.id])
+    // return function cleanup() {
+    //   console.log('unsubbing from', user.name)
+    //   subscription.unsubscribe()
+    //   cable.current = null
+    // }
+  }, [id, messages])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -78,7 +97,7 @@ const ChatBox = (props) => {
     console.log(JSON.stringify(data))
   }
 
-  if (messages[0].length) {
+  if (messages[0]) {
     let chatConvo = messages[0].map((message) => {
       return (
         <div
