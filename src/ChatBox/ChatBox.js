@@ -41,6 +41,7 @@ const ChatBox = (props) => {
   
     const handlers = {
       received(data) {
+        console.log("data",data)
         setMessages([...messages, data])
       },
 
@@ -80,7 +81,7 @@ const ChatBox = (props) => {
     console.log(JSON.stringify(data))
   }
 
-  if (messages[0].length) {
+  if (messages[0]) {
     let chatConvo = messages[0].map((message) => {
       return (
         <div
