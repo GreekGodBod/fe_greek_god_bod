@@ -51,7 +51,7 @@ const Exercise = (props) => {
         <div>
           <section className='all-sets'>
             <div className='set-columns'>
-            {props.exercise.intervals[0] && <p className='prev-current-sets'>Previous Sets:</p>}
+            <p className='prev-current-sets'>Previous Sets:</p>
               {intervals}
             </div>
             <div className='set-columns'>

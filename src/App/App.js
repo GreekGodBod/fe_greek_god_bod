@@ -39,7 +39,7 @@ function App() {
   }, [])
 
   const addWorkout = (newWorkout) => {
-    console.log(JSON.stringify(newWorkout))
+    console.log(newWorkout)
     postCreatedWorkout(newWorkout)
   }
 
