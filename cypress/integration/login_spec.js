@@ -44,4 +44,13 @@ describe('Login page load', () => {
       cy.get('.title')
        .should('have.text', 'GREEK GOD BOD')
       })
+
+    it('should display an error message if the user submits an incorrect email and password', () => {
+      cy.get('.username-input')
+      .type('geena rocks')
+      .get('.password-input')
+      .type('YOLO')
+      .get('.login-button')
+      .click()
+    })
   })
