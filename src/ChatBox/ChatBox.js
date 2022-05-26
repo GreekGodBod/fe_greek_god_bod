@@ -9,10 +9,8 @@ ActionCable.logger.enabled = true
 const { createConsumer } = ActionCable
 
 const ChatBox = (props) => {
-  // const [username, setUsername] = useState('')
   const [content, setContent] = useState('')
   const [recieved, setRecieved] = useState(0)
-  // const [messages, setMessages] = useState([])
   const { id } = useParams()
   let cable = useRef()
   const scroll = useRef()
@@ -25,20 +23,14 @@ const ChatBox = (props) => {
       props.setMessages(data)
   }
 
-
-
   useEffect(() => {
-    // props.fetchChat().then((data) => setMessages(data))
     fetchChat()
   }, [recieved])
-  
-  console.log(props.messages)
 
   let user;
   if(props.users[0]){
     user = props.users.find(user => user.id == id)
   }
-
 
   useEffect(() => {
     const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
@@ -54,9 +46,6 @@ const ChatBox = (props) => {
   
     const handlers = {
       received(data) {
-        console.log("messages",props.messages)
-        // setTimeout(() => setRecieved(recieved + 1), 1000)
-        console.log("data",data)
         props.setMessages([...props.messages, data])
       },
 
@@ -90,7 +79,6 @@ const ChatBox = (props) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    console.log(JSON.stringify(data))
     setContent('')
     scroll.current.scrollIntoView({behavior: "smooth"})
   }
@@ -99,10 +87,8 @@ const ChatBox = (props) => {
   if (props.messages) {
     let chatConvo = props.messages.map((message) => {
       return (
-        <div>
         <div
           className={
-            //conditional rendering for styling depending on who is signed in below
             message.name === user.name
               ? 'chat-message-main-user'
               : 'chat-message'
@@ -113,8 +99,6 @@ const ChatBox = (props) => {
             <b>{message.name}:</b> {message.content}
           </p>
         </div>
-        <div ref={scroll}></div>
-        </div>
       )
     })
 
@@ -122,7 +106,7 @@ const ChatBox = (props) => {
       <section className='chat-page'>
         <div className='chat-container'>
           {chatConvo}
-          
+          <div ref={scroll}></div>
           </div>
         <div className='chat-input-container'>
           <form className='chat-form' onSubmit={(e) => handleSubmit(e)}>
