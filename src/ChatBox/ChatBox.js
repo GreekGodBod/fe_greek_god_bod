@@ -28,8 +28,8 @@ const ChatBox = (props) => {
 
 
   useEffect(() => {
-    // const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
-    const URL = 'ws://localhost:5000/cable'
+    const URL = 'wss://be-greek-god-bod.herokuapp.com/cable'
+    // const URL = 'ws://localhost:5000/cable'
     if (!cable.current) {
       cable.current = createConsumer(URL)
     }
@@ -69,14 +69,15 @@ const ChatBox = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const data = {
-      username: user.name,
+      name: user.name,
       content: content
     }
-    fetch('https://be-greek-god-bod.herokuapp.com//api/v1/social', {
+    fetch('https://be-greek-god-bod.herokuapp.com/api/v1/social', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    console.log(data)
+    console.log(JSON.stringify(data))
   }
 
   if (messages[0]) {
