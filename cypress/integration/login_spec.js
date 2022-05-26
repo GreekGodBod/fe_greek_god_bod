@@ -25,7 +25,6 @@ describe('Login page load', () => {
       fixture: 'suggestedWorkout.json'
     })
 
-
     cy.visit('http://localhost:3000/');
     })
     
