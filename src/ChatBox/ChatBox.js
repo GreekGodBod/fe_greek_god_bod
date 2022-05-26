@@ -35,8 +35,8 @@ const ChatBox = (props) => {
 
 
   useEffect(() => {
-    props.fetchChat().then((data) => setMessages([...messages, data]))
-  }, [messages])
+    props.fetchChat().then((data) => setMessages([data]))
+  }, [])
   
   console.log(messages)
 
