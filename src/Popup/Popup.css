@@ -40,3 +40,19 @@
   font-size: 0.5em;
   cursor: pointer;
 }
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .box {
+    width: 80vw;
+  }
+
+  .popup-button-container {
+    flex-direction: column;
+  }
+
+  .popup-button {
+    font-size: 1em;
+  }
+}
