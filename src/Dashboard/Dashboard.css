@@ -23,9 +23,9 @@
   cursor: pointer;
   outline: inherit;
   position: fixed;
-  margin:15px;
+  margin: 15px;
   top: 0;
-  left: 0
+  left: 0;
 }
 
 .welcome-message {
@@ -79,4 +79,49 @@
 
 .dash-button:hover {
   transform: scale(1.09);
+}
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .dashboard {
+    height: 100%;
+    width: 100%;
+  }
+
+  .welcome-buttons-container {
+    width: 100%;
+  }
+
+  .profile-pic {
+    display: none;
+  }
+
+  .welcome-message {
+    width: 80vw;
+    font-size: 4em;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dash-button {
+    width: 75vw;
+  }
+
+  .my-workout-button {
+    margin-bottom: 5vh;
+  }
+
+  .button-container {
+    width: 75vw;
+  }
+
+  .logout-button {
+    position: fixed;
+    border: 2px solid #ffa12e;
+  }
 }
