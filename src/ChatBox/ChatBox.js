@@ -90,7 +90,7 @@ const ChatBox = (props) => {
       body: JSON.stringify(data)
     })
     console.log(JSON.stringify(data))
-    
+    setContent('')
   }
   console.log('2',props.messages)
 
