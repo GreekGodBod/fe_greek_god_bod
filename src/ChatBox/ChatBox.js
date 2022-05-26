@@ -15,6 +15,7 @@ const ChatBox = (props) => {
   // const [messages, setMessages] = useState([])
   const { id } = useParams()
   let cable = useRef()
+  const scroll = useRef()
 
 
   const fetchChat = async () => {
@@ -91,12 +92,14 @@ const ChatBox = (props) => {
     })
     console.log(JSON.stringify(data))
     setContent('')
+    scroll.current.scrollIntoView({behavior: "smooth"})
   }
   console.log('2',props.messages)
 
   if (props.messages) {
     let chatConvo = props.messages.map((message) => {
       return (
+        <div>
         <div
           className={
             //conditional rendering for styling depending on who is signed in below
@@ -110,12 +113,17 @@ const ChatBox = (props) => {
             <b>{message.name}:</b> {message.content}
           </p>
         </div>
+        <div ref={scroll}></div>
+        </div>
       )
     })
 
     return (
       <section className='chat-page'>
-        <div className='chat-container'>{chatConvo}</div>
+        <div className='chat-container'>
+          {chatConvo}
+          
+          </div>
         <div className='chat-input-container'>
           <form className='chat-form' onSubmit={(e) => handleSubmit(e)}>
             <input
