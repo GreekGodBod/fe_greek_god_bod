@@ -54,7 +54,7 @@ const ChatBox = (props) => {
     const handlers = {
       received(data) {
         console.log("data",messages)
-        setRecieved(recieved + 1)
+        setTimeout(() => setRecieved(recieved + 1), 1000)
         // setMessages([...messages, data])
       },
 
@@ -89,7 +89,7 @@ const ChatBox = (props) => {
       body: JSON.stringify(data)
     })
     console.log(JSON.stringify(data))
-    setRecieved(recieved + 1)
+    
   }
   console.log('2',messages)
 
