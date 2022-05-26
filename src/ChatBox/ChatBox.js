@@ -36,7 +36,7 @@ const ChatBox = (props) => {
 
     const paramsToSend = {
       channel: 'SocialChannel',
-      username: props.username
+      name: user.name
     }
   
     const handlers = {
@@ -80,7 +80,7 @@ const ChatBox = (props) => {
     console.log(JSON.stringify(data))
   }
 
-  if (messages.length) {
+  if (messages[0]) {
     let chatConvo = messages[0].map((message) => {
       return (
         <div
