@@ -61,7 +61,13 @@ const ChatBox = (props) => {
     const handlers = {
       received(data) {
         console.log("data",data)
-        setMessages([...messages[0], data])
+        setMessages(prevState  => [
+          ...prevState, 
+          {
+            messages: messages,
+            data: data
+          }
+        ])
       },
 
       connected() {
@@ -81,7 +87,7 @@ const ChatBox = (props) => {
     //   subscription.unsubscribe()
     //   cable.current = null
     // }
-  }, [id, messages])
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -96,6 +102,7 @@ const ChatBox = (props) => {
     })
     console.log(JSON.stringify(data))
   }
+  console.log('2',messages)
 
   if (messages[0]) {
     let chatConvo = messages[0].map((message) => {
