@@ -64,7 +64,7 @@ const ChatBox = (props) => {
         setMessages(prevState  => [
           ...prevState, 
           {
-            messages: messages,
+            messages: messages[0],
             data: data
           }
         ])
