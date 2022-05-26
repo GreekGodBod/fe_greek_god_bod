@@ -17,7 +17,12 @@ const ChatBox = (props) => {
   let cable = useRef()
 
 
-
+  const fetchChat = async () => {
+    let data;
+    const response = await fetch('https://be-greek-god-bod.herokuapp.com//api/v1/social')
+      data = await response.json()
+      setMessages(data)
+  }
 
   // const fetchChat = async () => {
   //   let data;
@@ -36,7 +41,8 @@ const ChatBox = (props) => {
 
 
   useEffect(() => {
-    props.fetchChat().then((data) => setMessages(data))
+    // props.fetchChat().then((data) => setMessages(data))
+    fetchChat()
   }, [recieved])
   
   console.log(messages)
