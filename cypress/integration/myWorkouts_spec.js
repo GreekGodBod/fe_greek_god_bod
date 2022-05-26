@@ -47,4 +47,15 @@ describe('My workouts page load', () => {
       cy.get('.start-workout-button')
       .should('have.text', 'Start Workout')
     })
+
+    it('should be able to start workout', () => {
+      cy.get('.start-workout-button')
+      .click()
+    })
+
+    it('should display that workout', () => {
+      cy.get('.start-workout-button')
+      .click()
+
+    })
 })
