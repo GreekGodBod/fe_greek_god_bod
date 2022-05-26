@@ -42,7 +42,7 @@ const ChatBox = (props) => {
     const handlers = {
       received(data) {
         console.log("data",data)
-        setMessages([...messages, data])
+        setMessages([...messages[0], data])
       },
 
       connected() {
