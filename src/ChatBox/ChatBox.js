@@ -35,7 +35,7 @@ const ChatBox = (props) => {
 
 
   useEffect(() => {
-    props.fetchChat().then((data) => setMessages([data]))
+    props.fetchChat().then((data) => setMessages(data))
   }, [])
   
   console.log(messages)
@@ -98,8 +98,8 @@ const ChatBox = (props) => {
   }
   console.log('2',messages)
 
-  if (messages[0]) {
-    let chatConvo = messages[0].map((message) => {
+  if (messages) {
+    let chatConvo = messages.map((message) => {
       return (
         <div
           className={
