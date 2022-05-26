@@ -42,7 +42,7 @@ const ChatBox = (props) => {
     const handlers = {
       received(data) {
         console.log("data",data)
-        setMessages([...messages, data.message])
+        setMessages([...messages, data])
       },
 
       connected() {
@@ -55,17 +55,14 @@ const ChatBox = (props) => {
       }
     }
 
-    const subscription = cable.current.subscriptions.create(
-      paramsToSend,
-      handlers
-    )
+    const subscription = cable.current.subscriptions.create(paramsToSend, handlers)
 
     return function cleanup() {
       console.log('unsubbing from', user.name)
       subscription.unsubscribe()
       cable.current = null
     }
-  }, [])
+  }, [id, messages, user.id])
 
   const handleSubmit = (e) => {
     e.preventDefault()
