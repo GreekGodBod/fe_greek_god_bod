@@ -76,7 +76,7 @@ const ChatBox = (props) => {
       subscription.unsubscribe()
       cable.current = null
     }
-  }, [])
+  }, [props.messages])
 
   const handleSubmit = (e) => {
     e.preventDefault()
