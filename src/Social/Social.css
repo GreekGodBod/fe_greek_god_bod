@@ -21,9 +21,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 90%;
   height: 90%;
   border-radius: 1em;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 /*-----------breakpoints------------*/
@@ -32,6 +41,8 @@
   .social-page {
     height: 110%;
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
   .header-social {
