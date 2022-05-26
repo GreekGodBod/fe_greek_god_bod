@@ -63,3 +63,20 @@
   font-size: 1.3em;
   cursor: pointer;
 }
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .header-suggested-workouts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .suggested-workout-container {
+    width: 80vw;
+  }
+
+  .add-suggested-workout {
+    margin-bottom: 2vh;
+  }
+}
