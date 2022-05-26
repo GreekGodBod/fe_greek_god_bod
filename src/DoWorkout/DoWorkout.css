@@ -23,3 +23,15 @@
   font-size: 1.3em;
   cursor: pointer;
 }
+
+/*-----------breakpoints------------*/
+
+@media screen and (max-width: 500px) {
+  .do-workout-container {
+    width: 85vw;
+  }
+
+  .complete-workout-button {
+    margin-bottom: 2vh;
+  }
+}
