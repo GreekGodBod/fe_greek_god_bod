@@ -49,6 +49,17 @@ describe('Social page load', () => {
       .click()
     })
 
-   
+    it('should display a header', () => {
+      cy.get('.username-input')
+      .type('user_1')
+      .get('.password-input')
+      .type('password1')
+      .get('.login-button')
+      .click()
+      cy.get('.social-button')
+      .click()
+      cy.get('.page-title')
+      .contains('Social')
+    })
     
   })
