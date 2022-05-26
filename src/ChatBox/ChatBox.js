@@ -89,6 +89,7 @@ const ChatBox = (props) => {
       body: JSON.stringify(data)
     })
     console.log(JSON.stringify(data))
+    setRecieved(recieved + 1)
   }
   console.log('2',messages)
 
