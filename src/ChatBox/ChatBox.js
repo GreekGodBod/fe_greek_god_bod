@@ -53,8 +53,9 @@ const ChatBox = (props) => {
   
     const handlers = {
       received(data) {
-        console.log("data",props.messages)
+        console.log("messages",props.messages)
         // setTimeout(() => setRecieved(recieved + 1), 1000)
+        console.log("data",data)
         props.setMessages([...props.messages, data])
       },
 
