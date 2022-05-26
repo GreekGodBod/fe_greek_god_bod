@@ -62,6 +62,19 @@ describe('Social page load', () => {
       .contains('Social')
     })
 
+    it('should display a back to dashboard button', () => {
+      cy.get('.username-input')
+      .type('user_1')
+      .get('.password-input')
+      .type('password1')
+      .get('.login-button')
+      .click()
+      cy.get('.social-button')
+      .click()
+      cy.get('.back-to-dashboard-button')
+      .should('have.text', 'Back to Dashboard')
+    })
+
     it('should display a form to submit a message', () => {
       cy.get('.username-input')
       .type('user_1')
